@@ -1,29 +1,29 @@
-# FresherNote
+# Sideline
 
-[Heroku link][heroku] **Note:** This should be a link to your production site
+[Heroku link][heroku] **Note:** Not yet implemented (Should be link to Heroku)
 
 [heroku]: http://www.herokuapp.com
 
 ## Minimum Viable Product
 
-FresherNote is a web application inspired by Evernote that will be build using Ruby on Rails and React.js.  By the end of Week 9, this app will, at a minimum, satisfy the following criteria:
+Sideline is a web application inspired by Medium that will be utilizing Ruby on Rails on the backend, a 3greSQL database, and React.js with a Flux pattern on the front end. At a minimum, by the end of Week 9 this app will satisfy the following criteria:
 
 - [ ] Hosting on Heroku
 - [ ] New account creation, login, and guest/demo login
-- [ ] A production README, replacing this README (**NB**: check out the [sample production README](docs/production_readme.md) -- you'll write this later)
-- [ ] Notes
+- [ ] A production README, replacing this README.
+- [ ] Story
   - [ ] Smooth, bug-free navigation
   - [ ] Adequate seed data to demonstrate the site's features
   - [ ] Adequate CSS styling
-- [ ] Notebooks for organizing notes
+- [ ] Response/Comment
   - [ ] Smooth, bug-free navigation
   - [ ] Adequate seed data to demonstrate the site's features
   - [ ] Adequate CSS styling
-- [ ] Tags for notes
+- [ ] Likes for Story
   - [ ] Smooth, bug-free navigation
   - [ ] Adequate seed data to demonstrate the site's features
   - [ ] Adequate CSS styling
-- [ ] Rich Text Editing of notes
+- [ ] Follows/Feed for Story
   - [ ] Smooth, bug-free navigation
   - [ ] Adequate seed data to demonstrate the site's features
   - [ ] Adequate CSS styling
@@ -53,31 +53,32 @@ FresherNote is a web application inspired by Evernote that will be build using R
 - [ ] user signup/signin pages
 - [ ] blank landing page after signin
 
-### Phase 2: Notes Model, API, and basic APIUtil (1.5 days, W1 Th 12pm)
+### Phase 2: Stories Model, API, and basic APIUtil (1.5 days, W1 Th 12pm)
 
-**Objective:** Notes can be created, read, edited and destroyed through
+**Objective:** Stories can be created, read, edited and destroyed through
 the API.
 
-- [ ] create `Note` model
+- [ ] create `Story` model
 - [ ] seed the database with a small amount of test data
-- [ ] CRUD API for notes (`NotesController`)
-- [ ] jBuilder views for notes
+- [ ] CRUD API for stories (`StoriesController`)
+- [ ] Medium's API? for stories (`StoriesController`)
+- [ ] jBuilder views for stories
 - [ ] setup Webpack & Flux scaffold
 - [ ] setup `APIUtil` to interact with the API
 - [ ] test out API interaction in the console.
 
 ### Phase 3: Flux Architecture and Router (1.5 days, W1 F 6pm)
 
-**Objective:** Notes can be created, read, edited and destroyed with the
+**Objective:** Stories can be created, read, edited and destroyed with the
 user interface.
 
 - [ ] setup the flux loop with skeleton files
 - [ ] setup React Router
-- implement each note component, building out the flux loop as needed.
-  - [ ] `NotesIndex`
-  - [ ] `NoteIndexItem`
-  - [ ] `NoteForm`
-- [ ] save Notes to the DB when the form loses focus or is left idle
+- implement each story component, building out the flux loop as needed.
+  - [ ] `StoriesIndex`
+  - [ ] `StoryIndexItem`
+  - [ ] `StoryForm`
+- [ ] save Stories to the DB when the form loses focus or is left idle
   after editing.
 
 ### Phase 4: Start Styling (0.5 days, W2 M 12pm)
@@ -88,40 +89,34 @@ user interface.
 - [ ] position elements on the page
 - [ ] add basic colors & styles
 
-### Phase 5: Notebooks (1 day, W2 Tu 12pm)
+### Phase 5: Feed (1 day, W2 Tu 12pm)
 
-**Objective:** Notes belong to Notebooks, and can be viewed by notebook.
+**Objective:** Stories belong to newsFeed, and can be viewed by newsFeed.
 
-- [ ] create `Notebook` model
+- [ ] create `newsFeed` model
 - build out API, Flux loop, and components for:
-  - [ ] Notebook CRUD
-  - [ ] adding notes requires a notebook
-  - [ ] moving notes to a different notebook
-  - [ ] viewing notes by notebook
+  - [ ] newsFeed CRUD (if it's your own story)
+  - [ ] viewing stories on newsFeed
 - Use CSS to style new views
 
-Phase 3 adds organization to the Notes. Notes belong to a Notebook,
+Phase 3 adds organization to the Stories. Stories belong to a newsFeed,
 which has its own `Index` view.
 
-### Phase 6: Tags (1 days, W2 Th 12pm)
+### Phase 6: Follows (1 days, W2 Th 12pm)
 
-**Objective:** Notes can be tagged with multiple tags, and tags are searchable.
+**Objective:** Stories can be liked, followed, and are searchable.
 
-- [ ] create `Tag` model and join table
 - build out API, Flux loop, and components for:
-  - [ ] fetching tags for notebook
-  - [ ] adding tags to notebook
-  - [ ] creating tags while adding to notebooks
-  - [ ] searching notebooks by tag
+  - [ ] fetching likes and follows for story
+  - [ ] adding follows to a story
+  - [ ] searching stories by name
 - [ ] Style new elements
 
 ### Phase 7: Allow Complex Styling in Notes (0.5 days, W2 Th 6pm)
 
-**objective:** Enable complex styling of notes.
+**objective:** Enable complex styling of stories.
 
-- [ ] Integrate `react-quill` (based on Quill.js).
 - [ ] Use Rails helpers to sanitize HTML before rendering.
-- [ ] Style the new Quill elements.
 
 ### Phase 8: Styling Cleanup and Seeding (1 day, W2 F 6pm)
 
@@ -132,14 +127,27 @@ which has its own `Index` view.
 - [ ] Add modals, transitions, and other styling flourishes.
 
 ### Bonus Features (TBD)
-- [ ] Search through notes for blocks of text
-- [ ] Pagination / infinite scroll for Notes Index
-- [ ] Set reminders on notes
-- [ ] Changelogs for Notes
-- [ ] Multiple sessions
+- [ ] Filtered search
+- [ ] Pagination / infinite scroll for Stories Index
+- [ ] Tags
+- [ ] Topics/categories
+- [ ] Bookmarks
+
 
 [phase-one]: docs/phases/phase1.md
 [phase-two]: docs/phases/phase2.md
 [phase-three]: docs/phases/phase3.md
 [phase-four]: docs/phases/phase4.md
 [phase-five]: docs/phases/phase5.md
+
+
+## Must include 1) Heroku Link
+## 2) MVP
+## 3) Wireframes
+## 4) React Components
+## 5) Flux Cycles
+## 6) DB schema
+## 7) API Endpoints
+## 8) Implementation Timeline
+
+## Eventually need production ReadMe to replace this ReadMe
