@@ -1,16 +1,35 @@
 # View Wireframes
 
+## Splash-page
+![splash-page]
+
 ## New User
 ![new-user]
 
 ## New Session
 ![new-session]
 
+## Modal
+![modal]
+
+## Post-sign-in
+![post-sign-in]
+
 ## StoriesIndex / StoryIndexItem / StoryForm
 ![stories]
 
+## New Story
+![new-story]
+
 ## StoriesForm
 ![stories-form]
+
+## Story View
+![story-view]
+
+## Nav-button
+![nav-button]
+
 
 [splash-page]: ./wireframes/splash_page.png
 [new-user]: ./wireframes/new_user.png
