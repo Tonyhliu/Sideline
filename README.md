@@ -141,7 +141,8 @@ which has its own `Index` view.
 [phase-five]: docs/phases/phase5.md
 
 
-## Must include 1) Heroku Link
+## Must include
+## 1) Heroku Link
 ## 2) MVP
 ## 3) Wireframes
 ## 4) React Components
