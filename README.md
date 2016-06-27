@@ -127,11 +127,13 @@ which has its own `Index` view.
 - [ ] Add modals, transitions, and other styling flourishes.
 
 ### Bonus Features (TBD)
+- [ ] Banner pictures for stories
 - [ ] Filtered search
 - [ ] Pagination / infinite scroll for Stories Index
 - [ ] Tags
 - [ ] Topics/categories
 - [ ] Bookmarks
+
 
 
 [phase-one]: docs/phases/phase1.md
