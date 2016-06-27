@@ -1,6 +1,7 @@
 # Phase 1: User Authentication, Story Model and JSON API
 
 ## Rails
+
 ### Models
 * User
 * Story
