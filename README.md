@@ -19,7 +19,7 @@ Sideline is a web application inspired by Medium that will be utilizing Ruby on 
   - [ ] Smooth, bug-free navigation
   - [ ] Adequate seed data to demonstrate the site's features
   - [ ] Adequate CSS styling
-- [ ] Likes for Story
+- [ ] Tags for Story
   - [ ] Smooth, bug-free navigation
   - [ ] Adequate seed data to demonstrate the site's features
   - [ ] Adequate CSS styling
@@ -50,8 +50,11 @@ Sideline is a web application inspired by Medium that will be utilizing Ruby on 
 - [ ] create new project
 - [ ] create `User` model
 - [ ] authentication
+- [ ] setup Webpack & Flux scaffold
+- [ ] setup API
 - [ ] user signup/signin pages
 - [ ] blank landing page after signin
+- [ ] basic styling
 
 ### Phase 2: Stories Model, API, and basic APIUtil (1.5 days, W1 F 12pm)
 
@@ -61,11 +64,12 @@ the API.
 - [ ] create `Story` model
 - [ ] seed the database with a small amount of test data
 - [ ] CRUD API for stories (`StoriesController`)
-- [ ] Medium's API? for stories (`StoriesController`)
+- [ ] Medium's API continued. jQuery & Kimono?
 - [ ] jBuilder views for stories
-- [ ] setup Webpack & Flux scaffold
 - [ ] setup `APIUtil` to interact with the API
 - [ ] test out API interaction in the console.
+- [ ] basic styling
+
 
 ### Phase 3: Flux Architecture and Router (1.5 days, W1 F 6pm)
 
@@ -80,6 +84,8 @@ user interface.
   - [ ] `StoryForm`
 - [ ] save Stories to the DB when the form loses focus or is left idle
   after editing.
+  - [ ] basic styling
+
 
 ### Phase 4: Start Styling (0.5 days, W2 M 12pm)
 
@@ -88,6 +94,8 @@ user interface.
 - [ ] create a basic style guide
 - [ ] position elements on the page
 - [ ] add basic colors & styles
+- [ ] basic styling
+
 
 ### Phase 5: Feed (1 day, W2 Tu 12pm)
 
@@ -98,6 +106,8 @@ user interface.
   - [ ] newsFeed CRUD (if it's your own story)
   - [ ] viewing stories on newsFeed
 - Use CSS to style new views
+- [ ] basic styling
+
 
 Phase 3 adds organization to the Stories. Stories belong to a newsFeed,
 which has its own `Index` view.
@@ -107,24 +117,30 @@ which has its own `Index` view.
 **Objective:** Stories can be liked, followed, and are searchable.
 
 - build out API, Flux loop, and components for:
-  - [ ] fetching likes and follows for story
+  - [ ] fetching tags and follows for story
   - [ ] adding follows to a story
   - [ ] searching stories by name
 - [ ] Style new elements
+- [ ] basic styling
+
 
 ### Phase 7: Allow Complex Styling in Notes (0.5 days, W2 Th 6pm)
 
 **objective:** Enable complex styling of stories.
 
 - [ ] Use Rails helpers to sanitize HTML before rendering.
+- [ ] basic styling
 
-### Phase 8: Styling Cleanup and Seeding (1 day, W2 F 6pm)
+
+### Phase 8: Styling Cleanup and Seeding (1.5-2 day, W2 F 6pm)
 
 **objective:** Make the site feel more cohesive and awesome.
 
 - [ ] Get feedback on my UI from others
 - [ ] Refactor HTML classes & CSS rules
 - [ ] Add modals, transitions, and other styling flourishes.
+- [ ] basic styling
+
 
 ### Bonus Features (TBD)
 - [ ] Banner pictures for stories
@@ -143,14 +159,8 @@ which has its own `Index` view.
 [phase-five]: docs/phases/phase5.md
 
 
-## Must include
-## 1) Heroku Link
-## 2) MVP
-## 3) Wireframes
-## 4) React Components
-## 5) Flux Cycles
-## 6) DB schema
-## 7) API Endpoints
-## 8) Implementation Timeline
+## Aside
+## Feedjira
+## React Quill
 
 ## Eventually need production ReadMe to replace this ReadMe
