@@ -43,7 +43,7 @@ Sideline is a web application inspired by Medium that will be utilizing Ruby on 
 
 ## Implementation Timeline
 
-### Phase 1: Backend setup and Front End User Authentication (1 day, W1 Tu 6pm)
+### Phase 1: Backend setup and Front End User Authentication (2 day, W1 Tu 6pm)
 
 **Objective:** Functioning rails project with Authentication
 
@@ -53,7 +53,7 @@ Sideline is a web application inspired by Medium that will be utilizing Ruby on 
 - [ ] user signup/signin pages
 - [ ] blank landing page after signin
 
-### Phase 2: Stories Model, API, and basic APIUtil (1.5 days, W1 Th 12pm)
+### Phase 2: Stories Model, API, and basic APIUtil (1.5 days, W1 F 12pm)
 
 **Objective:** Stories can be created, read, edited and destroyed through
 the API.
