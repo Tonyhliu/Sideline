@@ -57,22 +57,6 @@ const LoginForm = React.createClass({
 		return this.props.location.pathname.slice(1);
 	},
 
-	// return(
-	//   <div>
-	//     <form onSubmit={this._signup}> Welcome to Sideline!
-	//       <br/>
-	//       <br/>
-	//       <label> Username:
-	//         <input type="text" value={this.state.username} onChange={this.update("username")}></input>
-	//       </label>
-	//       <br/>
-	//         <label> Password:
-	//           <input type="password" value={this.state.password} onChange={this.update("password")}></input>
-	//         </label>
-	//       <br/>
-	//         <input type="submit" value="Sign up!"></input>
-	//     </form>
-	//   </div>
   render() {
 		let navLink;
     if (this.formType() === "login") {

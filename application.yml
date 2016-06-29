@@ -1,0 +1,2 @@
+# add cloudinary cloud_name, upload presets
+# images controller index, cloud_name = ENV['CLOUD_NAME']
