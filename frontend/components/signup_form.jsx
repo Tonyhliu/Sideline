@@ -93,7 +93,7 @@ const LoginForm = React.createClass({
 						</label>
 
 		        <br />
-						<input type="submit" value="Sign Up" />
+						<input type="submit" value="Sign Up" className="login-button"/>
 					</div>
 				</form>
 			</div>

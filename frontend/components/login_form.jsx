@@ -62,23 +62,6 @@ const LoginForm = React.createClass({
     return (e) => this.setState({ [property]: e.target.value });
   },
 
-
-	// <div>
-	// 	<form onSubmit={this._login}> Welcome to Sideline!
-	// 		<br/>
-	// 		<br/>
-	// 		<label> Username:
-	// 			<input type="text" value={this.state.username} onChange={this.update("username")}></input>
-	// 		</label>
-	// 		<br/>
-	// 			<label> Password:
-	// 				<input type="password" value={this.state.password} onChange={this.update("password")}></input>
-	// 			</label>
-	// 		<br/>
-	// 			<input type="submit" value="Log in!"></input>
-	// 			<button onClick={this._redirectToSignup}>Sign Up!</button>
-	// 	</form>
-	// </div>
   render() {
 		let navLink;
     if (this.formType() === "login") {
@@ -115,7 +98,7 @@ const LoginForm = React.createClass({
 						</label>
 
 		        <br />
-						<input type="submit" value="Log In" />
+						<input type="submit" value="Log In" className="login-button"/>
 					</div>
 				</form>
 			</div>

@@ -18,16 +18,22 @@ const App  = React.createClass({
     return(
       <hgroup className="header-group">
         <h2 className="header-name">Welcome, {SessionStore.currentUser().username}!</h2>
+        <br/>
         <input className="header-button" type="submit" value="Log out!" onClick={this._signOut} />
       </hgroup>
     );
   } else {
       return (
-        <nav className="login-signup">
-          <Link to="/login" activeClassName="current">Login!</Link>
-          <br/>
-          <Link to="/signup" activeClassName="current">Sign up!</Link>
-        </nav>
+        <div>
+          <div className="header-group2">
+          </div>
+          
+          <nav className="login-signup">
+            <Link to="/login" activeClassName="current">Login!</Link>
+            <br/>
+            <Link to="/signup" activeClassName="current">Sign up!</Link>
+          </nav>
+      </div>
       );
     }
   },

@@ -11,6 +11,8 @@ const hashHistory = ReactRouter.hashHistory;
 
 //Components
 const App = require('./components/app');
+const SessionActions = require('./actions/session_actions');
+const SessionStore = require('./stores/session_store');
 // const StoryForm = require('./components/story_form');
 // const StoryShow = require('./components/story_show');
 const LoginForm = require('./components/login_form');
@@ -26,9 +28,8 @@ const SessionApiUtil = require('./util/session_api_util');
 // const SessionActions = require('./actions/session_actions');
 
 
-// <Route path="/stories/new"component={StoryForm} />
-// pass props to splash so can greet user?
-// <IndexRoute component={Splash} />
+// <Route path="/stories/new "component={StoryForm} onEnter={_ensureLoggedIn}/>
+// <Route path="comments" component={CommentForm} onEnter={_ensureLoggedIn}/>
 const appRouter = (
   <Router history={hashHistory}>
     <Route path="/" component={App}>
@@ -38,7 +39,17 @@ const appRouter = (
   </Router>
 );
 
+function _ensureLoggedIn(nextState, replace) {
+  if (!SessionStore.isUserLoggedIn) {
+    replace("/login");
+  }
+}
+
 document.addEventListener('DOMContentLoaded', function () {
+  if (window.currentUser) {
+    SessionActions.receiveCurrentUser(window.currentUser);
+  }
+
   ReactDOM.render(
     appRouter,
       document.getElementById('root')
