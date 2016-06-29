@@ -1,18 +1,14 @@
 const React = require('react');
 const SessionActions = require('../actions/session_actions');
+const App = require('./app');
 
 const Splash = React.createClass({
-  _signOut(e) {
-    e.preventDefault();
-    SessionActions.logOut();
-  },
-
-  // if there's a current user, display sign out 
+  // if there's a current user, display sign out
   render() {
     return (
       <div>
-        <h1>Hello</h1>
-        <button onClick={this._signOut}>SIGN OUT!</button>
+        <h1>Hello from splash page</h1>
+        <App />
       </div>
     );
   }

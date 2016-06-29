@@ -28,10 +28,10 @@ const SessionApiUtil = require('./util/session_api_util');
 
 // <Route path="/stories/new"component={StoryForm} />
 // pass props to splash so can greet user?
+// <IndexRoute component={Splash} />
 const appRouter = (
   <Router history={hashHistory}>
     <Route path="/" component={App}>
-      <IndexRoute component={Splash} />
       <Route path="login"component={LoginForm} />
       <Route path="signup"component={SignupForm} />
     </Route>
