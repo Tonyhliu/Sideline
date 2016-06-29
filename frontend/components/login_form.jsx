@@ -7,7 +7,6 @@ const SessionStore = require('../stores/session_store');
 const ErrorStore = require('../stores/error_store');
 
 const LoginForm = React.createClass({
-
 	contextTypes: {
 		router: React.PropTypes.object.isRequired
 	},
@@ -24,6 +23,7 @@ const LoginForm = React.createClass({
   _redirectIfLoggedIn() {
     if (SessionStore.isUserLoggedIn()) {
       this.context.router.push("/");
+			this.props.cb();
     }
   },
 
@@ -38,20 +38,20 @@ const LoginForm = React.createClass({
   },
 
 	fieldErrors(field) {
-		const errors = ErrorStore.formErrors(this.formType());
-
-		if (!errors[field]) { return; }
-
-		const messages = errors[field].map( (errorMsg, i) => {
-			return <li key={ i }>{ errorMsg }</li>;
-		});
-
-		return <ul>{ messages }</ul>;
+		// const errors = ErrorStore.formErrors(this.formType());
+		//
+		// if (!errors[field]) { return; }
+		//
+		// const messages = errors[field].map( (errorMsg, i) => {
+		// 	return <li key={ i }>{ errorMsg }</li>;
+		// });
+		//
+		// return <ul>{ messages }</ul>;
 	},
 
-	formType() {
-		return this.props.location.pathname.slice(1);
-	},
+	// formType() {
+	// 	return this.props.location.pathname.slice(1);
+	// },
 
 	_redirectToSignup(e) {
 		e.preventDefault();
@@ -64,18 +64,18 @@ const LoginForm = React.createClass({
 
   render() {
 		let navLink;
-    if (this.formType() === "login") {
-      navLink = <Link to="/signup">sign up instead</Link>;
-    } else {
-      navLink = <Link to="/login">log in instead</Link>;
-    }
+    // if (this.formType() === "login") {
+    //   navLink = <Link to="/signup">sign up instead</Link>;
+    // } else {
+    //   navLink = <Link to="/login">log in instead</Link>;
+    // }
 
 		return (
 			<div className="login-form-container">
 				<form onSubmit={this._login} className="login-form-box">
 	        Welcome to Sideline!
 					<br/>
-					Please { this.formType() } or { navLink }
+					Please Login or { navLink }
 
 	        { this.fieldErrors("base") }
 					<div className="login-form">

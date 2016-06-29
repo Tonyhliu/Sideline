@@ -3,17 +3,52 @@ const Link = require('react-router').Link;
 const SessionStore = require('../stores/session_store');
 const SessionActions = require('../actions/session_actions');
 
+// Forms
+const LoginForm = require('./login_form');
+const SignUpForm = require('./signup_form');
+
+// Modal
+const Modal = require('react-modal');
+const ModalStyle = require('../constants/modal_style');
+
 const App  = React.createClass({
+  getInitialState() {
+    return({
+      modalOpen: false,
+      signIn: false
+     });
+  },
+
+  _handleClick(bool) {
+    this.setState({
+      modalOpen: true,
+      signIn: bool
+     });
+  },
+
+  onModalClose() {
+    this.setState({ modalOpen: false });
+  },
+
   componentDidMount() {
   },
 
+
+  // redirect to root
   _signOut(e) {
     e.preventDefault();
     SessionActions.logOut();
   },
 
+  // <nav className="login-signup">
+  //   <Link to="/login" activeClassName="current">Login!</Link>
+  //   <br/>
+  //   <Link to="/signup" activeClassName="current">Sign up!</Link>
+  // </nav>
+
   greeting() {
-  // if user logged in, display favorites, etc.
+  const component = (this.state.signIn) ? <LoginForm cb={this.onModalClose}/> : <SignUpForm cb={this.onModalClose}/>;
+
   if (SessionStore.isUserLoggedIn()) {
     return(
       <hgroup className="header-group">
@@ -25,20 +60,29 @@ const App  = React.createClass({
   } else {
       return (
         <div>
-          <div className="header-group2">
-          </div>
-          
-          <nav className="login-signup">
-            <Link to="/login" activeClassName="current">Login!</Link>
-            <br/>
-            <Link to="/signup" activeClassName="current">Sign up!</Link>
-          </nav>
+          <div className="header-group2"></div>
+          <button id="sign-in-button"
+                  onClick={this._handleClick.bind(this, true)}>
+              Sign In
+          </button>
+          <button id="sign-up-button"
+                  onClick={this._handleClick.bind(this, false)}>
+              Sign Up
+          </button>
+
+        <Modal
+          isOpen={this.state.modalOpen}
+          onRequestClose={this.onModalClose}
+          style={ModalStyle}>
+
+          <button onClick={this.onModalClose}>Close</button>
+          {component}
+        </Modal>
       </div>
       );
     }
   },
 
-  // { this.greeting() }
   render: function() {
     return (
       <div>
