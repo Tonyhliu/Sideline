@@ -47,7 +47,7 @@ followable_id    | integer   | not null, foreign key (references authors/publica
 followable_type  | string    | not null
 
 
-## authors
+## users
 column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
