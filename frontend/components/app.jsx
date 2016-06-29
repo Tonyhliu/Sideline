@@ -28,6 +28,11 @@ const App  = React.createClass({
 
   onModalClose() {
     this.setState({ modalOpen: false });
+    ModalStyle.content.opacity = 0;
+  },
+
+  onModalOpen() {
+    ModalStyle.content.opacity = 100;
   },
 
   componentDidMount() {
@@ -67,7 +72,8 @@ const App  = React.createClass({
         <Modal
           isOpen={this.state.modalOpen}
           onRequestClose={this.onModalClose}
-          style={ModalStyle}>
+          style={ModalStyle}
+          onAfterOpen={this.onModalOpen}>
 
           <button onClick={this.onModalClose}>Close</button>
           {component}

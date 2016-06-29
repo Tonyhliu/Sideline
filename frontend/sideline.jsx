@@ -34,12 +34,12 @@ const SessionApiUtil = require('./util/session_api_util');
 
 // <Route path="/stories/new "component={StoryForm} onEnter={_ensureLoggedIn}/>
 // <Route path="comments" component={CommentForm} onEnter={_ensureLoggedIn}/>
+// <Route path="login"component={LoginForm} />
+// <Route path="signup"component={SignupForm} />
 
 const appRouter = (
   <Router history={hashHistory}>
     <Route path="/" component={App}>
-      <Route path="login"component={LoginForm} />
-      <Route path="signup"component={SignupForm} />
     </Route>
   </Router>
 );
