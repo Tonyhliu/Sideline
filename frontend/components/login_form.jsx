@@ -38,20 +38,16 @@ const LoginForm = React.createClass({
   },
 
 	fieldErrors(field) {
-		// const errors = ErrorStore.formErrors(this.formType());
-		//
-		// if (!errors[field]) { return; }
-		//
-		// const messages = errors[field].map( (errorMsg, i) => {
-		// 	return <li key={ i }>{ errorMsg }</li>;
-		// });
-		//
-		// return <ul>{ messages }</ul>;
-	},
+		const errors = ErrorStore.formErrors("login");
 
-	// formType() {
-	// 	return this.props.location.pathname.slice(1);
-	// },
+		if (!errors[field]) { return; }
+
+		const messages = errors[field].map( (errorMsg, i) => {
+			return <li key={ i }>{ errorMsg }</li>;
+		});
+
+		return <ul>{ messages }</ul>;
+	},
 
 	_redirectToSignup(e) {
 		e.preventDefault();
@@ -63,21 +59,13 @@ const LoginForm = React.createClass({
   },
 
   render() {
-		let navLink;
-    // if (this.formType() === "login") {
-    //   navLink = <Link to="/signup">sign up instead</Link>;
-    // } else {
-    //   navLink = <Link to="/login">log in instead</Link>;
-    // }
-
 		return (
 			<div className="login-form-container">
 				<form onSubmit={this._login} className="login-form-box">
 	        Welcome to Sideline!
 					<br/>
-					Please Login or { navLink }
+					Please Login.
 
-	        { this.fieldErrors("base") }
 					<div className="login-form">
 		        <br />
 						<label> Username:
@@ -97,6 +85,7 @@ const LoginForm = React.createClass({
 								className="login-input" />
 						</label>
 
+						{ this.fieldErrors("base") }
 		        <br />
 						<input type="submit" value="Log In" className="login-button"/>
 					</div>

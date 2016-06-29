@@ -24,6 +24,7 @@ const SignUpForm = React.createClass({
   _redirectIfLoggedIn() {
     if (SessionStore.isUserLoggedIn()) {
       this.context.router.push("/");
+			this.props.cb();
     }
   },
 
@@ -42,35 +43,24 @@ const SignUpForm = React.createClass({
   },
 
 	fieldErrors(field) {
-		// const errors = ErrorStore.formErrors(this.formType());
-		//
-		// if (!errors[field]) { return; }
-		//
-		// const messages = errors[field].map( (errorMsg, i) => {
-		// 	return <li key={ i }>{ errorMsg }</li>;
-		// });
-		//
-		// return <ul>{ messages }</ul>;
+		const errors = ErrorStore.formErrors("signup");
+
+		if (!errors[field]) { return; }
+
+		const messages = errors[field].map( (errorMsg, i) => {
+			return <li key={ i }>{ errorMsg }</li>;
+		});
+
+		return <ul>{ messages }</ul>;
 	},
 
-	// formType() {
-	// 	return this.props.location.pathname.slice(1);
-	// },
-
   render() {
-		let navLink;
-    // if (this.formType() === "login") {
-    //   navLink = <Link to="/signup">sign up instead</Link>;
-    // } else {
-    //   navLink = <Link to="/login">log in instead</Link>;
-    // }
-
 		return (
 			<div className="login-form-container">
 				<form onSubmit={this._signup} className="login-form-box">
 	        Welcome to Sideline!
 					<br/>
-					Please Sign Up or { navLink }
+					Please Sign Up.
 
 	        { this.fieldErrors("base") }
 					<div className="login-form">
@@ -85,12 +75,12 @@ const SignUpForm = React.createClass({
 
 		        <br />
 						<label> Password:
-		          { this.fieldErrors("password") }
 		          <input type="password"
 		            value={this.state.password}
 		            onChange={this.update("password")}
 								className="login-input" />
 						</label>
+						{ this.fieldErrors("password") }
 
 		        <br />
 						<input type="submit" value="Sign Up" className="login-button"/>

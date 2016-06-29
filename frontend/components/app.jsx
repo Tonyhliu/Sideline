@@ -40,12 +40,6 @@ const App  = React.createClass({
     SessionActions.logOut();
   },
 
-  // <nav className="login-signup">
-  //   <Link to="/login" activeClassName="current">Login!</Link>
-  //   <br/>
-  //   <Link to="/signup" activeClassName="current">Sign up!</Link>
-  // </nav>
-
   greeting() {
   const component = (this.state.signIn) ? <LoginForm cb={this.onModalClose}/> : <SignUpForm cb={this.onModalClose}/>;
 
