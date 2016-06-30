@@ -4,12 +4,24 @@ const StoryApiUtil = require('../util/story_api_util');
 
 const StoryActions = {
   fetchAllStories() {
+    StoryApiUtil.fetchAllStories(this.receiveAllStories);
+  },
 
+  getStory(id) {
+    StoryApiUtil.getStory(id, this.receiveSingleStory);
   },
 
   createStory(story) {
     StoryApiUtil.createStory(story, StoryActions.receiveSingleStory);
   },
+
+  deleteStory(id) {
+    StoryApiUtil.deleteStory(id, this.removeStory);
+  },
+
+  // editStory(data) {
+  //   StoryApiUtil.updateStory(data, this.receiveSingleStory);
+  // },
 
   // createReview(review){
   //   BenchApiUti.createReview(review, BenchActions.receiveSingleStory);
