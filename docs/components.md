@@ -7,7 +7,7 @@ associated routes, so the nesting of your bolded components must
 _**exactly**_ match the nesting of your routes.) -->
 
 * **App**
-  * **StoriesIndex**
+  * **StoryIndex**
     * Search
     * StoryForm
     * StoryIndexItem
@@ -19,6 +19,6 @@ _**exactly**_ match the nesting of your routes.) -->
 ## Routes
 
 * **component:** `App` **path:** `/`
-  * **component:** `StoriesIndex` **path:** index
-  * **component:** `StoriesIndex` **path:** `stories/:storyId`
+  * **component:** `StoryIndex` **path:** index
+  * **component:** `StoryIndex` **path:** `stories/:storyId`
     * **component:** `StoryDetail` **path:** `stories/:storyId`

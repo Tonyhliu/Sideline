@@ -17,15 +17,13 @@ const LoginForm = React.createClass({
 
   componentDidMount() {
 		this.errorListener = ErrorStore.addListener(this.forceUpdate.bind(this));
-    this.sessionListener = SessionStore.addListener(this._redirectIfLoggedIn);
+    this.sessionListener = SessionStore.addListener(this._handleNewSession);
   },
 
-  _redirectIfLoggedIn() {
-    if (SessionStore.isUserLoggedIn()) {
-      this.context.router.push("/");
-			this.props.cb();
-    }
-  },
+	_handleNewSession() {
+		this.props.cb();
+		hashHistory.push('/stories');
+	},
 
   componentWillUnmount() {
 		this.errorListener.remove();

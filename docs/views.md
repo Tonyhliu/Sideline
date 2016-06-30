@@ -21,7 +21,7 @@
 ## Sign-up-suggestions
 ![sign-up-suggestions]
 
-## StoriesIndex / StoryIndexItem / StoryForm
+## StoryIndex / StoryIndexItem / StoryForm
 ![stories]
 
 ## New Story

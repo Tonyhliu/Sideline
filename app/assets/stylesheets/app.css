@@ -46,16 +46,6 @@ header {
   flex-direction: column;
 }
 
-.header-group2 {
-  background-image: url(http://www.sparaathletics.com/uploads/6/1/8/6/61867235/7280772_orig.png);
-  background-size: cover;
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  top: 0px;
-  z-index: -1;
-}
-
 .login-button {
   cursor: pointer;
   /*opacity: 1;*/

@@ -79,7 +79,7 @@ user interface.
 - [ ] setup the flux loop with skeleton files
 - [ ] setup React Router
 - implement each story component, building out the flux loop as needed.
-  - [ ] `StoriesIndex`
+  - [ ] `StoryIndex`
   - [ ] `StoryIndexItem`
   - [ ] `StoryForm`
 - [ ] save Stories to the DB when the form loses focus or is left idle

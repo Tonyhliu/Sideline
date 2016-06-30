@@ -21,7 +21,7 @@ const App  = React.createClass({
   },
 
   _handleClick(bool) {
-    this.setState({
+      this.setState({
       modalOpen: true,
       signIn: bool
      });
@@ -43,52 +43,59 @@ const App  = React.createClass({
   },
 
   greeting() {
-  const component = (this.state.signIn) ? <LoginForm cb={this.onModalClose}/> : <SignUpForm cb={this.onModalClose}/>;
-
   if (SessionStore.isUserLoggedIn()) {
     return(
       <hgroup className="header-group">
-        <h2 className="header-name">Welcome, {SessionStore.currentUser().username}!</h2>
-        <br/>
-        <input className="header-button" type="submit" value="Log out!" onClick={this._signOut} />
+        <h2 className="header-name">
+            Welcome, {SessionStore.currentUser().username}!
+        </h2>
+
+        <input className="header-button"
+                type="submit"
+                value="Log out!"
+                onClick={this._signOut} />
       </hgroup>
-    );
-  } else {
+      );
+    } else {
       return (
         <div>
-          <div className="header-group2"></div>
           <button className="login-button" id="sign-in-button"
-                  onClick={this._handleClick.bind(this, true)}>
-              Sign In
+            onClick={this._handleClick.bind(this, true)}>
+            Sign In
           </button>
+
           <button className="login-button" id="sign-up-button"
-                  onClick={this._handleClick.bind(this, false)}>
-              Sign Up
+            onClick={this._handleClick.bind(this, false)}>
+            Sign Up
           </button>
-
-        <Modal
-          isOpen={this.state.modalOpen}
-          onRequestClose={this.onModalClose}
-          style={ModalStyle}
-          onAfterOpen={this.onModalOpen}>
-
-          <button onClick={this.onModalClose}>Close</button>
-          {component}
-        </Modal>
-      </div>
+        </div>
       );
     }
   },
 
+  // header footer & modal
+
   render: function() {
+    const component = (this.state.signIn) ? <LoginForm cb={this.onModalClose}/> : <SignUpForm cb={this.onModalClose}/>;
+
     return (
       <div>
         <header>
           <Link to="/" className="header-link"><h1>Sideline</h1></Link>
           { this.greeting() }
+
         </header>
-        <br/>
-        {this.props.children}
+          <Modal
+            isOpen={this.state.modalOpen}
+            onRequestClose={this.onModalClose}
+            style={ModalStyle}
+            onAfterOpen={this.onModalOpen}>
+
+            <button onClick={this.onModalClose}>Close</button>
+            {component}
+          </Modal>
+
+          {this.props.children}
       </div>
     );
   }

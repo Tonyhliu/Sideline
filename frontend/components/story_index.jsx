@@ -1,8 +1,9 @@
 const React = require('react');
+const StoryIndexItem = require('./story_index_item');
 const StoryActions = require('../actions/story_actions');
 const StoryStore = require('../stores/story_store');
 
-const StoriesIndex = React.createClass({
+const StoryIndex = React.createClass({
   getInitialState() {
     return({ stories: [] });
   },
@@ -21,8 +22,6 @@ const StoriesIndex = React.createClass({
   },
 
   render() {
-    // add < StoryForm /> in div tag
-
     return (
       <div className="story-index">
         <ul>
@@ -36,3 +35,6 @@ const StoriesIndex = React.createClass({
     );
   }
 });
+
+window.StoryStore = StoryStore;
+module.exports = StoryIndex;

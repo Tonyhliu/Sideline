@@ -9,8 +9,8 @@
 
 ## Flux
 ### Views (React Components)
-* StoriesIndex
-  - StoriesIndexItem
+* StoryIndex
+  - StoryIndexItem
 * StoryForm
 
 ### Stores

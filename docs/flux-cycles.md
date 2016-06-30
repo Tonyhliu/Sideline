@@ -17,7 +17,7 @@ what you'll need to do.
 ### Stories API Request Actions
 
 * `fetchAllStories`
-  0. invoked from `StoriesIndex` `didMount`/`willReceiveProps`
+  0. invoked from `StoryIndex` `didMount`/`willReceiveProps`
   0. `GET /api/stories` is called.
   0. `receiveAllStories` is set as the callback.
 
@@ -57,7 +57,7 @@ what you'll need to do.
 
 ### Store Listeners
 
-* `StoriesIndex` component listens to `Story` store.
+* `StoryIndex` component listens to `Story` store.
 * `StoryDetail` component listens to `Story` store.
 
 

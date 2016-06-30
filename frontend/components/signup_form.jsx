@@ -18,15 +18,13 @@ const SignUpForm = React.createClass({
 
   componentDidMount() {
 		this.errorListener = ErrorStore.addListener(this.forceUpdate.bind(this));
-    this.sessionListener = SessionStore.addListener(this._redirectIfLoggedIn);
+    this.sessionListener = SessionStore.addListener(this._handleNewUser);
   },
 
-  _redirectIfLoggedIn() {
-    if (SessionStore.isUserLoggedIn()) {
-      this.context.router.push("/");
-			this.props.cb();
-    }
-  },
+	_handleNewUser() {
+		this.props.cb();
+		hashHistory.push('/stories');
+	},
 
   componentWillUnmount() {
 		this.errorListener.remove();

@@ -3,7 +3,7 @@ const Store = require('flux/utils').Store;
 const StoryConstants = require('../constants/story_constants');
 const StoryStore = new Store(AppDispatcher);
 
-const _stories = {};
+let _stories = {};
 
 StoryStore.all = function() {
   const stories = [];
@@ -35,15 +35,15 @@ function removeStory(story) {
 
 StoryStore.__onDispatch = function(payload) {
   switch (payload.actionType) {
-    case StoryConstants.POSTS_RECEIVED:
+    case StoryConstants.STORIES_RECEIVED:
       resetAllStories(payload.stories);
       this.__emitChange();
       break;
-    case StoryConstants.POST_RECEIVED:
+    case StoryConstants.STORY_RECEIVED:
       resetSingleStory(payload.story);
       this.__emitChange();
       break;
-    case StoryConstants.POST_REMOVED:
+    case StoryConstants.STORY_REMOVED:
       removeStory(payload.story);
       this.__emitChange();
       break;

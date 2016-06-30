@@ -15,9 +15,9 @@ const StoryActions = {
     StoryApiUtil.createStory(story, StoryActions.receiveSingleStory);
   },
 
-  deleteStory(id) {
-    StoryApiUtil.deleteStory(id, this.removeStory);
-  },
+  // deleteStory(id) {
+  //   StoryApiUtil.deleteStory(id, this.removeStory);
+  // },
 
   // editStory(data) {
   //   StoryApiUtil.updateStory(data, this.receiveSingleStory);
@@ -29,7 +29,7 @@ const StoryActions = {
 
   receiveAllStories(stories) {
     AppDispatcher.dispatch({
-      actionType: StoryConstants.STORY_RECEIVED,
+      actionType: StoryConstants.STORIES_RECEIVED,
       stories: stories
     });
   },
