@@ -12,6 +12,10 @@ const SignUpForm = require('./signup_form');
 const Modal = require('react-modal');
 const ModalStyle = require('../constants/modal_style');
 
+String.prototype.capitalize = function() {
+  return this.slice(0, 1).toUpperCase() + this.slice(1);
+};
+
 const App  = React.createClass({
   getInitialState() {
     return({
@@ -42,12 +46,13 @@ const App  = React.createClass({
     SessionActions.logOut();
   },
 
+
   greeting() {
   if (SessionStore.isUserLoggedIn()) {
     return(
       <hgroup className="header-group">
         <h2 className="header-name">
-            Welcome, {SessionStore.currentUser().username}!
+            Welcome, {SessionStore.currentUser().username.capitalize()}!
         </h2>
 
         <input className="header-button"

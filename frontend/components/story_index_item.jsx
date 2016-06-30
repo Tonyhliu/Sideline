@@ -16,7 +16,7 @@ const StoryIndexItem = React.createClass({
 
   render() {
     return(
-      <li>
+      <li className="story-index-item">
           <h2 className="story-links">
             <Link to={`/stories/${this.props.story.id}`}>
               {this.props.story.title}

@@ -28,7 +28,7 @@ const StoryShow = React.createClass({
     return (
       <div className="story-container">
         <h3 className="story-title">{story.title}</h3>
-        <p className="story-body">{story.body}</p>
+        <pre className="story-body">{story.body}</pre>
         <Link to="/">Back to stories index!</Link>
       </div>
     );

@@ -1,5 +1,16 @@
+div.index-header {
+    background-image: url(http://purewellnesschicago.com/index_files/rvm1.jpg);
+    background-size: contain;
+    height: 300px;
+    width: 100%;
+}
+
 .story-links {
   font-family: 'Montserrat', sans-serif;
+}
+
+ul.index-stories {
+  top: 400px;
 }
 
 li {
@@ -10,3 +21,7 @@ li {
   font-family: sans-serif;
   color: black;
 }
+
+/*.story-index-item {
+  top: 400px;
+}*/

@@ -24,12 +24,19 @@ h1 {
 
 header {
   margin-left: 0%;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 25px;
 }
 
 /*.index-image {
   max-height: 200px;
   max-width: 100px;
 }*/
+
+hgroup.header-group {
+  float: right;
+}
 
 
 .header-name {
@@ -63,6 +70,7 @@ header {
 .header-button {
   cursor: pointer;
   font-family: sans-serif;
+  float: right;
 }
 
 .modal-close{
@@ -85,6 +93,7 @@ header {
 }
 
 .header-link {
+  float: left;
   text-decoration: none;
   color: #7091d2;
 }

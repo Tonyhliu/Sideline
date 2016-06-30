@@ -1,3 +1,10 @@
 .story-container {
   font-family: sans-serif;
 }
+
+pre {
+  font-family: sans-serif;
+  white-space: pre-wrap;
+  width: 70%;
+  word-break: normal;
+}
