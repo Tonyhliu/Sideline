@@ -91,7 +91,9 @@ const App  = React.createClass({
             style={ModalStyle}
             onAfterOpen={this.onModalOpen}>
 
-            <button onClick={this.onModalClose}>Close</button>
+            <button className="modal-close"
+                    onClick={this.onModalClose}>
+                    Close</button>
             {component}
           </Modal>
 

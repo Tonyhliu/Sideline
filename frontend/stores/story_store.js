@@ -26,7 +26,6 @@ function resetAllStories(stories) {
 
 function resetSingleStory(story) {
   _stories[story.id] = story;
-  this.__emitChange();
 }
 
 function removeStory(story) {

@@ -17,8 +17,10 @@ const StoryIndexItem = React.createClass({
   render() {
     return(
       <li>
-          <h2 className={"story-links"}> <Link to={`/stories/${this.props.story.id}`}>
-            {this.props.story.title} </Link>
+          <h2 className="story-links">
+            <Link to={`/stories/${this.props.story.id}`}>
+              {this.props.story.title}
+            </Link>
           </h2>
           <p className={"paragraphs"}>
             {this.props.story.body.slice(0, 300) + "..."}

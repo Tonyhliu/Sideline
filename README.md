@@ -1,8 +1,8 @@
 # Sideline
 
-[Heroku link][heroku] **Note:** Not yet implemented (Should be link to Heroku)
+[Heroku link][Sideline] Sideline
 
-[heroku]: http://www.herokuapp.com
+[Sideline]: http://www.thesideline.club
 
 ## Minimum Viable Product
 
@@ -47,22 +47,22 @@ Sideline is a web application inspired by Medium that will be utilizing Ruby on 
 
 **Objective:** Functioning rails project with Authentication
 
-- [ ] create new project
-- [ ] create `User` model
-- [ ] authentication
-- [ ] setup Webpack & Flux scaffold
-- [ ] setup API
-- [ ] user signup/signin pages
-- [ ] blank landing page after signin
-- [ ] basic styling
+- [ x] create new project
+- [ x] create `User` model
+- [ x] authentication
+- [ x] setup Webpack & Flux scaffold
+- [ x] setup API
+- [ x] user signup/signin pages
+- [ x] blank landing page after signin
+- [ x] basic styling
 
 ### Phase 2: Stories Model, API, and basic APIUtil (1.5 days, W1 F 12pm)
 
 **Objective:** Stories can be created, read, edited and destroyed through
 the API.
 
-- [ ] create `Story` model
-- [ ] seed the database with a small amount of test data
+- [ x] create `Story` model
+- [ x] seed the database with a small amount of test data
 - [ ] CRUD API for stories (`StoriesController`)
 - [ ] Medium's API continued. jQuery & Kimono?
 - [ ] jBuilder views for stories

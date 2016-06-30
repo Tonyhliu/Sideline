@@ -36,5 +36,4 @@ const StoryIndex = React.createClass({
   }
 });
 
-window.StoryStore = StoryStore;
 module.exports = StoryIndex;
