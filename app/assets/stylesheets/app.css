@@ -14,7 +14,8 @@
 
 
 body {
-   font-family: 'Abel', sans-serif;
+   /*font-family: 'Abel', sans-serif;*/
+   font-family: 'Pacifico', cursive;
 }
 
 header {
@@ -78,8 +79,10 @@ header {
 }
 
 .login-form-box {
+  font-family: 'Ruda', sans-serif;
   outline: 1px solid black;
   padding: 20px;
+
 }
 
 .header-link {

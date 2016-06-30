@@ -1,6 +1,7 @@
 const React = require('react');
 const Link = require('react-router').Link;
 const SessionStore = require('../stores/session_store');
+const ErrorStore = require('../stores/error_store');
 const SessionActions = require('../actions/session_actions');
 
 // Forms
@@ -29,13 +30,11 @@ const App  = React.createClass({
   onModalClose() {
     this.setState({ modalOpen: false });
     ModalStyle.content.opacity = 0;
+    ErrorStore.resetErrors();
   },
 
   onModalOpen() {
     ModalStyle.content.opacity = 100;
-  },
-
-  componentDidMount() {
   },
 
   _signOut(e) {

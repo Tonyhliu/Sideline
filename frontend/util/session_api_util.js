@@ -33,8 +33,8 @@ const SessionApiUtil = {
     $.ajax({
       url: '/api/session',
       method: 'DELETE',
-      success: function() {
-        cb();
+      success: function(resp) {
+        cb(resp);
       },
       error: function() {
         console.log("Logout error in SessionApiUtil#logout");
