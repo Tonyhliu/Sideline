@@ -42,6 +42,11 @@ const SignUpForm = React.createClass({
     return (e) => this.setState({ [property]: e.target.value });
   },
 
+	_guest(e) {
+		e.preventDefault();
+		SessionActions.logIn({username: "Guest", password: "Password"});
+	},
+
 	fieldErrors(field) {
 		const errors = ErrorStore.formErrors("signup");
 
@@ -82,7 +87,8 @@ const SignUpForm = React.createClass({
 						</label>
 						{ this.fieldErrors("password") }
 
-		        <br />
+		        <br/>
+						<button className="guest-login" onClick={this._guest}>Demo Login</button>
 						<input type="submit" value="Sign Up" className="login-button"/>
 					</div>
 				</form>

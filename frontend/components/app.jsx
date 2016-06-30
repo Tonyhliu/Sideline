@@ -38,8 +38,6 @@ const App  = React.createClass({
   componentDidMount() {
   },
 
-
-  // redirect to root
   _signOut(e) {
     e.preventDefault();
     SessionActions.logOut();
@@ -60,11 +58,11 @@ const App  = React.createClass({
       return (
         <div>
           <div className="header-group2"></div>
-          <button id="sign-in-button"
+          <button className="login-button" id="sign-in-button"
                   onClick={this._handleClick.bind(this, true)}>
               Sign In
           </button>
-          <button id="sign-up-button"
+          <button className="login-button" id="sign-up-button"
                   onClick={this._handleClick.bind(this, false)}>
               Sign Up
           </button>
