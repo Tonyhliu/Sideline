@@ -1,4 +1,3 @@
-# add cloudinary cloud_name, upload presets
-# images controller index, cloud_name = ENV['CLOUD_NAME']
-CLOUD_NAME: 'dcbb8bnvk'
-UPLOAD_PRESET: 'odrne5yt'
+CLOUD_NAME: "dcbb8bnvk"
+UPLOAD_PRESET: "odrne5yt"
+testing: "123"

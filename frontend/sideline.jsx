@@ -24,6 +24,8 @@ const StoryIndex = require('./components/story_index');
 const StoryIndexItem = require('./components/story_index_item');
 const StoryShow = require('./components/story_show');
 // const StoryForm = require('./components/story_form');
+// const StoryEdit = require('./components/story_form');
+const CommentForm = require('./components/comment_form');
 
 //Auth
 // const SessionStore = require('./stores/session_store');
@@ -31,7 +33,6 @@ const StoryShow = require('./components/story_show');
 
 
 // <Route path="/stories/new "component={StoryForm} onEnter={_ensureLoggedIn}/>
-// <Route path="comments" component={CommentForm} onEnter={_ensureLoggedIn}/>
 // <Route path="stories/:storyid" component={StoryShow} />
 
 const appRouter = (
@@ -39,7 +40,9 @@ const appRouter = (
     <Route path="/" component={App}>
       <IndexRoute component={Splash} onEnter={_redirectIfLoggedIn} />
       <Route path="stories" component={StoryIndex} />
-      <Route path="stories/:storyid" component={StoryShow} />
+      <Route path="stories/:storyid" component={StoryShow}>
+        <Route path="comment" component={CommentForm} />
+      </Route>
     </Route>
   </Router>
 );

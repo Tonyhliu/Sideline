@@ -4,10 +4,10 @@ const StoryActions = require('../actions/story_actions');
 const hashHistory = require('react-router').hashHistory;
 
 const StoryIndexItem = React.createClass({
-  // editPost(e) {
-  //   e.preventDefault();
-  //   hashHistory.push(`/stories/${this.props.story.id}/edit`);
-  // },
+  editPost(e) {
+    e.preventDefault();
+    hashHistory.push(`/stories/${this.props.story.id}/edit`);
+  },
 
   deletePost(e) {
     e.preventDefault();

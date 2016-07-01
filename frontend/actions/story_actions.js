@@ -15,16 +15,16 @@ const StoryActions = {
     StoryApiUtil.createStory(story, StoryActions.receiveSingleStory);
   },
 
-  // deleteStory(id) {
-  //   StoryApiUtil.deleteStory(id, this.removeStory);
-  // },
+  deleteStory(id) {
+    StoryApiUtil.deleteStory(id, this.removeStory);
+  },
 
-  // editStory(data) {
-  //   StoryApiUtil.updateStory(data, this.receiveSingleStory);
-  // },
+  editStory(data) {
+    StoryApiUtil.updateStory(data, this.receiveSingleStory);
+  },
 
-  // createReview(review){
-  //   BenchApiUti.createReview(review, BenchActions.receiveSingleStory);
+  // createComment(comment){
+  //   BenchApiUti.createComment(comment, BenchActions.receiveSingleStory);
   // },
 
   receiveAllStories(stories) {

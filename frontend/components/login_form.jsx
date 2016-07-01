@@ -47,11 +47,6 @@ const LoginForm = React.createClass({
 		return <ul>{ messages }</ul>;
 	},
 
-	// _redirectToSignup(e) {
-	// 	e.preventDefault();
-	// 	hashHistory.push("/signup");
-	// },
-
 	_guest(e) {
 		e.preventDefault();
 		SessionActions.logIn({username: "Guest", password: "Password"});
@@ -92,8 +87,14 @@ const LoginForm = React.createClass({
 
 						{ this.fieldErrors("base") }
 		        <br />
-						<button className="guest-login" onClick={this._guest}>Demo Login</button>
-						<input type="submit" value="Log In" className="login-button"/>
+						<button className="guest-login"
+										onClick={this._guest}>
+										Demo Login
+						</button>
+
+						<input type="submit"
+										value="Log In"
+										className="login-button"/>
 					</div>
 				</form>
 			</div>
