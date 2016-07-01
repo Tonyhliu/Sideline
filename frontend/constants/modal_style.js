@@ -29,7 +29,7 @@
 
 module.exports = {
   overlay : {
-    position          : 'fixed',
+    position          : 'absolute',
     top               : 0,
     left              : 0,
     right             : 0,
@@ -37,11 +37,12 @@ module.exports = {
     backgroundColor   : 'rgba(255, 255, 255, 0.75)'
   },
   content : {
-    position                   : 'absolute',
-    top                        : '40px',
-    left                       : '40px',
-    right                      : '40px',
-    bottom                     : '40px',
+    position                   : 'fixed',
+    // width                      : '300px',
+    top                        : '10%',
+    left                       : '25%',
+    right                      : '25%',
+    bottom                     : '10%',
     border                     : '1px solid #ccc',
     background                 : '#fff',
     overflow                   : 'auto',
@@ -53,3 +54,6 @@ module.exports = {
     transition                 : 'opacity 1s'
   }
 };
+
+// justify-content: center;
+// width: 400px;

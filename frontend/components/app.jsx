@@ -46,7 +46,6 @@ const App  = React.createClass({
     SessionActions.logOut();
   },
 
-
   greeting() {
   if (SessionStore.isUserLoggedIn()) {
     return(
@@ -88,8 +87,9 @@ const App  = React.createClass({
         <header>
           <Link to="/" className="header-link"><h1>Sideline</h1></Link>
           { this.greeting() }
-
         </header>
+
+        <div>
           <Modal
             isOpen={this.state.modalOpen}
             onRequestClose={this.onModalClose}
@@ -101,6 +101,7 @@ const App  = React.createClass({
                     Close</button>
             {component}
           </Modal>
+        </div>
 
           {this.props.children}
       </div>

@@ -14,7 +14,6 @@
 
 
 body {
-   /*font-family: 'Abel', sans-serif;*/
    font-family: sans-serif;
 }
 
@@ -29,11 +28,6 @@ header {
   margin: 0 25px;
 }
 
-/*.index-image {
-  max-height: 200px;
-  max-width: 100px;
-}*/
-
 hgroup.header-group {
   float: right;
 }
@@ -45,8 +39,7 @@ hgroup.header-group {
 
 .login-form-container {
   display: flex;
-  /*justify-content: center;*/
-  padding-left: 20px;
+  justify-content: center;
   margin-top: 20px;
 }
 
@@ -59,12 +52,10 @@ hgroup.header-group {
 .login-button {
   cursor: pointer;
   font-family: sans-serif;
-  /*opacity: 1;*/
 }
 
 .login-button:hover {
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);  /*font-family: sans-serif;*/
-  /*border: solid 1px lightgreen;*/
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
 .header-button {
@@ -75,6 +66,7 @@ hgroup.header-group {
 
 .modal-close{
   font-family: sans-serif;
+  justify-content: center;
 }
 
 .header-button:hover {

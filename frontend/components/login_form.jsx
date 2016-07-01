@@ -68,8 +68,6 @@ const LoginForm = React.createClass({
 	        Welcome to Sideline!
 					<br/>
 					Please Login.
-					<br/>
-
 
 					<div className="login-form">
 		        <br />
