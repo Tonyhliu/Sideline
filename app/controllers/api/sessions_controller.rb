@@ -1,10 +1,5 @@
 class Api::SessionsController < ApplicationController
   def create
-    # debugger
-    # cloud_name = ENV['CLOUD_NAME']
-    # upload_preset = Figaro.env.UPLOAD_PRESET
-    # puts "API KEYS: #{cloud_name} #{upload_preset}"
-
     @user = User.find_by_credentials(params[:user][:username], params[:user][:password])
     if @user
       login(@user)

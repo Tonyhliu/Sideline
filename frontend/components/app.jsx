@@ -52,31 +52,50 @@ const App  = React.createClass({
 
   if (SessionStore.isUserLoggedIn()) {
     return(
-      <hgroup className="header-group">
-        <li><h2 className="header-name">
-            Welcome, {SessionStore.currentUser().username.capitalize()}!
-        </h2></li>
+      <ul className="header-group">
+        <li><button className="create-story"
+                    onClick={this._redirectToStoryForm}>
+                    Write your story!
+            </button>
+        </li>
 
-        <li><input className="header-button"
+        <li>
+          <h2 className="header-name">
+            Welcome, {SessionStore.currentUser().username.capitalize()}!
+          </h2>
+        </li>
+
+        <li>
+          <input className="header-button"
                 type="submit"
                 value="Log out!"
                 onClick={this._signOut} />
         </li>
-      </hgroup>
+    </ul>
       );
     } else {
       return (
-        <div>
-          <button className="login-button" id="sign-in-button"
-            onClick={this._handleClick.bind(this, true)}>
-            Sign In
-          </button>
+        <ul>
+          <li><button className="create-story"
+                      onClick={this._redirectToStoryForm}>
+                      Write your story!
+              </button>
+          </li>
 
-          <button className="login-button" id="sign-up-button"
-            onClick={this._handleClick.bind(this, false)}>
-            Sign Up
-          </button>
-        </div>
+          <li>
+            <button className="login-button" id="sign-in-button"
+              onClick={this._handleClick.bind(this, true)}>
+              Sign In
+            </button>
+          </li>
+
+          <li>
+            <button className="login-button" id="sign-up-button"
+              onClick={this._handleClick.bind(this, false)}>
+              Sign Up
+            </button>
+          </li>
+      </ul>
       );
     }
   },
@@ -99,14 +118,7 @@ const App  = React.createClass({
         <header>
           <nav>
             <Link to="/" className="header-link"><h1>Sideline</h1></Link>
-            <ul className="nav-buttons">
-              <li> <button className="create-story"
-                          onClick={this._redirectToStoryForm}>
-                          Write your story!
-                  </button>
-              </li>
               { this.greeting() }
-            </ul>
           </nav>
         </header>
 

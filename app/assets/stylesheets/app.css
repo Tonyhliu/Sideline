@@ -58,9 +58,7 @@ hgroup.header-group {
 }
 
 .header-button {
-  cursor: pointer;
   font-family: sans-serif;
-  float: right;
 }
 
 .modal-close{

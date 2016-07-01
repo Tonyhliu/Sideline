@@ -25,6 +25,11 @@ const StoryShow = React.createClass({
   },
 
   render() {
+    let owner = false;
+    if (SessionStore.currentUser().id === this.state.story.user_id) {
+      owner = true;
+      // delete hidden / shows
+    }
     const story = this.state.story;
     const user = SessionStore.currentUser().username;
     return (

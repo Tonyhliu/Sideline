@@ -15,13 +15,14 @@ const StoryIndexItem = React.createClass({
     StoryActions.deleteStory(`${this.props.story.id}`);
   },
 
-  render() {
-    debugger
-    const user = StoryStore.find(this.props.story.id);
+  _ensureAuthor() {
+    
+  },
 
+  render() {
     return(
       <li className="story-index-item">
-          <h4 className="story-author">{user}</h4>
+          <h4 className="story-author">{this.props.story.user.username}</h4>
           <h2 className="story-links">
             <Link to={`/stories/${this.props.story.id}`}>
               {this.props.story.title}

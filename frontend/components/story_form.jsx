@@ -27,6 +27,11 @@ const StoryForm = React.createClass({
     this._navigateToIndex();
   },
 
+  componentDidMount() {
+    // debugger;
+    // this.props.params.id
+  },
+
   render() {
     return (
       <div className="new-story-container">
