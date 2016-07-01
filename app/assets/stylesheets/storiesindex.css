@@ -14,9 +14,10 @@ ul.index-stories {
   margin: 0 10%;
 }
 
-ul li {
-  display: inline-block;
+.header-group {
   list-style: none;
+  /*display: -webkit-box;*/
+  display: inline-block;
 }
 
 .paragraphs {
@@ -24,6 +25,7 @@ ul li {
   color: black;
 }
 
-/*.story-index-item {
-  top: 400px;
-}*/
+.story-index-item {
+  /*top: 400px;*/
+  list-style: none;
+}

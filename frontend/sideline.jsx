@@ -65,5 +65,3 @@ document.addEventListener('DOMContentLoaded', function () {
       document.getElementById('root')
   );
 });
-
-// window.SessionApiUtil = SessionApiUtil;

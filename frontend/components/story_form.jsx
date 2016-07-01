@@ -37,6 +37,7 @@ const StoryForm = React.createClass({
       <div className="new-story-container">
         <div className="new-story-form">
           <h3 className="new-story-header">Write a story!</h3>
+            
             <form onSubmit={this._handleSubmit}>
               <label className="story-field">Title: </label>
               <input type="text"

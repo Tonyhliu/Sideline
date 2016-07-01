@@ -16,13 +16,16 @@ const StoryIndexItem = React.createClass({
   },
 
   _ensureAuthor() {
-    
+
   },
 
   render() {
+    const username = this.props.story.user.username.toUpperCase();
+
     return(
       <li className="story-index-item">
-          <h4 className="story-author">{this.props.story.user.username}</h4>
+          <img src="http://sportsunlimitedaustin.com/resources/image/18/7a/6.png"/>
+          <h4 className="story-user">{username}</h4>
           <h2 className="story-links">
             <Link to={`/stories/${this.props.story.id}`}>
               {this.props.story.title}

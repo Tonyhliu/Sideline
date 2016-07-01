@@ -6,6 +6,6 @@ class Story < ActiveRecord::Base
     dependent: :destroy
 
   has_many :comments,
-    inverse_of: :story,
+    inverse_of: :stories,
     dependent: :destroy
 end

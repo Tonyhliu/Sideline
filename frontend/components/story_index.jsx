@@ -24,7 +24,6 @@ const StoryIndex = React.createClass({
   render() {
     return (
       <div>
-
         <div className="index-header" />
         <div className="story-index">
           <ul className="index-stories">

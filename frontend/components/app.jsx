@@ -75,22 +75,22 @@ const App  = React.createClass({
       );
     } else {
       return (
-        <ul>
-          <li><button className="create-story"
+        <ul className="header-group">
+          <li><button className="login-button"
                       onClick={this._redirectToStoryForm}>
                       Write your story!
               </button>
           </li>
 
           <li>
-            <button className="login-button" id="sign-in-button"
+            <button className="login-button"
               onClick={this._handleClick.bind(this, true)}>
               Sign In
             </button>
           </li>
 
           <li>
-            <button className="login-button" id="sign-up-button"
+            <button className="login-button"
               onClick={this._handleClick.bind(this, false)}>
               Sign Up
             </button>

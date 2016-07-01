@@ -8,3 +8,12 @@ pre {
   width: 70%;
   word-break: normal;
 }
+
+.story-user {
+  list-style: none;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  /*display: flex;*/
+  /*justify-content: center;*/
+  /*background: black;*/
+}
