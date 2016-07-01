@@ -24,7 +24,7 @@ const StoryActions = {
   },
 
   // createComment(comment){
-  //   BenchApiUti.createComment(comment, BenchActions.receiveSingleStory);
+  //   CommentApiUti.createComment(comment, CommentActions.receiveSingleStory);
   // },
 
   receiveAllStories(stories) {

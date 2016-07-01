@@ -10,7 +10,8 @@ guest_user = User.create(username: "Guest", password: "Password");
 
 # demo_story = Story.create(title: "Warriors Rumors: Latest Intel on Durant, Barnes",
 #                           user_id: 1,
-#                           body: "The Golden State Warriors won 73 games last season, but after losing in the NBA Finals, you can expect the team to be aggressive in the offseason.
+#                           body:
+#                                 "The Golden State Warriors won 73 games last season, but after losing in the NBA Finals, you can expect the team to be aggressive in the offseason.
 #                                 While the core of Stephen Curry, Klay Thompson and Draymond Green is unlikely to change, the front office will do whatever it takes to improve the roster
 #                                 and get back on top in the 2016-2017 season, whether that means through free agency or trades. There will be dozens of maneuvers throughout the summer, but
 #                                 here is a look at some of the bigger potential moves Warriors fans should watch for in the coming weeks. The biggest story of the NBA offseason is Kevin
@@ -36,7 +37,8 @@ guest_user = User.create(username: "Guest", password: "Password");
 #
 # demo_story2 = Story.create(title: "Iggy Azalea caught Nick Young with other women on home security video",
 #                           user_id: 2,
-#                           body: "Iggy Azalea caught Nick Young on camera, and the Lakers guard couldn't say `it wasn't me.`
+#                           body:
+#                                 "Iggy Azalea caught Nick Young on camera, and the Lakers guard couldn't say `it wasn't me.`
 #                                 After a report came out Wednesday night claiming Young got his former girlfriend pregnant,
 #                                 Azalea took to Twitter to deny the rumors. She also provided the real reason why the celebrity
 #                                 couple broke up, and it was the reason everyone thought.) Young and Azalea were engaged for over

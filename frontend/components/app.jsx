@@ -1,5 +1,6 @@
 const React = require('react');
 const Link = require('react-router').Link;
+const hashHistory = require('react-router').hashHistory;
 const SessionStore = require('../stores/session_store');
 const ErrorStore = require('../stores/error_store');
 const SessionActions = require('../actions/session_actions');
@@ -7,6 +8,7 @@ const SessionActions = require('../actions/session_actions');
 // Forms
 const LoginForm = require('./login_form');
 const SignUpForm = require('./signup_form');
+// const StoryForm = require('./story_form');
 
 // Modal
 const Modal = require('react-modal');
@@ -47,17 +49,19 @@ const App  = React.createClass({
   },
 
   greeting() {
+
   if (SessionStore.isUserLoggedIn()) {
     return(
       <hgroup className="header-group">
-        <h2 className="header-name">
+        <li><h2 className="header-name">
             Welcome, {SessionStore.currentUser().username.capitalize()}!
-        </h2>
+        </h2></li>
 
-        <input className="header-button"
+        <li><input className="header-button"
                 type="submit"
                 value="Log out!"
                 onClick={this._signOut} />
+        </li>
       </hgroup>
       );
     } else {
@@ -77,6 +81,14 @@ const App  = React.createClass({
     }
   },
 
+  _redirectToStoryForm() {
+    if (SessionStore.isUserLoggedIn()) {
+      hashHistory.push("/stories/new");
+    } else {
+      alert("Please login or sign up first!");
+    }
+  },
+
   // header footer & modal
 
   render: function() {
@@ -85,8 +97,17 @@ const App  = React.createClass({
     return (
       <div>
         <header>
-          <Link to="/" className="header-link"><h1>Sideline</h1></Link>
-          { this.greeting() }
+          <nav>
+            <Link to="/" className="header-link"><h1>Sideline</h1></Link>
+            <ul className="nav-buttons">
+              <li> <button className="create-story"
+                          onClick={this._redirectToStoryForm}>
+                          Write your story!
+                  </button>
+              </li>
+              { this.greeting() }
+            </ul>
+          </nav>
         </header>
 
         <div>

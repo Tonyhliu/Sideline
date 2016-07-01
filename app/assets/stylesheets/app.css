@@ -21,7 +21,7 @@ h1 {
   font-family: 'Pacifico', cursive;
 }
 
-header {
+nav {
   margin-left: 0%;
   display: flex;
   justify-content: space-between;
@@ -31,7 +31,6 @@ header {
 hgroup.header-group {
   float: right;
 }
-
 
 .header-name {
   margin: 7px 0 0 0;
@@ -88,4 +87,8 @@ hgroup.header-group {
   float: left;
   text-decoration: none;
   color: #7091d2;
+}
+
+.create-story {
+  margin-left: auto;
 }

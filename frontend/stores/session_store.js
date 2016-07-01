@@ -40,7 +40,4 @@ SessionStore.isUserLoggedIn = function() {
   return false;
 };
 
-// ss currentUser
-// ss currentUserHasBeenFetched
-// ss isUserLoggedIn
 module.exports = SessionStore;
