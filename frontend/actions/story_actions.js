@@ -19,8 +19,8 @@ const StoryActions = {
     StoryApiUtil.deleteStory(id, this.removeStory);
   },
 
-  editStory(data) {
-    StoryApiUtil.updateStory(data, this.receiveSingleStory);
+  editStory(data, storyid) {
+    StoryApiUtil.updateStory(data, storyid, this.receiveSingleStory);
   },
 
   // createComment(comment){

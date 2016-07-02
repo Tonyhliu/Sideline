@@ -2,6 +2,15 @@ const React = require('react');
 const StoryActions = require('../actions/story_actions');
 const hashHistory = require('react-router').hashHistory;
 const SessionStore = require('../stores/session_store');
+const StoryStore = require('../stores/story_store');
+
+// React BS
+const form = require('react-bootstrap').form;
+const FormGroup = require('react-bootstrap').FormGroup;
+const FormControl = require('react-bootstrap').FormControl;
+const ControlLabel = require('react-bootstrap').ControlLabel;
+const HelpBlock = require('react-bootstrap').HelpBlock;
+const Button = require('react-bootstrap').Button;
 
 const StoryForm = React.createClass({
   getInitialState() {
@@ -38,51 +47,94 @@ const StoryForm = React.createClass({
     this._navigateToIndex();
   },
 
-  componentDidMount() {
-    // this.props.params.id
+  _handleEdit(e) {
+    e.preventDefault();
+    const storyid = parseInt(this.props.params.storyid);
+
+    let data = {title: this.state.title,
+                body: this.state.body,
+                user_id: this.state.user_id
+    };
+
+    StoryActions.editStory(data, storyid);
+    hashHistory.push(`/stories/${storyid}`);
   },
 
   render() {
-    // if (this.props.params.id) {
-    //
-    // } else {
-    //
-    // }
+    if (this.props.params.storyid) {
+      const story = StoryStore.find(parseInt(this.props.params.storyid));
+      return (
+        <form onSubmit={this._handleEdit}>
+          <FormGroup controlId="formControlsText">
+            <ControlLabel></ControlLabel>
+            <FormControl type="text"
+                        onChange={this._update("title")}
+                        defaultValue={story.title}/>
+          </FormGroup>
 
-    return (
-      <div className="new-story-container">
-        <div className="new-story-form">
-          <h3 className="new-story-header">Write a story!</h3>
+          <FormGroup controlId="formControlsTextarea">
+            <ControlLabel></ControlLabel>
+            <FormControl componentClass="textarea"
+                        rows="4"
+                        cols="50"
+                        defaultValue={story.body}
+                        onChange={this._update("body")}/>
+          </FormGroup>
 
-            <form onSubmit={this._handleSubmit}>
-              <label className="story-field">Title: </label>
-              <input type="text"
-                    value={this.state.title}
-                    placeholder="Title"
-                    onChange={this._update("title")}
-                    className="story-field" />
+          <FormGroup controlId="formControlsFile">
+            <ControlLabel>File</ControlLabel>
+            <FormControl type="file" />
+            <HelpBlock>Upload a picture!</HelpBlock>
+          </FormGroup>
 
-                <label className="story-field">Body: </label>
-              <textarea
-                    rows="4"
-                    cols="50"
-                    value={this.state.body}
-                    placeholder="Write here..."
-                    onChange={this._update("body")} />
+          <Button type="submit">
+            Update
+          </Button>
 
-              <div className="button-holder">
-                <input type="submit" value="Tell your story!"
-                      className="new-story-button" />
-              </div>
-            </form>
+          <Button type="submit"
+                  onClick={this._handleCancel}>
+            Cancel
+          </Button>
 
-            <div className="button-holder">
-              <button onClick={this._handleCancel}
-                    className="new-story-button">Cancel</button>
-            </div>
-        </div>
-      </div>
-    );
+        </form>
+      );
+    } else {
+      return(
+        <form onSubmit={this._handleSubmit}>
+          <FormGroup controlId="formControlsText">
+            <ControlLabel></ControlLabel>
+            <FormControl type="text"
+                        placeholder="Title"
+                        onChange={this._update("title")} />
+          </FormGroup>
+
+          <FormGroup controlId="formControlsTextarea">
+            <ControlLabel></ControlLabel>
+            <FormControl componentClass="textarea"
+                        rows="4"
+                        cols="50"
+                        placeholder="Tell your story..."
+                        onChange={this._update("body")}/>
+          </FormGroup>
+
+          <FormGroup controlId="formControlsFile">
+            <ControlLabel>File</ControlLabel>
+            <FormControl type="file" />
+            <HelpBlock>Upload a picture!</HelpBlock>
+          </FormGroup>
+
+          <Button type="submit">
+            Submit
+          </Button>
+
+          <Button type="submit"
+                  onClick={this._handleCancel}>
+            Cancel
+          </Button>
+
+        </form>
+      );
+    }
   }
 });
 

@@ -31,6 +31,10 @@ const StoryShow = React.createClass({
     this._redirectToIndex();
   },
 
+  _handleEdit() {
+    hashHistory.push(`/stories/${this.props.params.storyid}/edit`);
+  },
+
   _redirectToIndex() {
     hashHistory.push("/");
   },

@@ -44,9 +44,9 @@ const StoryApiUtil = {
     });
   },
 
-  updateStory(data, cb) {
+  updateStory(data, id, cb) {
     $.ajax({
-      url: `/api/stories/${data.id}`,
+      url: `/api/stories/${id}`,
       type: "PATCH",
       dataType: "json",
       data: { story: data },
