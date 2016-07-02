@@ -5,7 +5,7 @@ const SessionStore = require('../stores/session_store');
 
 const StoryForm = React.createClass({
   getInitialState() {
-    return({ title: "", body: "", user_id: SessionStore.currentUser().id });
+    return({ title: "", body: "", user_id: SessionStore.currentUser().id, edit: false });
   },
 
   _handleCancel(event) {
@@ -23,21 +23,34 @@ const StoryForm = React.createClass({
 
   _handleSubmit(e) {
     e.preventDefault();
-    StoryActions.createStory(this.state);
+
+    let data = {title: this.state.title,
+                body: this.state.body,
+                user_id: this.state.user_id
+    };
+
+    StoryActions.createStory(data);
+    this.setState({ title: "",
+                    body: "",
+                    user_id: SessionStore.currentUser().id });
     this._navigateToIndex();
   },
 
   componentDidMount() {
-    // debugger;
     // this.props.params.id
   },
 
   render() {
+    // if (this.props.params.id) {
+    //
+    // } else {
+    //
+    // }
     return (
       <div className="new-story-container">
         <div className="new-story-form">
           <h3 className="new-story-header">Write a story!</h3>
-            
+
             <form onSubmit={this._handleSubmit}>
               <label className="story-field">Title: </label>
               <input type="text"

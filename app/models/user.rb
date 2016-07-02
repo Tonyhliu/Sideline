@@ -11,7 +11,6 @@ class User < ActiveRecord::Base
   after_initialize :ensure_session_token
 
   has_many :stories,
-    inverse_of: :user,
     dependent: :destroy
 
   def self.find_by_credentials(username, password)

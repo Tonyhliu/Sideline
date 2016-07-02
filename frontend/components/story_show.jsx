@@ -4,6 +4,7 @@ const StoryStore = require('../stores/story_store');
 const SessionStore = require('../stores/session_store');
 const Link = require('react-router').Link;
 const Button = require('react-bootstrap').Button;
+const hashHistory = require('react-router').hashHistory;
 
 const StoryShow = React.createClass({
   getInitialState() {
@@ -26,36 +27,32 @@ const StoryShow = React.createClass({
   },
 
   _handleDelete() {
-    debugger;
+    // debugger;
     StoryActions.deleteStory(this.state.story.id);
+    hashHistory.push("/");
   },
 
   render() {
-    debugger;
+    let deleteButton = "";
+    const story = this.state.story;
+    const user = SessionStore.currentUser().username.toUpperCase();
+
     if (SessionStore.currentUser().id === this.state.story.user.id) {
-      const story = this.state.story;
-      const user = SessionStore.currentUser().username.toUpperCase();
-      return (
-        <div className="story-container">
-          <h2 className="story-user">{user}</h2>
-          <h3 className="story-title">{story.title}</h3>
-          <pre className="story-body">{story.body}</pre>
-          <Button bsStyle="danger" onClick={this._handleDelete}>Delete Story</Button>
-          <Link to="/">Back to stories index!</Link>
-        </div>
-      );
-    } else {
-        const story = this.state.story;
-        const user = SessionStore.currentUser().username.toUpperCase();
-        return (
-          <div className="story-container">
-            <h2 className="story-user">{user}</h2>
-            <h3 className="story-title">{story.title}</h3>
-            <pre className="story-body">{story.body}</pre>
-            <Link to="/">Back to stories index!</Link>
-          </div>
-      );
+      deleteButton = <Button bsStyle="danger"
+                                  onClick={this._handleDelete}>
+                                  Delete Story
+                      </Button>;
     }
+
+    return (
+      <div className="story-container">
+        <h2 className="story-user">{user}</h2>
+        <h3 className="story-title">{story.title}</h3>
+        <pre className="story-body">{story.body}</pre>
+        {deleteButton}
+        <Link to="/">Back to stories index!</Link>
+      </div>
+    );
   }
 });
 
