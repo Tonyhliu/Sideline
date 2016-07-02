@@ -4,6 +4,8 @@ const hashHistory = require('react-router').hashHistory;
 const SessionStore = require('../stores/session_store');
 const ErrorStore = require('../stores/error_store');
 const SessionActions = require('../actions/session_actions');
+// const buttonGroupInstance = require('react-bootstrap')
+// const DropdownButton = require('react-bootstrap').DropdownButton
 
 // Forms
 const LoginForm = require('./login_form');

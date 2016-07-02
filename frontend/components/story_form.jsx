@@ -5,7 +5,9 @@ const SessionStore = require('../stores/session_store');
 
 const StoryForm = React.createClass({
   getInitialState() {
-    return({ title: "", body: "", user_id: SessionStore.currentUser().id, edit: false });
+    return({ title: "", body: "",
+            user_id: SessionStore.currentUser().id,
+            edit: false });
   },
 
   _handleCancel(event) {

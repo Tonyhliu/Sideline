@@ -32,7 +32,6 @@ const CommentForm = require('./components/comment_form');
 // const SessionActions = require('./actions/session_actions');
 
 // <Route path="/stories/new "component={StoryForm} onEnter={_ensureLoggedIn}/>
-// <Route path="stories/:storyid/edit" component={StoryShow} />
 
 const appRouter = (
   <Router history={hashHistory}>
@@ -40,6 +39,7 @@ const appRouter = (
       <IndexRoute component={Splash} onEnter={_redirectIfLoggedIn} />
       <Route path="stories" component={StoryIndex} />
       <Route path="stories/new" component={StoryForm} />
+      <Route path="stories/:storyid/edit" component={StoryShow} />
       <Route path="stories/:storyid" component={StoryShow}>
         <Route path="comment" component={CommentForm} />
       </Route>

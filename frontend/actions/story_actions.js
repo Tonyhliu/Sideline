@@ -42,7 +42,6 @@ const StoryActions = {
   },
 
   removeStory(story) {
-    // debugger
     AppDispatcher.dispatch({
       actionType: StoryConstants.STORY_REMOVED,
       story: story

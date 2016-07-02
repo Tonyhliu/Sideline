@@ -12,9 +12,9 @@ class Api::StoriesController < ApplicationController
 
   def index
     @stories = Story.all
+    render :index
     # user = User.find(params[:user_id])
     # @stories = stories.user
-    render :index
   end
 
   def update

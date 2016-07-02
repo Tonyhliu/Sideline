@@ -34,7 +34,6 @@ const StoryApiUtil = {
   },
 
   deleteStory(id, cb) {
-    debugger
     $.ajax({
       url: `/api/stories/${id}`,
       type: "DELETE",
