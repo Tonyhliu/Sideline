@@ -29,6 +29,10 @@ const StoryShow = React.createClass({
   _handleDelete() {
     // debugger;
     StoryActions.deleteStory(this.state.story.id);
+    this._redirectToIndex();
+  },
+
+  _redirectToIndex() {
     hashHistory.push("/");
   },
 
@@ -50,7 +54,10 @@ const StoryShow = React.createClass({
         <h3 className="story-title">{story.title}</h3>
         <pre className="story-body">{story.body}</pre>
         {deleteButton}
-        <Link to="/">Back to stories index!</Link>
+        <Button bsStyle="info"
+                onClick={this._redirectToIndex}>
+                Back to stories!
+        </Button>
       </div>
     );
   }

@@ -46,6 +46,7 @@ const StoryForm = React.createClass({
     // } else {
     //
     // }
+
     return (
       <div className="new-story-container">
         <div className="new-story-form">
