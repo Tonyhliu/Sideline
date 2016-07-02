@@ -24,7 +24,6 @@ const StoryIndex = require('./components/story_index');
 const StoryIndexItem = require('./components/story_index_item');
 const StoryShow = require('./components/story_show');
 const StoryForm = require('./components/story_form');
-// const StoryEdit = require('./components/story_form');
 const CommentForm = require('./components/comment_form');
 
 //Auth

@@ -4,12 +4,12 @@ const hashHistory = require('react-router').hashHistory;
 const SessionStore = require('../stores/session_store');
 const ErrorStore = require('../stores/error_store');
 const SessionActions = require('../actions/session_actions');
+const Search = require('./search');
 
-// React BS
+// React-BS
 const ButtonGroup = require('react-bootstrap').ButtonGroup;
 const Button = require('react-bootstrap').Button;
-const DropdownButton = require('react-bootstrap').DropdownButton;
-const MenuItem = require('react-bootstrap').MenuItem;
+const Navbar = require('react-bootstrap').Navbar;
 
 // Forms
 const LoginForm = require('./login_form');
@@ -49,11 +49,6 @@ const App  = React.createClass({
     ModalStyle.content.opacity = 100;
   },
 
-  _signOut(e) {
-    e.preventDefault();
-    SessionActions.logOut();
-  },
-
   _redirectToStoryForm() {
     if (SessionStore.isUserLoggedIn()) {
       hashHistory.push("/stories/new");
@@ -64,47 +59,43 @@ const App  = React.createClass({
 
   greeting() {
   if (SessionStore.isUserLoggedIn()) {
-    const user = SessionStore.currentUser().username.capitalize();
     return(
-      <ButtonGroup>
-
-        <Button className="create-story"
-                onClick={this._redirectToStoryForm}>
-                Write your story!
-        </Button>
-
-
-        <DropdownButton title={user} id="bg-nested-dropdown">
-          <MenuItem>Hello1</MenuItem>
-          <MenuItem>Hello2</MenuItem>
-          <MenuItem divider />
-          <MenuItem onClick={this._signOut}>Log Out!</MenuItem>
-        </DropdownButton>
-
-
-      </ButtonGroup>
-      );
+        <Search />
+        );
     } else {
       return (
-        <ButtonGroup>
+        <Navbar className="nav-bar">
+            <Navbar.Header>
+              <Navbar.Brand>
+                <a href="/" className="logo"></a>
+              </Navbar.Brand>
+              <Navbar.Toggle />
+            </Navbar.Header>
+            <Navbar.Collapse>
 
-          <Button className="login-button"
-                      onClick={this._redirectToStoryForm}>
-                      Write your story!
-          </Button>
+            <Navbar.Form pullRight>
 
-          <Button className="login-button"
-              onClick={this._handleClick.bind(this, true)}>
-              Sign In
-          </Button>
+                <ButtonGroup>
 
-          <Button className="login-button"
-            onClick={this._handleClick.bind(this, false)}>
-            Sign Up
-          </Button>
+                <Button className="login-button"
+                  onClick={this._redirectToStoryForm}>
+                  Write your story!
+                </Button>
 
+                <Button className="login-button"
+                  onClick={this._handleClick.bind(this, true)}>
+                  Sign In
+                </Button>
 
-        </ButtonGroup>
+                <Button className="login-button"
+                  onClick={this._handleClick.bind(this, false)}>
+                  Sign Up
+                  </Button>
+
+                </ButtonGroup>
+             </Navbar.Form>
+          </Navbar.Collapse>
+        </Navbar>
       );
     }
   },
@@ -117,10 +108,7 @@ const App  = React.createClass({
     return (
       <div>
         <header>
-          <nav>
-            <Link to="/" className="header-link"><h1>Sideline</h1></Link>
-            { this.greeting() }
-          </nav>
+          { this.greeting() }
         </header>
 
         <div>

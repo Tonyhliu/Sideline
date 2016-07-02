@@ -81,10 +81,11 @@ const StoryForm = React.createClass({
                         onChange={this._update("body")}/>
           </FormGroup>
 
-          <FormGroup controlId="formControlsFile">
+          <FormGroup controlId="formControlsFile"
+                      onClick={this._upload}>
             <ControlLabel>File</ControlLabel>
             <FormControl type="file" />
-            <HelpBlock>Upload a picture!</HelpBlock>
+            <HelpBlock>Upload Image</HelpBlock>
           </FormGroup>
 
           <Button type="submit">
@@ -120,7 +121,7 @@ const StoryForm = React.createClass({
           <FormGroup controlId="formControlsFile">
             <ControlLabel>File</ControlLabel>
             <FormControl type="file" />
-            <HelpBlock>Upload a picture!</HelpBlock>
+            <HelpBlock>Upload Image</HelpBlock>
           </FormGroup>
 
           <Button type="submit">

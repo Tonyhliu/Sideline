@@ -16,17 +16,17 @@
 body {
    font-family: sans-serif;
 }
-
+/*
 h1 {
   font-family: 'Pacifico', cursive;
-}
+}*/
 
-nav {
+/*nav {
   margin-left: 0%;
   display: flex;
   justify-content: space-between;
   margin: 0 25px;
-}
+}*/
 
 hgroup.header-group {
   float: right;
@@ -81,11 +81,11 @@ hgroup.header-group {
 
 }
 
-.header-link {
+/*.header-link {
   float: left;
   text-decoration: none;
   color: #7091d2;
-}
+}*/
 
 .create-story {
   margin-left: auto;
