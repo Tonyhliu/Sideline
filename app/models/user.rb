@@ -1,10 +1,14 @@
 class User < ActiveRecord::Base
-  validates :username, :session_token, uniqueness: true, presence: true
+  validates :session_token, uniqueness: true, presence: true
   validates :password_digest, presence: { message: "Password can't be blank!" }
-  validates :password, length: { minimum: 6, allow_nil: true }
+  validates :password, length: { minimum: 6, allow_nil: true, message: "Must be at least 6 characters" }
   validates :description, length: { maximum: 140, allow_nil: true }
   validates :description, length: { maximum: 140, allow_nil: true }
-  # validate :valid_username
+  validates :username,
+    presence: true,
+    uniqueness: { case_sensitive: false },
+    length: { in: 4..20 },
+    format: { with: /\A[a-zA-Z]+\z/, message: "only letters allowed" }
 
   attr_reader :password
 
@@ -13,14 +17,7 @@ class User < ActiveRecord::Base
 
   has_many :stories,
     dependent: :destroy
-  #
-  # def self.valid_username(username)
-  #   if username.split("").include?(" ")
-  #     errors.add("Can't have spaces in username!")
-  #   else
-  #     return true
-  #   end
-  # end
+
 
   def self.find_by_credentials(username, password)
       user = User.find_by(username: username)

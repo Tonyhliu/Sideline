@@ -24,7 +24,13 @@ const StoryIndex = React.createClass({
   render() {
     return (
       <div>
-        <div className="index-header" />
+        <div className="index-header">
+          <section className="index-header-header">
+            <h1 className="index-header-message">TALK SPORTS</h1>
+            <h3></h3>
+            <h3></h3>
+          </section>
+        </div>
         <div className="story-index">
           <ul className="index-stories">
             {

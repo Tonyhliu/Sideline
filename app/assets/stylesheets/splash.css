@@ -1,9 +1,45 @@
-.header-group2 {
-  background-image: url(http://www.sparaathletics.com/uploads/6/1/8/6/61867235/7280772_orig.png);
-  background-size: cover;
-  height: 100%;
+section.video-container {
+  height: 600px;
+  background: black;
+}
+
+div.jumbotron {
+  height: 600px;
+}
+
+.splash-video {
+  position: relative;
+  top: 25%;
   width: 100%;
-  position: absolute;
-  top: 0px;
-  z-index: -1;
+  min-width: 970px;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+/*.splash-video-message {
+  color: white;
+  font-weight: 700;
+  font-size: 60px;
+}*/
+
+section.mask {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 600px;
+    /*background: rgba(0,0,0,0.5);*/
+    color: transparent;
+}
+
+section.mask-message h1.sport {
+    color: white;
+    font-weight: 700;
+    font-size: 60px;
+}
+
+section.mask-message h3.sport {
+    margin-top: 15px;
+    color: white;
+    font-size: 28px;
+    line-height: 1.5em;
 }

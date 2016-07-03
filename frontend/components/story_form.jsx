@@ -49,22 +49,35 @@ const StoryForm = React.createClass({
 
   _handleEdit(e) {
     e.preventDefault();
-    const storyid = parseInt(this.props.params.storyid);
+    const story = StoryStore.find(parseInt(this.props.params.storyid));
+    let title;
+    let body;
 
-    let data = {title: this.state.title,
-                body: this.state.body,
+    if (this.state.title === "") {
+      title = story.title;
+      body = this.state.body;
+    } else if (this.state.body === "") {
+      title = this.state.title;
+      body = story.body;
+    } else {
+      title = this.state.title;
+      body = this.state.body;
+    }
+
+    let data = {title: title,
+                body: body,
                 user_id: this.state.user_id
     };
 
-    StoryActions.editStory(data, storyid);
-    hashHistory.push(`/stories/${storyid}`);
+    StoryActions.editStory(data, story.id);
+    hashHistory.push(`/stories/${story.id}`);
   },
 
   render() {
     if (this.props.params.storyid) {
       const story = StoryStore.find(parseInt(this.props.params.storyid));
       return (
-        <form onSubmit={this._handleEdit}>
+        <form>
           <FormGroup controlId="formControlsText">
             <ControlLabel></ControlLabel>
             <FormControl type="text"
@@ -88,7 +101,7 @@ const StoryForm = React.createClass({
             <HelpBlock>Upload Image</HelpBlock>
           </FormGroup>
 
-          <Button type="submit">
+          <Button type="submit" onClick={this._handleEdit}>
             Update
           </Button>
 
