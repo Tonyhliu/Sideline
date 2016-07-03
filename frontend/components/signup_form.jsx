@@ -5,6 +5,7 @@ const hashHistory = ReactRouter.hashHistory;
 const SessionActions = require('../actions/session_actions');
 const SessionStore = require('../stores/session_store');
 const ErrorStore = require('../stores/error_store');
+const App = require('./app');
 
 const SignUpForm = React.createClass({
 
@@ -57,6 +58,11 @@ const SignUpForm = React.createClass({
 		return <ul>{ messages }</ul>;
 	},
 
+	_redirectToLoginModal() {
+		App.onModalClose();
+		App._handleClick.bind(this, true);
+	},
+
   render() {
 		return (
 			<div className="login-form-container">
@@ -88,8 +94,18 @@ const SignUpForm = React.createClass({
 						{ this.fieldErrors("password") }
 
 		        <br/>
-						<button className="guest-login" onClick={this._guest}>Demo Login</button>
-						<input type="submit" value="Sign Up" className="login-button"/>
+
+						<a onClick={this.props.modal}>
+								Already have an account?</a>
+
+						<button className="guest-login"
+										onClick={this._guest}>
+										Demo Login
+						</button>
+
+						<input type="submit"
+									value="Sign Up"
+									className="login-button"/>
 					</div>
 				</form>
 			</div>

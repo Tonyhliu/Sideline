@@ -87,6 +87,9 @@ const LoginForm = React.createClass({
 
 						{ this.fieldErrors("base") }
 		        <br />
+
+						<a onClick={this.props.modal}>Don't have an account?</a>
+
 						<button className="guest-login"
 										onClick={this._guest}>
 										Demo Login

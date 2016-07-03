@@ -63,7 +63,7 @@ const Search = React.createClass({
 
                <ButtonGroup>
                  <Button className="create-story"
-                         onClick={this._redirectToStoryForm}>
+                         href="/#/stories/new">
                          Write your story!
                  </Button>
 

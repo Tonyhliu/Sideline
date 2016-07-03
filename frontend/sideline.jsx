@@ -30,7 +30,8 @@ const CommentForm = require('./components/comment_form');
 // const SessionStore = require('./stores/session_store');
 // const SessionActions = require('./actions/session_actions');
 
-// <Route path="/stories/new "component={StoryForm} onEnter={_ensureLoggedIn}/>
+// <Route path="/login" component={LoginForm} />
+// <Route path="/signup" component={SignupForm} />
 
 const appRouter = (
   <Router history={hashHistory}>

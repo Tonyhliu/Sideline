@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6, allow_nil: true }
   validates :description, length: { maximum: 140, allow_nil: true }
   validates :description, length: { maximum: 140, allow_nil: true }
+  # validate :valid_username
 
   attr_reader :password
 
@@ -12,12 +13,21 @@ class User < ActiveRecord::Base
 
   has_many :stories,
     dependent: :destroy
+  #
+  # def self.valid_username(username)
+  #   if username.split("").include?(" ")
+  #     errors.add("Can't have spaces in username!")
+  #   else
+  #     return true
+  #   end
+  # end
 
   def self.find_by_credentials(username, password)
       user = User.find_by(username: username)
       return nil unless user && user.valid_password?(password)
       user
   end
+
 
   def password=(password)
     @password = password
