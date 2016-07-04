@@ -75,6 +75,7 @@ const StoryShow = React.createClass({
       return (
         <div className="story-container">
           <h2 className="story-user">{user}</h2>
+          <img src={story.picture_url} />
           <h3 className="story-title">{story.title}</h3>
           <pre className="story-body">{story.body}</pre>
             {editButton}
@@ -98,6 +99,7 @@ const StoryShow = React.createClass({
         return (
           <div className="story-container">
             <h2 className="story-user">{user}</h2>
+            <img src={story.picture_url} />
             <h3 className="story-title">{story.title}</h3>
             <pre className="story-body">{story.body}</pre>
               {editButton}
@@ -106,9 +108,9 @@ const StoryShow = React.createClass({
                     onClick={this._redirectToIndex}>
                     Back to stories!
             </Button>
-
-            <CommentForm story={this.state.story}/>
             { commentText }
+
+            <CommentForm story={this.state.story} />
 
           </div>
         );

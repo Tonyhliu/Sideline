@@ -22,7 +22,7 @@ const StoryIndexItem = React.createClass({
     // if no image, upload default image (random)
     return(
       <li className="story-index-item">
-          <img src="http://sportsunlimitedaustin.com/resources/image/18/7a/6.png"/>
+          <img src={this.props.story.picture_url}/>
           <h4 className="story-user">{username}</h4>
           <h2 className="story-links">
             <Link to={`/stories/${this.props.story.id}`}>

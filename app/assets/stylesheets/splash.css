@@ -14,7 +14,19 @@ div.jumbotron {
   min-width: 970px;
   text-align: center;
   letter-spacing: 2px;
+  height: 600px;
+  object-fit: cover;
 }
+
+/* position: relative; */
+/* top: 25%; */
+/*width: 100%;*/
+/*min-width: 970px;
+text-align: center;
+letter-spacing: 2px;*/
+/* height: 100%; */
+/*height: 600px;*/
+/* object-fit: cover; */
 
 /*.splash-video-message {
   color: white;

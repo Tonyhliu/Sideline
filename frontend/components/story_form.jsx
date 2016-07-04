@@ -16,7 +16,8 @@ const StoryForm = React.createClass({
   getInitialState() {
     return({ title: "", body: "",
             user_id: SessionStore.currentUser().id,
-            edit: false });
+            edit: false,
+            picture_url: "" });
   },
 
   _handleCancel(event) {
@@ -37,7 +38,8 @@ const StoryForm = React.createClass({
 
     let data = {title: this.state.title,
                 body: this.state.body,
-                user_id: this.state.user_id
+                user_id: this.state.user_id,
+                picture_url: this.state.picture_url
     };
 
     StoryActions.createStory(data);
@@ -73,28 +75,19 @@ const StoryForm = React.createClass({
     hashHistory.push(`/stories/${story.id}`);
   },
 
-  postImage: function(url) {
+  postImage(url) {
     // api action & api util
-    const img = {url: url};
-    $.ajax({
-      url: "/api/stories",
-      method: "POST",
-      data: {image: img},
-      success: function(image) {
-        const images = this.state.images;
-        images.push(image);
-        this.setState({ images: images });
-      }.bind(this)
-    });
+    this.setState({ picture_url: url });
   },
 
   _upload(e) {
     e.preventDefault();
+    const that = this;
     window.cloudinary.openUploadWidget(
       window.cloudinary_options,
       function(error, images){
         if (error === null) {
-          this.props.postImage(images[0].url);
+          that.postImage(images[0].url);
         }
     });
   },
@@ -102,6 +95,10 @@ const StoryForm = React.createClass({
   render() {
     if (this.props.params.storyid) {
       const story = StoryStore.find(parseInt(this.props.params.storyid));
+      let upload = "Choose Image";
+      if (this.state.picture_url !== "") {
+        upload = "Uploaded!";
+      }
       return (
         <form>
           <FormGroup controlId="formControlsText">
@@ -121,11 +118,11 @@ const StoryForm = React.createClass({
                         onChange={this._update("body")}/>
           </FormGroup>
 
-          <FormGroup controlId="formControlsFile"
-                      onClick={this._upload}>
-            <ControlLabel>File</ControlLabel>
-            <FormControl type="file" />
-            <HelpBlock>Upload Image</HelpBlock>
+          <FormGroup controlId="formControlsFile">
+            <Button onClick={this._upload}
+                    className="upload-button">
+                    {upload}
+            </Button>
           </FormGroup>
 
           <Button type="submit" onClick={this._handleEdit}>
@@ -140,6 +137,11 @@ const StoryForm = React.createClass({
         </form>
       );
     } else {
+      let upload = "Choose Image";
+
+      if (this.state.picture_url !== "") {
+        upload = "Uploaded!";
+      }
       return(
         <form onSubmit={this._handleSubmit}>
           <FormGroup controlId="formControlsText">
@@ -160,11 +162,11 @@ const StoryForm = React.createClass({
                         required/>
           </FormGroup>
 
-          <FormGroup controlId="formControlsFile"
-                      onClick={this._upload}>
-            <ControlLabel>File</ControlLabel>
-            <FormControl type="file" />
-            <HelpBlock>Upload Image</HelpBlock>
+          <FormGroup controlId="formControlsFile">
+            <Button onClick={this._upload}
+                    className="upload-button">
+                    {upload}
+            </Button>
           </FormGroup>
 
           <Button type="submit">
