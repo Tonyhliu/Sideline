@@ -3,8 +3,8 @@ const StoryConstants = require('../constants/story_constants');
 const StoryApiUtil = require('../util/story_api_util');
 
 const StoryActions = {
-  fetchAllStories() {
-    StoryApiUtil.fetchAllStories(this.receiveAllStories);
+  fetchAllStories(data={}) {
+    StoryApiUtil.fetchAllStories(data, this.receiveAllStories);
   },
 
   getStory(id) {

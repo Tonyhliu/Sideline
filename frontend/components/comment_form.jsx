@@ -4,13 +4,17 @@ const StoryActions = require('../actions/story_actions');
 
 const CommentForm = React.createClass({
   getInitialState() {
+    return({ body: "" });
+  },
+
+  _navigateToStoryShow() {
 
   },
 
   render() {
     return (
       <div>
-        
+
       </div>
     );
   }

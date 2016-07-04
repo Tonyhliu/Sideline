@@ -11,10 +11,17 @@ class Api::StoriesController < ApplicationController
   end
 
   def index
-    @stories = Story.all
-    render :index
-    # user = User.find(params[:user_id])
-    # @stories = stories.user
+    # @stories = Story.all
+    # render :index
+
+    # @stories = Story.where(search_params)
+    # debugger
+    if params[:query] && !params[:query].empty?
+      query = "%" + params[:query] + "%"
+      @stories = Story.where('title LIKE ? OR body LIKE ? OR username LIKE ?', query, query, query)
+    else
+      @stories = Story.all
+    end
   end
 
   def update
@@ -34,5 +41,10 @@ class Api::StoriesController < ApplicationController
 
   def story_params
     params.require(:story).permit(:title, :body, :user_id)
+  end
+
+  def search_params
+    # debugger
+    params.permit(:query)
   end
 end

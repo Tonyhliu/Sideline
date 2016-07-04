@@ -22,6 +22,8 @@ const StoryIndexItem = React.createClass({
   render() {
     const username = this.props.story.user.username.toUpperCase();
 
+    // img src = each individual story's URL
+    // if no image, upload default image (random)
     return(
       <li className="story-index-item">
           <img src="http://sportsunlimitedaustin.com/resources/image/18/7a/6.png"/>

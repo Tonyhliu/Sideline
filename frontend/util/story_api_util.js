@@ -1,9 +1,10 @@
 const StoryApiUtil = {
-  fetchAllStories(cb) {
+  fetchAllStories(data={}, cb) {
     $.ajax({
       url: "/api/stories",
       type: "GET",
       dataType: "json",
+      data: data,
       success (resp) {
         cb(resp);
       }

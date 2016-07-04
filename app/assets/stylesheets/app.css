@@ -16,17 +16,6 @@
 body {
    font-family: sans-serif;
 }
-/*
-h1 {
-  font-family: 'Pacifico', cursive;
-}*/
-
-/*nav {
-  margin-left: 0%;
-  display: flex;
-  justify-content: space-between;
-  margin: 0 25px;
-}*/
 
 hgroup.header-group {
   float: right;
@@ -44,7 +33,7 @@ hgroup.header-group {
 
 .login-form {
   display: flex;
-  justify-content: center;
+  /*justify-content: center;*/
   flex-direction: column;
 }
 
@@ -81,11 +70,18 @@ hgroup.header-group {
 
 }
 
-/*.header-link {
-  float: left;
-  text-decoration: none;
-  color: #7091d2;
-}*/
+.error-msgs {
+  margin-top: 0;
+  margin-bottom: 10px;
+  background: #f2dede;
+  border-color: #ebccd1;
+  color: #a94442;
+  list-style: none;
+}
+
+.error-msg-items {
+  margin-left: -10%;
+}
 
 .create-story {
   margin-left: auto;

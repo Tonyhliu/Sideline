@@ -1,7 +1,4 @@
 const React = require('react');
-const StoryStore = require('../stores/story_store');
-const StoryActions = require('../actions/story_actions');
-const StoryIndex = require('./story_index');
 const hashHistory = require('react-router').hashHistory;
 
 // React-BS
@@ -13,8 +10,13 @@ const ButtonGroup = require('react-bootstrap').ButtonGroup;
 const DropdownButton = require('react-bootstrap').DropdownButton;
 const MenuItem = require('react-bootstrap').MenuItem;
 
+const StoryStore = require('../stores/story_store');
+const StoryActions = require('../actions/story_actions');
+const StoryIndex = require('./story_index');
 const SessionStore = require('../stores/session_store');
 const SessionActions = require('../actions/session_actions');
+const FilterParamsStore = require('../stores/filter_params_store');
+const FilterActions = require('../actions/filter_actions');
 
 const Search = React.createClass({
   getInitialState() {
@@ -39,6 +41,10 @@ const Search = React.createClass({
     SessionActions.logOut();
   },
 
+  _onInput(e) {
+    StoryActions.fetchAllStories({ query: e.target.value });
+  },
+
   render() {
     const user = SessionStore.currentUser().username.capitalize();
 
@@ -54,7 +60,9 @@ const Search = React.createClass({
 
               <Navbar.Form pullRight>
                <FormGroup>
-                 <FormControl type="text" placeholder="Search Sideline" />
+                 <FormControl type="text"
+                              placeholder="Search Sideline"
+                              onInput={this._onInput}/>
                </FormGroup>
 
                {' '}

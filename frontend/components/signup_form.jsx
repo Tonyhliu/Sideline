@@ -52,10 +52,11 @@ const SignUpForm = React.createClass({
 		if (!errors[field]) { return; }
 
 		const messages = errors[field].map( (errorMsg, i) => {
-			return <li key={ i }>{ errorMsg }</li>;
+			return <li className="error-msg-items"
+								key={ i }>{ errorMsg }</li>;
 		});
 
-		return <ul>{ messages }</ul>;
+		return <ul className="error-msgs">{ messages }</ul>;
 	},
 
 	_redirectToLoginModal() {
