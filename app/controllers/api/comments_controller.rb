@@ -5,7 +5,6 @@ class Api::CommentsController < ApplicationController
     comment = Comment.new(comment_params)
     if comment.save
       @story = comment.story
-      debugger
       render '/api/stories/show'
     else
       render json: comment, status: :unprocessable_entity
@@ -15,6 +14,6 @@ class Api::CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:body, :story_id)
+    params.require(:comment).permit(:body, :story_id, :user_id)
   end
 end

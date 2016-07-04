@@ -1,6 +1,7 @@
 const React = require('react');
 const hashHistory = require('react-router').hashHistory;
 const StoryActions = require('../actions/story_actions');
+const SessionStore = require('../stores/session_store');
 
 // React BS
 const form = require('react-bootstrap').form;
@@ -13,11 +14,11 @@ const option = require('react-bootstrap').option;
 
 const CommentForm = React.createClass({
   getInitialState() {
-    return({ body: "" });
+    return({ body: "", user_id: SessionStore.currentUser().id });
   },
 
   _navigateToStoryShow() {
-    const storyUrl = "/stories/" + this.props.params.storyid;
+    const storyUrl = "/stories/" + this.props.story.id;
     hashHistory.push(storyUrl);
   },
 
@@ -26,10 +27,11 @@ const CommentForm = React.createClass({
     const comment = Object.assign(
       {},
       this.state,
-      { story_id: parseInt(this.props.params.storyid)}
+      { story_id: parseInt(this.props.story.id) }
     );
 
     StoryActions.createComment(comment);
+    this.setState({ body: "" , user_id: SessionStore.currentUser().id });
     this._navigateToStoryShow();
   },
 
@@ -43,6 +45,7 @@ const CommentForm = React.createClass({
         <FormGroup controlId="formControlsTextarea">
           <FormControl componentClass="textarea"
             placeholder="Write a response..."
+            value={this.state.body}
             rows="10"
             cols="30"
             onChange={this._updateBody}/>

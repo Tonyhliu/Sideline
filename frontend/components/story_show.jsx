@@ -71,11 +71,8 @@ const StoryShow = React.createClass({
     const comments = this.state.story.comments || [];
 
     let commentText = "no comments yet";
-    // if(comments.length > 0) {
-    //   commentText = comments.map( (comment) => {
-    //     <li>comment.body</li>;
-    //   });
-    // }
+
+    // need to link each comment to USER WHO COMMENTED
     if (comments.length > 0) {
       return (
         <div className="story-container">
@@ -91,10 +88,11 @@ const StoryShow = React.createClass({
 
           {comments.map(comment => {
             return <li key={comment.id}>
-              {comment.body} from {this.state.story.user.username}</li>;
+              {comment.body} from { SessionStore.findCurrentUser(comment.user_id) }
+                  </li>;
           })
         }
-          < CommentForm />
+          <CommentForm story={this.state.story}/>
         </div>
 
       );
@@ -111,7 +109,7 @@ const StoryShow = React.createClass({
                     Back to stories!
             </Button>
 
-            < CommentForm />
+            <CommentForm story={this.state.story}/>
             { commentText }
 
           </div>
