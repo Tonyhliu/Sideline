@@ -47,3 +47,7 @@ ul.index-stories {
   margin: 20px;
   padding: 10px;
 }
+
+.dropdown-results {
+  /*display: block;*/
+}

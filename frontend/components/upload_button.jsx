@@ -10,7 +10,7 @@ const UploadButton= React.createClass({
     // api action & api util
     const img = {url: url};
     $.ajax({
-      url: "/api/images",
+      url: "/api/stories",
       method: "POST",
       data: {image: img},
       success: function(image) {
@@ -21,7 +21,7 @@ const UploadButton= React.createClass({
     });
   },
 
-  upload: function(e) {
+  _upload: function(e) {
     e.preventDefault();
     window.cloudinary.openUploadWidget(
       window.cloudinary_options,

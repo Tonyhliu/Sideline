@@ -29,11 +29,6 @@ SessionStore.__onDispatch = function(payload) {
   }
 };
 
-// SessionStore.findCurrentUser = function(id) {
-//   debugger;
-//   return _currentUser;
-// };
-
 SessionStore.currentUser = function() {
   return Object.assign(_currentUser);
 };

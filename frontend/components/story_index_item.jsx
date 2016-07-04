@@ -15,10 +15,6 @@ const StoryIndexItem = React.createClass({
     StoryActions.deleteStory(`${this.props.story.id}`);
   },
 
-  _ensureAuthor() {
-
-  },
-
   render() {
     const username = this.props.story.user.username.toUpperCase();
 

@@ -18,6 +18,9 @@ class User < ActiveRecord::Base
   has_many :stories,
     dependent: :destroy
 
+  has_many :comments,
+    dependent: :destroy
+
   def self.find_by_credentials(username, password)
       user = User.find_by(username: username)
       return nil unless user && user.valid_password?(password)

@@ -21,7 +21,7 @@ StoryStore.find = function(id) {
 
 function resetAllStories(stories) {
   _stories = {};
-  _stories = stories; // stories (parameter) an array or object?
+  _stories = stories;
 }
 
 function resetSingleStory(story) {

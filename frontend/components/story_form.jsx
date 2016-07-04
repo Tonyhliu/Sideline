@@ -73,6 +73,32 @@ const StoryForm = React.createClass({
     hashHistory.push(`/stories/${story.id}`);
   },
 
+  postImage: function(url) {
+    // api action & api util
+    const img = {url: url};
+    $.ajax({
+      url: "/api/stories",
+      method: "POST",
+      data: {image: img},
+      success: function(image) {
+        const images = this.state.images;
+        images.push(image);
+        this.setState({ images: images });
+      }.bind(this)
+    });
+  },
+
+  _upload(e) {
+    e.preventDefault();
+    window.cloudinary.openUploadWidget(
+      window.cloudinary_options,
+      function(error, images){
+        if (error === null) {
+          this.props.postImage(images[0].url);
+        }
+    });
+  },
+
   render() {
     if (this.props.params.storyid) {
       const story = StoryStore.find(parseInt(this.props.params.storyid));
@@ -82,7 +108,8 @@ const StoryForm = React.createClass({
             <ControlLabel></ControlLabel>
             <FormControl type="text"
                         onChange={this._update("title")}
-                        defaultValue={story.title}/>
+                        defaultValue={story.title}
+                        />
           </FormGroup>
 
           <FormGroup controlId="formControlsTextarea">
@@ -119,7 +146,8 @@ const StoryForm = React.createClass({
             <ControlLabel></ControlLabel>
             <FormControl type="text"
                         placeholder="Title"
-                        onChange={this._update("title")} />
+                        onChange={this._update("title")}
+                        required/>
           </FormGroup>
 
           <FormGroup controlId="formControlsTextarea">
@@ -128,10 +156,12 @@ const StoryForm = React.createClass({
                         rows="4"
                         cols="50"
                         placeholder="Tell your story..."
-                        onChange={this._update("body")}/>
+                        onChange={this._update("body")}
+                        required/>
           </FormGroup>
 
-          <FormGroup controlId="formControlsFile">
+          <FormGroup controlId="formControlsFile"
+                      onClick={this._upload}>
             <ControlLabel>File</ControlLabel>
             <FormControl type="file" />
             <HelpBlock>Upload Image</HelpBlock>

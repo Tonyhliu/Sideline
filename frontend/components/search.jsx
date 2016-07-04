@@ -21,6 +21,7 @@ const FilterActions = require('../actions/filter_actions');
 const Search = React.createClass({
   getInitialState() {
     return({ stories: StoryStore.all() });
+    // add query to state
   },
 
   _storiesChanged() {
@@ -48,7 +49,16 @@ const Search = React.createClass({
   render() {
     const user = SessionStore.currentUser().username.capitalize();
 
+    // if input(query) more than 0, display
     return(
+      //  <div class="dropdown">
+      //    <button class="dropbtn">Search Results</button>
+      //    <div class="search-results">
+      //      {this.state.stories.map(story => {
+      //        return <a href="#">{story.title}</a>;
+      //      })}
+      //    </div>
+      //  </div>
         <Navbar className="nav-bar">
             <Navbar.Header>
               <Navbar.Brand>
@@ -62,12 +72,19 @@ const Search = React.createClass({
                <FormGroup>
                  <FormControl type="text"
                               placeholder="Search Sideline"
-                              onInput={this._onInput}/>
+                              onInput={this._onInput}
+                              className="search-bar"/>
                </FormGroup>
 
-               {' '}
-               <Button type="submit">Submit</Button>
-               {' '}
+                <ul className="dropdown-menu">
+                  {
+                    this.state.stories.map(story => {
+                      return <li className="dropdown-menu-item"
+                                 key={story.id}>{story.title}
+                             </li>;
+                      })
+                    }
+                </ul>
 
                <ButtonGroup>
                  <Button className="create-story"
@@ -77,7 +94,8 @@ const Search = React.createClass({
 
                  <DropdownButton title={user} id="bg-nested-dropdown">
                    <MenuItem>Hello1</MenuItem>
-                   <MenuItem>Hello2</MenuItem>
+                   <MenuItem>Profile</MenuItem>
+                   <MenuItem>Settings</MenuItem>
                    <MenuItem divider />
                    <MenuItem onClick={this._signOut}>Log Out!</MenuItem>
                  </DropdownButton>

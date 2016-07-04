@@ -42,7 +42,6 @@ const StoryShow = React.createClass({
 
   showCommentForm() {
     hashHistory.push(`/stories/${this.state.story.id}/comment`);
-    // hashHistory.push(`/comment`);
   },
 
   render() {
@@ -67,12 +66,11 @@ const StoryShow = React.createClass({
                     </Button>;
     }
 
-    // debugger
     const comments = this.state.story.comments || [];
 
     let commentText = "no comments yet";
-
     // need to link each comment to USER WHO COMMENTED
+    // console.log(comments);
     if (comments.length > 0) {
       return (
         <div className="story-container">
@@ -88,7 +86,7 @@ const StoryShow = React.createClass({
 
           {comments.map(comment => {
             return <li key={comment.id}>
-              {comment.body} from { SessionStore.findCurrentUser(comment.user_id) }
+              {comment.body} from { comment.user.username }
                   </li>;
           })
         }

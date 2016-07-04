@@ -11,15 +11,9 @@ class Api::StoriesController < ApplicationController
   end
 
   def index
-    # @stories = Story.all
-    # render :index
-
-    # @stories = Story.where(search_params)
-    # debugger
     if params[:query] && !params[:query].empty?
       query = "%" + params[:query] + "%"
-      # LOWERCASE title & body
-      @stories = Story.where('title LIKE ? OR body LIKE ?', query, query)
+      @stories = Story.where('title ILIKE ? OR body ILIKE ?', query, query)
     else
       @stories = Story.all
     end
@@ -41,11 +35,10 @@ class Api::StoriesController < ApplicationController
   private
 
   def story_params
-    params.require(:story).permit(:title, :body, :user_id)
+    params.require(:story).permit(:title, :body, :user_id, :picture_url)
   end
 
   def search_params
-    # debugger
     params.permit(:query)
   end
 end
