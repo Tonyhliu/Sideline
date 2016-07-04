@@ -18,7 +18,8 @@ class Api::StoriesController < ApplicationController
     # debugger
     if params[:query] && !params[:query].empty?
       query = "%" + params[:query] + "%"
-      @stories = Story.where('title LIKE ? OR body LIKE ? OR username LIKE ?', query, query, query)
+      # LOWERCASE title & body
+      @stories = Story.where('title LIKE ? OR body LIKE ?', query, query)
     else
       @stories = Story.all
     end

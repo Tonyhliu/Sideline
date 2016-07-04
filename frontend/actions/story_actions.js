@@ -23,9 +23,9 @@ const StoryActions = {
     StoryApiUtil.updateStory(data, storyid, this.receiveSingleStory);
   },
 
-  // createComment(comment){
-  //   CommentApiUti.createComment(comment, CommentActions.receiveSingleStory);
-  // },
+  createComment(comment){
+    StoryApiUtil.createComment(comment, this.receiveSingleStory);
+  },
 
   receiveAllStories(stories) {
     AppDispatcher.dispatch({

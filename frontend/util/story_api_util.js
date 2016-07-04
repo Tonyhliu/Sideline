@@ -34,6 +34,18 @@ const StoryApiUtil = {
     });
   },
 
+  createComment(comment, cb) {
+    $.ajax({
+      url: "/api/comments",
+      type: "POST",
+      dataType: "json",
+      data: { comment },
+      success (resp) {
+        cb(resp);
+      }
+    });
+  },
+
   deleteStory(id, cb) {
     $.ajax({
       url: `/api/stories/${id}`,
