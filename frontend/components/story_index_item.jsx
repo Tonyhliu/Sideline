@@ -22,10 +22,8 @@ const StoryIndexItem = React.createClass({
     const currentUser = SessionStore.currentUser();
 
     if (SessionStore.isUserLoggedIn()) {
-      console.log(currentUser);
       const currentUserFavs = currentUser.favorite_stories;
 
-      console.log(currentUserFavs);
       if (currentUserFavs.indexOf(this.props.story.id) !== -1) {
         likeText = "UNLIKE";
       }
@@ -40,7 +38,7 @@ const StoryIndexItem = React.createClass({
     if (this._isLiked() === "LIKE") {
       FavoriteActions.createFavorite(data);
     } else {
-      FavoriteActions.removeFavorite(data);
+      FavoriteActions.deleteFavorite(data);
     }
   },
 
@@ -51,6 +49,7 @@ const StoryIndexItem = React.createClass({
     // if no image, upload default image (random)
 
 
+    // Number of Likes: {bench.favorite }
     return(
       <li className="story-index-item">
           <img src={this.props.story.picture_url}/>

@@ -8,7 +8,7 @@ const FavoriteActions = {
   },
 
   deleteFavorite(data) {
-    FavoriteApiUtil.removeFavorite(data, this.removeFavorite);
+    FavoriteApiUtil.deleteFavorite(data, this.removeFavorite);
   },
 
   receiveFavorite(favorite) {
@@ -19,6 +19,7 @@ const FavoriteActions = {
   },
 
   removeFavorite(favorite) {
+    console.log("HELLO FROM FAV ACTIONS");
     AppDispatcher.dispatch({
       actionType: FavoriteConstants.FAVORITE_REMOVED,
       favorite: favorite

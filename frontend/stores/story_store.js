@@ -35,13 +35,12 @@ function removeStory(story) {
 
 function addFavorite(storyId, userId) {
   _stories[storyId].favorite_users.push(parseInt(userId));
-  StoryStore.__emitChange();
 }
 
 function removeFavorite(storyId, userId) {
+  console.log(storyId, userId);
   const userIdx = _stories[storyId].favorite_users.indexOf(parseInt(userId));
   _stories[storyId].favorite_users.splice(userIdx, 1);
-  StoryStore.__emitChange();
 }
 
 StoryStore.__onDispatch = function(payload) {
@@ -60,11 +59,13 @@ StoryStore.__onDispatch = function(payload) {
       break;
     case FavoriteConstants.FAVORITE_RECEIVED:
       addFavorite(payload.favorite.storyId, payload.favorite.userId);
-      StoryStore.__emitChange();
+      this.__emitChange();
       break;
     case FavoriteConstants.FAVORITE_REMOVED:
+      console.log("HELLO FROM STORY STORE");
+      console.log(payload.favorite);
       removeFavorite(payload.favorite.storyId, payload.favorite.userId);
-      StoryStore.__emitChange();
+      this.__emitChange();
       break;
   }
 };

@@ -15,10 +15,14 @@ const Button = require('react-bootstrap').Button;
 const StoryForm = React.createClass({
   getInitialState() {
     return({ title: "", body: "",
-            user_id: SessionStore.currentUser().id,
-            edit: false,
-            picture_url: "" });
+            user_id: SessionStore.currentUser().id
+          });
   },
+
+  componentWillMount() {
+    this.pictureUrl = "";
+  },
+
 
   _handleCancel(event) {
     event.preventDefault();
@@ -37,49 +41,43 @@ const StoryForm = React.createClass({
     e.preventDefault();
 
     let pic;
-    if (this.state.picture_url === "") {
+    if (this.pictureUrl === "") {
       let rand = Math.ceil((Math.random() * 8));
       switch (rand) {
         case 1:
-          pic = "http://res.cloudinary.com/dcbb8bnvk/image/upload/v1467521114/sfg_g7120s.jpg";
+          this.pictureUrl = "http://res.cloudinary.com/dcbb8bnvk/image/upload/v1467521114/sfg_g7120s.jpg";
           break;
         case 2:
-          pic = "http://res.cloudinary.com/dcbb8bnvk/image/upload/v1467521106/sfniners_vdlnha.jpg";
+          this.pictureUrl = "http://res.cloudinary.com/dcbb8bnvk/image/upload/v1467521106/sfniners_vdlnha.jpg";
           break;
         case 3:
-          pic = "http://res.cloudinary.com/dcbb8bnvk/image/upload/v1467521106/sfniners_vdlnha.jpg";
+          this.pictureUrl = "http://res.cloudinary.com/dcbb8bnvk/image/upload/v1467521106/sfniners_vdlnha.jpg";
           break;
         case 4:
-          pic = "http://res.cloudinary.com/dcbb8bnvk/image/upload/v1467521102/gs5_aypfhc.jpg";
+          this.pictureUrl = "http://res.cloudinary.com/dcbb8bnvk/image/upload/v1467521102/gs5_aypfhc.jpg";
           break;
         case 5:
-          pic = "http://res.cloudinary.com/dcbb8bnvk/image/upload/v1467521102/raiders_yyxvce.jpg";
+          this.pictureUrl = "http://res.cloudinary.com/dcbb8bnvk/image/upload/v1467521102/raiders_yyxvce.jpg";
           break;
         case 6:
-          pic = "http://res.cloudinary.com/dcbb8bnvk/image/upload/v1467521100/sjs_eza4mk.jpg";
+          this.pictureUrl = "http://res.cloudinary.com/dcbb8bnvk/image/upload/v1467521100/sjs_eza4mk.jpg";
           break;
         case 7:
-          pic = "https://cloudinary.com/console/media_library#/dialog/image/upload/dray_wnuauk.jpg";
+          this.pictureUrl = "https://cloudinary.com/console/media_library#/dialog/image/upload/dray_wnuauk.jpg";
           break;
         case 8:
-          pic = "http://res.cloudinary.com/dcbb8bnvk/image/upload/v1467521101/sjearth_wt1d6r.jpg";
+          this.pictureUrl = "http://res.cloudinary.com/dcbb8bnvk/image/upload/v1467521101/sjearth_wt1d6r.jpg";
           break;
       }
     }
 
-    // not working
-    // this.setState({ picture_url: pic });
-
     let data = {title: this.state.title,
                 body: this.state.body,
                 user_id: this.state.user_id,
-                picture_url: this.state.picture_url
+                picture_url: this.pictureUrl
     };
 
     StoryActions.createStory(data);
-    this.setState({ title: "",
-                    body: "",
-                    user_id: SessionStore.currentUser().id });
     this._navigateToIndex();
   },
 
@@ -110,7 +108,7 @@ const StoryForm = React.createClass({
   },
 
   postImage(url) {
-    this.setState({ picture_url: url });
+    this.pictureUrl = url;
   },
 
   _upload(e) {
@@ -129,7 +127,7 @@ const StoryForm = React.createClass({
     if (this.props.params.storyid) {
       const story = StoryStore.find(parseInt(this.props.params.storyid));
       let upload = "Choose Image";
-      if (this.state.picture_url !== "") {
+      if (this.pictureUrl !== "") {
         upload = "Uploaded!";
       }
 
@@ -174,7 +172,7 @@ const StoryForm = React.createClass({
     } else {
       let upload = "Choose Image";
 
-      if (this.state.picture_url !== "") {
+      if (this.pictureUrl !== "") {
         upload = "Uploaded!";
       }
       return(
