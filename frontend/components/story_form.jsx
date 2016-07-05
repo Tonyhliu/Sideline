@@ -36,6 +36,40 @@ const StoryForm = React.createClass({
   _handleSubmit(e) {
     e.preventDefault();
 
+    let pic;
+    if (this.state.picture_url === "") {
+      let rand = Math.ceil((Math.random() * 8));
+      switch (rand) {
+        case 1:
+          pic = "http://res.cloudinary.com/dcbb8bnvk/image/upload/v1467521114/sfg_g7120s.jpg";
+          break;
+        case 2:
+          pic = "http://res.cloudinary.com/dcbb8bnvk/image/upload/v1467521106/sfniners_vdlnha.jpg";
+          break;
+        case 3:
+          pic = "http://res.cloudinary.com/dcbb8bnvk/image/upload/v1467521106/sfniners_vdlnha.jpg";
+          break;
+        case 4:
+          pic = "http://res.cloudinary.com/dcbb8bnvk/image/upload/v1467521102/gs5_aypfhc.jpg";
+          break;
+        case 5:
+          pic = "http://res.cloudinary.com/dcbb8bnvk/image/upload/v1467521102/raiders_yyxvce.jpg";
+          break;
+        case 6:
+          pic = "http://res.cloudinary.com/dcbb8bnvk/image/upload/v1467521100/sjs_eza4mk.jpg";
+          break;
+        case 7:
+          pic = "https://cloudinary.com/console/media_library#/dialog/image/upload/dray_wnuauk.jpg";
+          break;
+        case 8:
+          pic = "http://res.cloudinary.com/dcbb8bnvk/image/upload/v1467521101/sjearth_wt1d6r.jpg";
+          break;
+      }
+    }
+
+    // not working
+    // this.setState({ picture_url: pic });
+
     let data = {title: this.state.title,
                 body: this.state.body,
                 user_id: this.state.user_id,
@@ -76,7 +110,6 @@ const StoryForm = React.createClass({
   },
 
   postImage(url) {
-    // api action & api util
     this.setState({ picture_url: url });
   },
 
@@ -99,8 +132,10 @@ const StoryForm = React.createClass({
       if (this.state.picture_url !== "") {
         upload = "Uploaded!";
       }
+
       return (
         <form>
+
           <FormGroup controlId="formControlsText">
             <ControlLabel></ControlLabel>
             <FormControl type="text"

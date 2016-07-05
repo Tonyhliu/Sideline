@@ -7,10 +7,12 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 # guest_user = User.create(username: "Guest", password: "Password");
-# comment_user = User.create(username: "Gage", password: "password");
+# comment_user = User.create(username: "Tony", password: "password");
+# comment_user2 = User.create(username: "Alexandra", password: "password");
+# comment_user3 = User.create(username: "DaRealKushPatel", password: "password");
 #
 # demo_story = Story.create(title: "Warriors Rumors: Latest Intel on Durant, Barnes",
-#                           user_id: 1,
+#                           user_id: 3,
 #                           body:
 #                                 "The Golden State Warriors won 73 games last season, but after losing in the NBA Finals, you can expect the team to be aggressive in the offseason.
 #                                 While the core of Stephen Curry, Klay Thompson and Draymond Green is unlikely to change, the front office will do whatever it takes to improve the roster
@@ -34,7 +36,8 @@
 #                                 On one hand, he is an unproven player who has been nothing more than a fourth option on his team. He generally succeeded by getting wide-open shots without
 #                                 much focus from opposing defense. On the other hand, he is an athletic wing who can shoot and guard multiple positions defensively while just scratching
 #                                 the surface of his potential. In the right situation, he could develop into a star. Teams like Philadelphia and others will be willing to take that chance,
-#                                 which could price him out of the Warriors' budget regardless of Durant's decision.")
+#                                 which could price him out of the Warriors' budget regardless of Durant's decision.",
+#                           picture_url: "http://res.cloudinary.com/dcbb8bnvk/image/upload/v1467739313/kd_n8pxrm.jpg")
 #
 # demo_story2 = Story.create(title: "Iggy Azalea caught Nick Young with other women on home security video",
 #                           user_id: 2,
@@ -50,7 +53,17 @@
 #                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
 #                                 labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
 #                                 nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-#                                 eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
+#                                 eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+#                           picture_url: "http://res.cloudinary.com/dcbb8bnvk/image/upload/v1467736480/iggy_gq4jif.jpg")
 #
-#
+# demo_story3 = Story.create(title: "Giants active reliever Romo, sent Suarez down",
+#                            user_id: 4,
+#                            body:
+#                                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+#                                 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+#                                 dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.)
+#                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+#                                 nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+#                                 fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+#                           picture_url: "http://res.cloudinary.com/dcbb8bnvk/image/upload/v1467521114/sfg_g7120s.jpg")
 # # need to implement tags

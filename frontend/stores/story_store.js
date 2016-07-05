@@ -1,6 +1,7 @@
 const AppDispatcher = require('../dispatcher/dispatcher.js');
 const Store = require('flux/utils').Store;
 const StoryConstants = require('../constants/story_constants');
+const FavoriteConstants = require('../constants/favorite_constants');
 const StoryStore = new Store(AppDispatcher);
 
 let _stories = {};
@@ -32,6 +33,17 @@ function removeStory(story) {
   delete _stories[story.id];
 }
 
+function addFavorite(storyId, userId) {
+  _stories[storyId].favorite_users.push(parseInt(userId));
+  StoryStore.__emitChange();
+}
+
+function removeFavorite(storyId, userId) {
+  const userIdx = _stories[storyId].favorite_users.indexOf(parseInt(userId));
+  _stories[storyId].favorite_users.splice(userIdx, 1);
+  StoryStore.__emitChange();
+}
+
 StoryStore.__onDispatch = function(payload) {
   switch (payload.actionType) {
     case StoryConstants.STORIES_RECEIVED:
@@ -45,6 +57,14 @@ StoryStore.__onDispatch = function(payload) {
     case StoryConstants.STORY_REMOVED:
       removeStory(payload.story);
       this.__emitChange();
+      break;
+    case FavoriteConstants.FAVORITE_RECEIVED:
+      addFavorite(payload.favorite.storyId, payload.favorite.userId);
+      StoryStore.__emitChange();
+      break;
+    case FavoriteConstants.FAVORITE_REMOVED:
+      removeFavorite(payload.favorite.storyId, payload.favorite.userId);
+      StoryStore.__emitChange();
       break;
   }
 };

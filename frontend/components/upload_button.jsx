@@ -7,7 +7,6 @@ const UploadButton= React.createClass({
   },
 
   postImage: function(url) {
-    // api action & api util
     const img = {url: url};
     $.ajax({
       url: "/api/stories",
@@ -29,9 +28,6 @@ const UploadButton= React.createClass({
         if (error === null) {
           this.props.postImage(images[0].url);
         }
-        // else {
-        //
-        // }
     });
   },
 

@@ -3,6 +3,14 @@ const StoryIndexItem = require('./story_index_item');
 const StoryActions = require('../actions/story_actions');
 const StoryStore = require('../stores/story_store');
 
+// Materialize-CSS
+const Button = require('react-materialize').Button;
+const Icon = require('react-materialize').Icon;
+
+
+// import {Button, Icon, ProgressBar} from 'react-materialize';
+
+
 const StoryIndex = React.createClass({
   getInitialState() {
     return({ stories: [] });
@@ -22,6 +30,7 @@ const StoryIndex = React.createClass({
   },
 
   render() {
+    // <Button node='a' waves='light'><Icon right>file_cloud</Icon>button</Button>
     return (
       <div>
         <div className="index-header">
