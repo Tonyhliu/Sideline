@@ -4,8 +4,8 @@ const StoryActions = require('../actions/story_actions');
 const StoryStore = require('../stores/story_store');
 
 // Materialize-CSS
-const Button = require('react-materialize').Button;
-const Icon = require('react-materialize').Icon;
+// const Button = require('react-materialize').Button;
+// const Icon = require('react-materialize').Icon;
 
 
 // import {Button, Icon, ProgressBar} from 'react-materialize';
