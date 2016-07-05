@@ -48,6 +48,10 @@ ul.index-stories {
   padding: 10px;
 }
 
+.story-pics {
+  width: 100%
+}
+
 .dropdown-results {
   /*display: block;*/
 }

@@ -13,7 +13,6 @@ class Api::FavoritesController < ApplicationController
   end
 
   def destroy
-    debugger
     @favorite = Favorite.find_by(
       user_id: current_user.id,
       story_id: favorites_params[:story_id]

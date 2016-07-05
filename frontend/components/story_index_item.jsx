@@ -49,11 +49,12 @@ const StoryIndexItem = React.createClass({
     // if no image, upload default image (random)
 
 
-    // Number of Likes: {bench.favorite }
     return(
       <li className="story-index-item">
-          <img src={this.props.story.picture_url}/>
+          <img className="story-pics"
+                src={this.props.story.picture_url} />
           <h4 className="story-user">{username}</h4>
+          Number of Likes: {this.props.story.favorite_users.length }
           <h2 className="story-links">
             <Link to={`/stories/${this.props.story.id}`}>
               {this.props.story.title}
