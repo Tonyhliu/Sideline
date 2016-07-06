@@ -50,15 +50,25 @@ const StoryIndexItem = React.createClass({
     return base + cropUrl[cropUrl.length - 1];
   },
 
-  // <img src="http://res.cloudinary.com/dcbb8bnvk/image/upload/c_scale,h_40,w_45/v1467831610/thumbsup_zhunmy.jpg"
-  //   className="toggle-fave"
-  //   onClick={this.toggleFav} />
   render() {
     const username = this.props.story.user.username.toUpperCase();
     const picUrl = this.cropPic(this.props.story.picture_url);
-
-
     let strippedText = jQuery(this.props.story.body).text();
+
+    let favorite;
+    const currentUser = SessionStore.currentUser();
+
+    if (SessionStore.isUserLoggedIn()) {
+      const currentUserFavs = currentUser.favorite_stories;
+
+      if (currentUserFavs.indexOf(this.props.story.id) !== -1) {
+        favorite = <i className="material-icons md-36 fav"
+          onClick={this.toggleFav}>favorite</i>;
+      } else {
+        favorite = <i className="material-icons md-36
+          fav-border" onClick={this.toggleFav}>favorite border</i>;
+      }
+    }
 
     return(
       <li className="story-index-item">
@@ -69,7 +79,7 @@ const StoryIndexItem = React.createClass({
           <h4 className="story-user">{username}</h4>
           Number of Likes: {this.props.story.favorite_users.length }
           <br/>
-          <FaBeer />
+          {favorite}
           <h2 className="story-links">
             <Link to={`/stories/${this.props.story.id}`}>
               {this.props.story.title}

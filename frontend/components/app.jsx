@@ -105,8 +105,6 @@ const App  = React.createClass({
     this.setState({ signIn: !this.state.signIn });
   },
 
-  // header footer & modal
-
   render: function() {
     const component = (this.state.signIn) ? <LoginForm cb={this.onModalClose} modal={this._switchForms}/> : <SignUpForm cb={this.onModalClose} modal={this._switchForms}/>;
 

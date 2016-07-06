@@ -11,7 +11,7 @@ const Splash = React.createClass({
           loop
           overflow="initial"/>
           <div className="hero-message">
-          TITLE
+          TESTING TITLE 
         </div>
       </section>
    );}

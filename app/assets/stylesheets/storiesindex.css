@@ -59,3 +59,15 @@ ul.index-stories {
 .toggle-fave:hover {
   cursor: pointer;
 }
+
+.fav {
+  color: red;
+}
+
+.fav-border {
+  color: gray;
+}
+
+.md-36.hover {
+  cursor: pointer;
+}
