@@ -85,3 +85,15 @@ hgroup.header-group {
 .create-story {
   margin-left: auto;
 }
+
+.footer-wrapper-container {
+  display: flex;
+  justify-content: space-around;
+  background: aliceblue;
+}
+
+.footer-nav {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+}

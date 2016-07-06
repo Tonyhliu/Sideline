@@ -1,11 +1,14 @@
 .story-container {
   font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 pre {
   font-family: sans-serif;
   white-space: pre-wrap;
-  width: 70%;
+  width: 60%;
   word-break: normal;
 }
 
@@ -16,4 +19,14 @@ pre {
   /*display: flex;*/
   /*justify-content: center;*/
   /*background: black;*/
+}
+
+.picture-container {
+  display: flex;
+  justify-content: center;
+}
+
+.story-picture {
+  height: 500px;
+  width: 50%;
 }

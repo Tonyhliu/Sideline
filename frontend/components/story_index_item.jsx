@@ -6,6 +6,9 @@ const StoryStore = require('../stores/story_store');
 const SessionStore = require('../stores/session_store');
 const hashHistory = require('react-router').hashHistory;
 
+const Button = require('react-materialize').Button;
+const Icon = require('react-materialize').Icon;
+
 const StoryIndexItem = React.createClass({
   editPost(e) {
     e.preventDefault();
@@ -42,16 +45,21 @@ const StoryIndexItem = React.createClass({
     }
   },
 
+  cropPic(url) {
+    let base = "http://res.cloudinary.com/dcbb8bnvk/image/upload/c_fill,h_300,w_1600/";
+    let cropUrl = url.split('/');
+    return base + cropUrl[cropUrl.length - 1];
+  },
+
   render() {
     const username = this.props.story.user.username.toUpperCase();
-
-    // const cropped = cloudinary_url(this.props.story.picture_url, :width => 300, :height => 200, :x => 335, :y => 410, :crop => :crop);
-    // <cl_image_tag={this.props.story.picture_url} />
-
+    const picUrl = this.cropPic(this.props.story.picture_url);
     return(
       <li className="story-index-item">
-        <img className="story-pics"
-          src={this.props.story.picture_url} />
+        <div className="image-container">
+          <img className="story-pics"
+            src={picUrl} />
+        </div>
           <h4 className="story-user">{username}</h4>
           Number of Likes: {this.props.story.favorite_users.length }
           <br/>

@@ -1,4 +1,5 @@
 const React = require('react');
+const ReactQuill = require('react-quill');
 const StoryActions = require('../actions/story_actions');
 const StoryStore = require('../stores/story_store');
 const SessionStore = require('../stores/session_store');
@@ -6,6 +7,7 @@ const Link = require('react-router').Link;
 const Button = require('react-bootstrap').Button;
 const hashHistory = require('react-router').hashHistory;
 const CommentForm = require('./comment_form');
+
 
 const StoryShow = React.createClass({
   getInitialState() {
@@ -73,7 +75,10 @@ const StoryShow = React.createClass({
       return (
         <div className="story-container">
           <h2 className="story-user">{user}</h2>
-          <img src={story.picture_url} />
+            <div className="picture-container">
+              <img src={story.picture_url}
+                    className="story-picture"/>
+            </div>
           <h3 className="story-title">{story.title}</h3>
           <pre className="story-body">{story.body}</pre>
             {editButton}
@@ -83,12 +88,15 @@ const StoryShow = React.createClass({
                   Back to stories!
           </Button>
 
-          {comments.map(comment => {
-            return <li key={comment.id}>
-              {comment.body} from { comment.user.username }
-                  </li>;
-          })
-        }
+          <pre>
+            {comments.map(comment => {
+              return <li key={comment.id}>
+                {comment.body} from { comment.user.username }
+                    </li>;
+              })
+              }
+          </pre>
+
           <CommentForm story={this.state.story}/>
         </div>
 
@@ -97,7 +105,10 @@ const StoryShow = React.createClass({
         return (
           <div className="story-container">
             <h2 className="story-user">{user}</h2>
-            <img src={story.picture_url} />
+            <div className="picture-container">
+              <img src={story.picture_url}
+                  className="story-picture" />
+            </div>
             <h3 className="story-title">{story.title}</h3>
             <pre className="story-body">{story.body}</pre>
               {editButton}
@@ -106,6 +117,7 @@ const StoryShow = React.createClass({
                     onClick={this._redirectToIndex}>
                     Back to stories!
             </Button>
+            <br/>
             { commentText }
 
             <CommentForm story={this.state.story} />
@@ -116,10 +128,4 @@ const StoryShow = React.createClass({
     }
 });
 
-// {
-//   <Button className="response-button"
-//     onClick={this.showCommentForm}>
-//     Leave a response
-//   </Button>
-// }
 module.exports = StoryShow;

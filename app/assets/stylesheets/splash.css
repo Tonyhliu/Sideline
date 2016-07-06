@@ -50,7 +50,7 @@ section.mask-message h3.sport {
     line-height: 1.5em;
 }*/
 
-/*------------------------------------
+/*------------------------------------*/
 .heropanel--video {
     font-family:sans-serif;
     min-height:500px;
@@ -97,9 +97,15 @@ section.mask-message h3.sport {
     color:#fff;
     margin:0;
     text-transform:uppercase;
-}*/
+}
 
-------------------------------------
+section.vsc-controller {
+  width: 100%;
+  height: 600px;
+}
+
+
+/*------------------------------------
 
 @import url('http://fonts.googleapis.com/css?family=Oswald');
 
@@ -139,4 +145,4 @@ h1 {
   color: #fff;
   font-family: Oswald, sans-serif;
   text-align: center;
-}
+}*/

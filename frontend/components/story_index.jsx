@@ -30,7 +30,6 @@ const StoryIndex = React.createClass({
   },
 
   render() {
-    // <Button node='a' waves='light'><Icon right>file_cloud</Icon>button</Button>
     return (
       <div>
         <div className="index-header">
@@ -44,7 +43,8 @@ const StoryIndex = React.createClass({
           <ul className="index-stories">
             {
               this.state.stories.map(story => {
-                return <StoryIndexItem key={story.id} story={story} />;
+                return <StoryIndexItem key={story.id}
+                                      story={story} />;
               })
             }
           </ul>

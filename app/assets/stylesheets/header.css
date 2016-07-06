@@ -5,6 +5,13 @@ a.logo {
   width: 105px;
 }
 
+footer-logo {
+  background: url(http://res.cloudinary.com/dcbb8bnvk/image/upload/c_pad,h_27,w_105/v1467495804/logo_sykaab.png);
+  background-repeat: no-repeat;
+  background-position-y: 10px;
+  width: 105px;
+}
+
 .navbar {
   background: #dddde4
 }

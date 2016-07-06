@@ -56,7 +56,6 @@ const StoryForm = React.createClass({
           break;
         case 4:
           this.pictureUrl = "http://res.cloudinary.com/dcbb8bnvk/image/upload/v1467521102/gs5_aypfhc.jpg";
-          // this.pictureUrl = "http://res.cloudinary.com/dcbb8bnvk/image/upload/c_crop,h_300,w_700,x_200,y_150/v1467521102/gs5_aypfhc.jpg";
           break;
         case 5:
           this.pictureUrl = "http://res.cloudinary.com/dcbb8bnvk/image/upload/v1467521102/raiders_yyxvce.jpg";
@@ -134,42 +133,45 @@ const StoryForm = React.createClass({
       }
 
       return (
-        <form>
+        <div className="form-container">
+          <form>
+            <FormGroup controlId="formControlsText">
+              <ControlLabel></ControlLabel>
+              <FormControl type="text"
+                          onChange={this._update("title")}
+                          defaultValue={story.title}
+                          />
+            </FormGroup>
 
-          <FormGroup controlId="formControlsText">
-            <ControlLabel></ControlLabel>
-            <FormControl type="text"
-                        onChange={this._update("title")}
-                        defaultValue={story.title}
-                        />
-          </FormGroup>
+            <FormGroup controlId="formControlsTextarea">
+              <ControlLabel></ControlLabel>
+              <ReactQuill componentClass="textarea"
+                          theme="snow"
+                          rows="4"
+                          cols="50"
+                          defaultValue={story.body}
+                          onChange={this._update("body")}
+                          required />
+            </FormGroup>
 
-          <FormGroup controlId="formControlsTextarea">
-            <ControlLabel></ControlLabel>
-            <FormControl componentClass="textarea"
-                        rows="4"
-                        cols="50"
-                        defaultValue={story.body}
-                        onChange={this._update("body")}/>
-          </FormGroup>
+            <FormGroup controlId="formControlsFile">
+              <Button onClick={this._upload}
+                      className="upload-button">
+                      {upload}
+              </Button>
+            </FormGroup>
 
-          <FormGroup controlId="formControlsFile">
-            <Button onClick={this._upload}
-                    className="upload-button">
-                    {upload}
+            <Button type="submit" onClick={this._handleEdit}>
+              Update
             </Button>
-          </FormGroup>
 
-          <Button type="submit" onClick={this._handleEdit}>
-            Update
-          </Button>
+            <Button type="submit"
+                    onClick={this._handleCancel}>
+              Cancel
+            </Button>
 
-          <Button type="submit"
-                  onClick={this._handleCancel}>
-            Cancel
-          </Button>
-
-        </form>
+          </form>
+        </div>
       );
     } else {
       let upload = "Choose Image";
@@ -178,44 +180,48 @@ const StoryForm = React.createClass({
         upload = "Uploaded!";
       }
       return(
-        <form onSubmit={this._handleSubmit}>
-          <FormGroup controlId="formControlsText">
-            <ControlLabel></ControlLabel>
-            <ReactQuill type="text"
-                        theme="snow"
-                        placeholder="Title"
-                        onChange={this._update("title")}
-                        value={this.state.title}
-                        required/>
-          </FormGroup>
+        <div className="form-container">
+          <form onSubmit={this._handleSubmit}
+                className="story-form">
+            <FormGroup controlId="formControlsText">
+              <ControlLabel></ControlLabel>
+              <FormControl type="text"
+                          className="story-title"
+                          placeholder="Title"
+                          onChange={this._update("title")}
+                          required/>
+            </FormGroup>
 
-          <FormGroup controlId="formControlsTextarea">
-            <ControlLabel></ControlLabel>
-            <FormControl componentClass="textarea"
-                        rows="4"
-                        cols="50"
-                        placeholder="Tell your story..."
-                        onChange={this._update("body")}
-                        required/>
-          </FormGroup>
+            <FormGroup controlId="formControlsTextarea">
+              <ControlLabel></ControlLabel>
+              <ReactQuill componentClass="textarea"
+                          theme="snow"
+                          rows="4"
+                          cols="50"
+                          value={this.state.body}
+                          placeholder="Tell your story..."
+                          onChange={this._update("body")}
+                          required />
+            </FormGroup>
 
-          <FormGroup controlId="formControlsFile">
-            <Button onClick={this._upload}
-                    className="upload-button">
-                    {upload}
+            <FormGroup controlId="formControlsFile">
+              <Button onClick={this._upload}
+                      className="upload-button">
+                      {upload}
+              </Button>
+            </FormGroup>
+
+            <Button type="submit">
+              Submit
             </Button>
-          </FormGroup>
 
-          <Button type="submit">
-            Submit
-          </Button>
+            <Button type="submit"
+                    onClick={this._handleCancel}>
+              Cancel
+            </Button>
 
-          <Button type="submit"
-                  onClick={this._handleCancel}>
-            Cancel
-          </Button>
-
-        </form>
+          </form>
+      </div>
       );
     }
   }

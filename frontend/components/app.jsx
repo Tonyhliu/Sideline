@@ -10,6 +10,7 @@ const Search = require('./search');
 const ButtonGroup = require('react-bootstrap').ButtonGroup;
 const Button = require('react-bootstrap').Button;
 const Navbar = require('react-bootstrap').Navbar;
+const Footer = require('./footer');
 
 // Forms
 const LoginForm = require('./login_form');
@@ -130,6 +131,7 @@ const App  = React.createClass({
         </div>
 
           {this.props.children}
+          <Footer />
       </div>
     );
   }

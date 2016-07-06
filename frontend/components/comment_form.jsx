@@ -51,20 +51,6 @@ const CommentForm = React.createClass({
             onChange={this._updateBody}/>
         </FormGroup>
 
-        <FormGroup controlId="formControlsSelect">
-         <ControlLabel>Select</ControlLabel>
-         <FormControl componentClass="select">
-           <option value="select">Select</option>
-           <option value="Basketball">Basketball</option>
-           <option value="Soccer">Soccer</option>
-           <option value="Football">Football</option>
-           <option value="Baseball">Baseball</option>
-           <option value="Volleyball">Volleyball</option>
-           <option value="Golf">Golf</option>
-           <option value="Hockey">Hockey</option>
-           <option value="Other">Other</option>
-         </FormControl>
-       </FormGroup>
 
        <Button type="submit">
          Publish
@@ -74,4 +60,18 @@ const CommentForm = React.createClass({
   }
 });
 
+//   <FormGroup controlId="formControlsSelect">
+//    <ControlLabel>Select</ControlLabel>
+//    <FormControl componentClass="select">
+//      <option value="select">Select</option>
+//      <option value="Basketball">Basketball</option>
+//      <option value="Soccer">Soccer</option>
+//      <option value="Football">Football</option>
+//      <option value="Baseball">Baseball</option>
+//      <option value="Volleyball">Volleyball</option>
+//      <option value="Golf">Golf</option>
+//      <option value="Hockey">Hockey</option>
+//      <option value="Other">Other</option>
+//    </FormControl>
+//  </FormGroup>
 module.exports = CommentForm;
