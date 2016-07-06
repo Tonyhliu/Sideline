@@ -14,7 +14,7 @@
 # demo_story = Story.create(title: "Warriors Rumors: Latest Intel on Durant, Barnes",
 #                           user_id: 3,
 #                           body:
-#                                 "The Golden State Warriors won 73 games last season, but after losing in the NBA Finals, you can expect the team to be aggressive in the offseason.
+#                                "<div> The Golden State Warriors won 73 games last season, but after losing in the NBA Finals, you can expect the team to be aggressive in the offseason.
 #                                 While the core of Stephen Curry, Klay Thompson and Draymond Green is unlikely to change, the front office will do whatever it takes to improve the roster
 #                                 and get back on top in the 2016-2017 season, whether that means through free agency or trades. There will be dozens of maneuvers throughout the summer, but
 #                                 here is a look at some of the bigger potential moves Warriors fans should watch for in the coming weeks. The biggest story of the NBA offseason is Kevin
@@ -36,13 +36,13 @@
 #                                 On one hand, he is an unproven player who has been nothing more than a fourth option on his team. He generally succeeded by getting wide-open shots without
 #                                 much focus from opposing defense. On the other hand, he is an athletic wing who can shoot and guard multiple positions defensively while just scratching
 #                                 the surface of his potential. In the right situation, he could develop into a star. Teams like Philadelphia and others will be willing to take that chance,
-#                                 which could price him out of the Warriors' budget regardless of Durant's decision.",
+#                                 which could price him out of the Warriors' budget regardless of Durant's decision. </div>",
 #                           picture_url: "http://res.cloudinary.com/dcbb8bnvk/image/upload/v1467739313/kd_n8pxrm.jpg")
 #
 # demo_story2 = Story.create(title: "Iggy Azalea caught Nick Young with other women on home security video",
 #                           user_id: 2,
 #                           body:
-#                                 "Iggy Azalea caught Nick Young on camera, and the Lakers guard couldn't say `it wasn't me.`
+#                                 "<div> Iggy Azalea caught Nick Young on camera, and the Lakers guard couldn't say `it wasn't me.`
 #                                 After a report came out Wednesday night claiming Young got his former girlfriend pregnant,
 #                                 Azalea took to Twitter to deny the rumors. She also provided the real reason why the celebrity
 #                                 couple broke up, and it was the reason everyone thought.) Young and Azalea were engaged for over
@@ -53,17 +53,17 @@
 #                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
 #                                 labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
 #                                 nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-#                                 eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+#                                 eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </div>",
 #                           picture_url: "http://res.cloudinary.com/dcbb8bnvk/image/upload/v1467736480/iggy_gq4jif.jpg")
 #
 # demo_story3 = Story.create(title: "Giants active reliever Romo, sent Suarez down",
 #                            user_id: 4,
 #                            body:
-#                                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+#                                 "<div> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 #                                 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
 #                                 dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.)
 #                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
 #                                 nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-#                                 fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+#                                 fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </div>",
 #                           picture_url: "http://res.cloudinary.com/dcbb8bnvk/image/upload/v1467521114/sfg_g7120s.jpg")
 # # need to implement tags

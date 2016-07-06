@@ -20,8 +20,7 @@ const FilterActions = require('../actions/filter_actions');
 
 const Search = React.createClass({
   getInitialState() {
-    return({ stories: StoryStore.all() });
-    // add query to state
+    return({ query: '', stories: StoryStore.all() });
   },
 
   _storiesChanged() {
@@ -43,13 +42,26 @@ const Search = React.createClass({
   },
 
   _onInput(e) {
+    this.setState({query: e.target.value});
     StoryActions.fetchAllStories({ query: e.target.value });
   },
 
   render() {
     const user = SessionStore.currentUser().username.capitalize();
+    let ul = <ul></ul>;
+    if (this.state.query.length > 0) {
+      ul =
+        <ul>
+          {
+            this.state.stories.map(story => {
+              return <li className="dropdown-menu-item"
+                         key={story.id}>{story.title}
+                     </li>;
+              })
+            }
+        </ul>;
+    }
 
-    // if input(query) more than 0, display
     return(
       //  <div class="dropdown">
       //    <button class="dropbtn">Search Results</button>
@@ -76,15 +88,7 @@ const Search = React.createClass({
                               className="search-bar"/>
                </FormGroup>
 
-                <ul className="dropdown-menu">
-                  {
-                    this.state.stories.map(story => {
-                      return <li className="dropdown-menu-item"
-                                 key={story.id}>{story.title}
-                             </li>;
-                      })
-                    }
-                </ul>
+                {ul}
 
                <ButtonGroup>
                  <Button className="create-story"

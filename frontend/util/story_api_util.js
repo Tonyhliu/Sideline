@@ -23,6 +23,8 @@ const StoryApiUtil = {
   },
 
   createStory(data, cb) {
+    console.log("story api");
+    console.log(data);
     $.ajax({
       url: "/api/stories",
       type: "POST",

@@ -8,8 +8,8 @@ const Footer = React.createClass({
       <footer className="footer">
         <section className="footer-wrapper-container">
           <ul className="footer-nav">
-            <Link className="logo" to="/">
-              Sideline
+            <Link className="footer-logo" to="/">
+              <h5>Sideline</h5>
             </Link>
           </ul>
 

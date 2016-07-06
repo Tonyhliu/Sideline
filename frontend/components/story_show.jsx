@@ -80,7 +80,8 @@ const StoryShow = React.createClass({
                     className="story-picture"/>
             </div>
           <h3 className="story-title">{story.title}</h3>
-          <pre className="story-body">{story.body}</pre>
+          <div className="story-body"
+              dangerouslySetInnerHTML={{__html: story.body}}></div>
             {editButton}
             {deleteButton}
           <Button bsStyle="info"
@@ -110,7 +111,8 @@ const StoryShow = React.createClass({
                   className="story-picture" />
             </div>
             <h3 className="story-title">{story.title}</h3>
-            <pre className="story-body">{story.body}</pre>
+            <div className="story-body"
+                dangerouslySetInnerHTML={{__html: story.body}}></div>
               {editButton}
               {deleteButton}
             <Button bsStyle="info"

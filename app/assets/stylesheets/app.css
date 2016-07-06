@@ -89,7 +89,8 @@ hgroup.header-group {
 .footer-wrapper-container {
   display: flex;
   justify-content: space-around;
-  background: aliceblue;
+  background: #dddde4;
+  margin-top: 40px;
 }
 
 .footer-nav {

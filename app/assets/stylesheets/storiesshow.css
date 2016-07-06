@@ -30,3 +30,13 @@ pre {
   height: 500px;
   width: 50%;
 }
+
+.story-body {
+  border: 1px solid black;
+  padding: 15%;
+}
+
+.story-title {
+  display: flex;
+  justify-content: center;
+}

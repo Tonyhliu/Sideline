@@ -1,10 +1,6 @@
-/*section.video-container {
+section.video-container {
   height: 600px;
-  background: black;
-}
-
-div.jumbotron {
-  height: 600px;
+  overflow: hidden;
 }
 
 .splash-video {
@@ -16,7 +12,8 @@ div.jumbotron {
   letter-spacing: 2px;
   height: 600px;
   object-fit: cover;
-}*/
+  z-index: -5;
+}
 
 /* DONT position: relative; */
 /* top: 25%; */
@@ -51,7 +48,7 @@ section.mask-message h3.sport {
 }*/
 
 /*------------------------------------*/
-.heropanel--video {
+/*.heropanel--video {
     font-family:sans-serif;
     min-height:500px;
 }
@@ -102,7 +99,7 @@ section.mask-message h3.sport {
 .splash-video {
   padding-left: 15%;
   padding-right: 15%;
-}
+}*/
 
 
 /*------------------------------------

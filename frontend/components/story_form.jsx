@@ -34,10 +34,6 @@ const StoryForm = React.createClass({
     hashHistory.push("/");
   },
 
-  _update(prop) {
-    return (e) => this.setState({ [prop]: e.target.value});
-  },
-
   _handleSubmit(e) {
     e.preventDefault();
 
@@ -73,10 +69,13 @@ const StoryForm = React.createClass({
     }
 
     let data = {title: this.state.title,
-                body: this.state.body,
                 user_id: this.state.user_id,
+                body: this.state.body,
                 picture_url: this.pictureUrl
     };
+
+    console.log("submit");
+    console.log(data);
 
     StoryActions.createStory(data);
     this._navigateToIndex();
@@ -104,6 +103,7 @@ const StoryForm = React.createClass({
                 user_id: this.state.user_id
     };
 
+    console.log(data);
     StoryActions.editStory(data, story.id);
     hashHistory.push(`/stories/${story.id}`);
   },
@@ -188,7 +188,7 @@ const StoryForm = React.createClass({
               <FormControl type="text"
                           className="story-title"
                           placeholder="Title"
-                          onChange={this._update("title")}
+                          onChange={(e) => this.setState({ title: e.target.value})}
                           required/>
             </FormGroup>
 
@@ -200,7 +200,7 @@ const StoryForm = React.createClass({
                           cols="50"
                           value={this.state.body}
                           placeholder="Tell your story..."
-                          onChange={this._update("body")}
+                          onChange={(e) => this.setState({ body: e})}
                           required />
             </FormGroup>
 
