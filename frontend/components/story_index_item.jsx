@@ -45,20 +45,25 @@ const StoryIndexItem = React.createClass({
   render() {
     const username = this.props.story.user.username.toUpperCase();
 
+    // const cropped = cloudinary_url(this.props.story.picture_url, :width => 300, :height => 200, :x => 335, :y => 410, :crop => :crop);
+    // <cl_image_tag={this.props.story.picture_url} />
+
     return(
       <li className="story-index-item">
-          <img className="story-pics"
-                src={this.props.story.picture_url} />
+        <img className="story-pics"
+          src={this.props.story.picture_url} />
           <h4 className="story-user">{username}</h4>
           Number of Likes: {this.props.story.favorite_users.length }
+          <br/>
+          <button className="toggle-fave"
+            onClick={this.toggleFav}>
+            {this._isLiked()}
+          </button>
           <h2 className="story-links">
             <Link to={`/stories/${this.props.story.id}`}>
               {this.props.story.title}
             </Link>
-          <button className="toggle-fave"
-                  onClick={this.toggleFav}>
-                  {this._isLiked()}
-          </button>
+
           </h2>
           <p className={"paragraphs"}>
             {this.props.story.body.slice(0, 300) + "..."}

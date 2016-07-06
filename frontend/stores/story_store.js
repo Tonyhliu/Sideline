@@ -38,7 +38,6 @@ function addFavorite(storyId, userId) {
 }
 
 function removeFavorite(storyId, userId) {
-  console.log(storyId, userId);
   const userIdx = _stories[storyId].favorite_users.indexOf(parseInt(userId));
   _stories[storyId].favorite_users.splice(userIdx, 1);
 }
@@ -62,8 +61,6 @@ StoryStore.__onDispatch = function(payload) {
       this.__emitChange();
       break;
     case FavoriteConstants.FAVORITE_REMOVED:
-      console.log("HELLO FROM STORY STORE");
-      console.log(payload.favorite);
       removeFavorite(payload.favorite.storyId, payload.favorite.userId);
       this.__emitChange();
       break;

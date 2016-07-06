@@ -1,4 +1,5 @@
 const React = require('react');
+const ReactQuill = require('react-quill');
 const StoryActions = require('../actions/story_actions');
 const hashHistory = require('react-router').hashHistory;
 const SessionStore = require('../stores/session_store');
@@ -55,6 +56,7 @@ const StoryForm = React.createClass({
           break;
         case 4:
           this.pictureUrl = "http://res.cloudinary.com/dcbb8bnvk/image/upload/v1467521102/gs5_aypfhc.jpg";
+          // this.pictureUrl = "http://res.cloudinary.com/dcbb8bnvk/image/upload/c_crop,h_300,w_700,x_200,y_150/v1467521102/gs5_aypfhc.jpg";
           break;
         case 5:
           this.pictureUrl = "http://res.cloudinary.com/dcbb8bnvk/image/upload/v1467521102/raiders_yyxvce.jpg";
@@ -179,9 +181,11 @@ const StoryForm = React.createClass({
         <form onSubmit={this._handleSubmit}>
           <FormGroup controlId="formControlsText">
             <ControlLabel></ControlLabel>
-            <FormControl type="text"
+            <ReactQuill type="text"
+                        theme="snow"
                         placeholder="Title"
                         onChange={this._update("title")}
+                        value={this.state.title}
                         required/>
           </FormGroup>
 

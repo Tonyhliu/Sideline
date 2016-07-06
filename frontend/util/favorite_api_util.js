@@ -11,8 +11,6 @@ const FavoriteApiUtil = {
   },
 
   deleteFavorite(data, cb) {
-    console.log("hello from api util");
-    console.log(data);
     $.ajax({
       url: 'api/favorites',
       type: 'DELETE',
