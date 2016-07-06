@@ -55,3 +55,7 @@ ul.index-stories {
 .dropdown-results {
   /*display: block;*/
 }
+
+.toggle-fave:hover {
+  cursor: pointer;
+}

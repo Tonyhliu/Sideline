@@ -63,10 +63,9 @@ const StoryIndexItem = React.createClass({
           <h4 className="story-user">{username}</h4>
           Number of Likes: {this.props.story.favorite_users.length }
           <br/>
-          <button className="toggle-fave"
-            onClick={this.toggleFav}>
-            {this._isLiked()}
-          </button>
+          <img src="http://res.cloudinary.com/dcbb8bnvk/image/upload/c_scale,h_40,w_45/v1467831610/thumbsup_zhunmy.jpg"
+                className="toggle-fave"
+                onClick={this.toggleFav} />
           <h2 className="story-links">
             <Link to={`/stories/${this.props.story.id}`}>
               {this.props.story.title}
