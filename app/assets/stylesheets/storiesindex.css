@@ -52,8 +52,8 @@ ul.index-stories {
   width: 100%
 }
 
-.dropdown-results {
-  /*display: block;*/
+.dropdown-menu-item {
+
 }
 
 .toggle-fave:hover {
@@ -70,4 +70,22 @@ ul.index-stories {
 
 .md-36.hover {
   cursor: pointer;
+}
+
+.navbar-form.navbar-right {
+  display: flex;
+}
+
+.search-bar {
+  width: 130px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+
+.search-bar:focus {
+  width: 200px;
+}
+
+.dropdown-menu-list {
+  position: absolute;
 }

@@ -98,3 +98,20 @@ hgroup.header-group {
   flex-direction: column;
   list-style: none;
 }
+
+.about-page {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  height: 300px;
+  margin: 0 auto;
+}
+
+.about-paragraph {
+  font-size: 19px;
+  color: #175db9;
+}
+
+.about-header {
+  color: #ef9115;
+}

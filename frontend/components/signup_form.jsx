@@ -99,14 +99,15 @@ const SignUpForm = React.createClass({
 						<a onClick={this.props.modal}>
 								Already have an account?</a>
 
+						<input type="submit"
+							value="Sign Up"
+							className="login-button"/>
+						
 						<button className="guest-login"
 										onClick={this._guest}>
 										Demo Login
 						</button>
 
-						<input type="submit"
-									value="Sign Up"
-									className="login-button"/>
 					</div>
 				</form>
 			</div>

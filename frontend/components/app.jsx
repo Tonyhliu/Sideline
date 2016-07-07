@@ -85,13 +85,13 @@ const App  = React.createClass({
 
                 <Button className="login-button"
                   onClick={this._handleClick.bind(this, true)}>
-                  Sign In
+                  Log In
                 </Button>
 
                 <Button className="login-button"
                   onClick={this._handleClick.bind(this, false)}>
                   Sign Up
-                  </Button>
+                </Button>
 
                 </ButtonGroup>
              </Navbar.Form>

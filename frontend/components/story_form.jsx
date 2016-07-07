@@ -74,11 +74,16 @@ const StoryForm = React.createClass({
                 picture_url: this.pictureUrl
     };
 
-    console.log("submit");
-    console.log(data);
-
     StoryActions.createStory(data);
     this._navigateToIndex();
+  },
+
+  _toggleUpload(bool) {
+    if (true) {
+      return "Upload Image!";
+    } else {
+      return "Uploaded!";
+    }
   },
 
   _handleEdit(e) {
@@ -103,7 +108,6 @@ const StoryForm = React.createClass({
                 user_id: this.state.user_id
     };
 
-    console.log(data);
     StoryActions.editStory(data, story.id);
     hashHistory.push(`/stories/${story.id}`);
   },
@@ -114,6 +118,8 @@ const StoryForm = React.createClass({
 
   _upload(e) {
     e.preventDefault();
+    this._toggleUpload(false);
+
     const that = this;
     window.cloudinary.openUploadWidget(
       window.cloudinary_options,
@@ -127,9 +133,10 @@ const StoryForm = React.createClass({
   render() {
     if (this.props.params.storyid) {
       const story = StoryStore.find(parseInt(this.props.params.storyid));
+      // console.log(StoryStore.find(7)); STORYSTORE broken.
       let upload = "Choose Image";
-      if (this.pictureUrl !== "") {
-        upload = "Uploaded!";
+      if (story.picture_url !== "") {
+        upload = this._toggleUpload(false);
       }
 
       return (
@@ -138,7 +145,7 @@ const StoryForm = React.createClass({
             <FormGroup controlId="formControlsText">
               <ControlLabel></ControlLabel>
               <FormControl type="text"
-                          onChange={this._update("title")}
+                          onChange={(e) => this.setState({ title: e.target.value})}
                           defaultValue={story.title}
                           />
             </FormGroup>
@@ -150,7 +157,7 @@ const StoryForm = React.createClass({
                           rows="4"
                           cols="50"
                           defaultValue={story.body}
-                          onChange={this._update("body")}
+                          onChange={(e) => this.setState({ body: e})}
                           required />
             </FormGroup>
 
@@ -176,9 +183,6 @@ const StoryForm = React.createClass({
     } else {
       let upload = "Choose Image";
 
-      if (this.pictureUrl !== "") {
-        upload = "Uploaded!";
-      }
       return(
         <div className="form-container">
           <form onSubmit={this._handleSubmit}

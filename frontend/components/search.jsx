@@ -48,10 +48,10 @@ const Search = React.createClass({
 
   render() {
     const user = SessionStore.currentUser().username.capitalize();
-    let ul = <ul></ul>;
+    let ul = <ul className="dropdown-menu-list" />;
     if (this.state.query.length > 0) {
       ul =
-        <ul>
+        <ul className="dropdown-menu-list">
           {
             this.state.stories.map(story => {
               return <li className="dropdown-menu-item"
@@ -63,14 +63,6 @@ const Search = React.createClass({
     }
 
     return(
-      //  <div class="dropdown">
-      //    <button class="dropbtn">Search Results</button>
-      //    <div class="search-results">
-      //      {this.state.stories.map(story => {
-      //        return <a href="#">{story.title}</a>;
-      //      })}
-      //    </div>
-      //  </div>
         <Navbar className="nav-bar">
             <Navbar.Header>
               <Navbar.Brand>
@@ -81,7 +73,7 @@ const Search = React.createClass({
             <Navbar.Collapse>
 
               <Navbar.Form pullRight>
-               <FormGroup>
+               <FormGroup className="search-bar-container">
                  <FormControl type="text"
                               placeholder="Search Sideline"
                               onInput={this._onInput}

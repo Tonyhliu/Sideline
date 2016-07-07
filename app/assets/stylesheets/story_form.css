@@ -13,10 +13,6 @@
   flex-direction: column;
 }
 
-.story-title {
-  width: 15%;
-}
-
 .story-form {
   display: flex;
   flex-direction: column;

@@ -16,9 +16,6 @@ pre {
   list-style: none;
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
-  /*display: flex;*/
-  /*justify-content: center;*/
-  /*background: black;*/
 }
 
 .picture-container {
@@ -28,15 +25,31 @@ pre {
 
 .story-picture {
   height: 500px;
-  width: 50%;
+  width: 80%;
 }
 
 .story-body {
   border: 1px solid black;
-  padding: 15%;
+  padding: 3%;
 }
 
 .story-title {
   display: flex;
   justify-content: center;
+}
+
+.trash {
+  color: gray;
+}
+
+.trash:hover {
+  cursor: pointer;
+}
+
+.edit:hover {
+  cursor: pointer;
+}
+
+.index-button {
+  
 }

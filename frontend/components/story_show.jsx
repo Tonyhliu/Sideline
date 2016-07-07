@@ -58,14 +58,11 @@ const StoryShow = React.createClass({
     const user = this.state.story.user.username.toUpperCase();
 
     if (SessionStore.currentUser().id === this.state.story.user.id) {
-      deleteButton =  <Button bsStyle="danger"
-                                  onClick={this._handleDelete}>
-                                  Delete Story
-                      </Button>;
-      editButton = <Button bsStyle="warning"
-                            onClick={this._handleEdit}>
-                            Edit Story
-                    </Button>;
+      deleteButton = <i className="material-icons md-36 trash"
+        onClick={this._handleDelete}>delete forever</i>;
+
+      editButton =  <i className="material-icons md-36 edit"
+        onClick={this._handleEdit}>mode edit</i>;
     }
 
     const comments = this.state.story.comments || [];
@@ -81,13 +78,17 @@ const StoryShow = React.createClass({
             </div>
           <h3 className="story-title">{story.title}</h3>
           <div className="story-body"
-              dangerouslySetInnerHTML={{__html: story.body}}></div>
+              dangerouslySetInnerHTML={{__html: story.body}}>
+          </div>
+
+          <div>
             {editButton}
             {deleteButton}
-          <Button bsStyle="info"
-                  onClick={this._redirectToIndex}>
-                  Back to stories!
-          </Button>
+            <Button bsStyle="info"
+                    onClick={this._redirectToIndex}
+                    className="index-button">
+                    Back to Stories!
+            </Button>
 
           <pre>
             {comments.map(comment => {
@@ -99,6 +100,7 @@ const StoryShow = React.createClass({
           </pre>
 
           <CommentForm story={this.state.story}/>
+          </div>
         </div>
 
       );
@@ -112,13 +114,17 @@ const StoryShow = React.createClass({
             </div>
             <h3 className="story-title">{story.title}</h3>
             <div className="story-body"
-                dangerouslySetInnerHTML={{__html: story.body}}></div>
+                dangerouslySetInnerHTML={{__html: story.body}}>
+            </div>
+
+            <div>
               {editButton}
               {deleteButton}
-            <Button bsStyle="info"
-                    onClick={this._redirectToIndex}>
-                    Back to stories!
-            </Button>
+              <Button bsStyle="info"
+                      onClick={this._redirectToIndex}>
+                      Back to stories!
+              </Button>
+          </div>
             <br/>
             { commentText }
 

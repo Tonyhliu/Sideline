@@ -73,6 +73,12 @@ const StoryIndexItem = React.createClass({
     return(
       <li className="story-index-item">
         <div className="image-container">
+          <h2 className="story-links">
+            <Link to={`/stories/${this.props.story.id}`}>
+              {this.props.story.title}
+            </Link>
+
+          </h2>
           <img className="story-pics"
             src={picUrl} />
         </div>
@@ -80,12 +86,6 @@ const StoryIndexItem = React.createClass({
           Number of Likes: {this.props.story.favorite_users.length }
           <br/>
           {favorite}
-          <h2 className="story-links">
-            <Link to={`/stories/${this.props.story.id}`}>
-              {this.props.story.title}
-            </Link>
-
-          </h2>
           <p className={"paragraphs"}>
             {strippedText.slice(0, 350) + "..."}
           </p>
