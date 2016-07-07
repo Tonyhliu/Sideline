@@ -70,6 +70,7 @@ const StoryIndexItem = React.createClass({
       }
     }
 
+    let numOfFaves = this.props.story.favorite_users.length;
     return(
       <li className="story-index-item">
         <div className="image-container">
@@ -83,9 +84,11 @@ const StoryIndexItem = React.createClass({
             src={picUrl} />
         </div>
           <h4 className="story-user">{username}</h4>
-          Number of Likes: {this.props.story.favorite_users.length }
-          <br/>
-          {favorite}
+
+          <div className="num-of-faves">
+            { numOfFaves} {favorite}
+          </div>
+
           <p className={"paragraphs"}>
             {strippedText.slice(0, 350) + "..."}
           </p>

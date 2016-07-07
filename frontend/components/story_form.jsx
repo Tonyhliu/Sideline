@@ -16,14 +16,28 @@ const Button = require('react-bootstrap').Button;
 const StoryForm = React.createClass({
   getInitialState() {
     return({ title: "", body: "",
-            user_id: SessionStore.currentUser().id
+            user_id: SessionStore.currentUser().id, pictureUrl: ""
           });
   },
 
   componentWillMount() {
-    this.pictureUrl = "";
+    if (this.props.params.storyid) {
+      this.storyListener = StoryStore.addListener(this._receiveStory);
+      StoryActions.getStory(this.props.params.storyid);
+    }
   },
 
+  componentWillUnmount() {
+    if (this.storyListener) {
+      this.storyListener.remove();
+    }
+  },
+
+  _receiveStory() {
+    const story = StoryStore.find(this.props.params.storyid);
+    this.setState({ title: story.title, body: story.body,
+                    user_id: story.user_id, pictureUrl: story.picture_url });
+  },
 
   _handleCancel(event) {
     event.preventDefault();
@@ -38,53 +52,48 @@ const StoryForm = React.createClass({
     e.preventDefault();
 
     let pic;
-    if (this.pictureUrl === "") {
+    if (this.state.pictureUrl === "") {
       let rand = Math.ceil((Math.random() * 8));
       switch (rand) {
         case 1:
-          this.pictureUrl = "http://res.cloudinary.com/dcbb8bnvk/image/upload/v1467521114/sfg_g7120s.jpg";
+          pic = "http://res.cloudinary.com/dcbb8bnvk/image/upload/v1467521114/sfg_g7120s.jpg";
           break;
         case 2:
-          this.pictureUrl = "http://res.cloudinary.com/dcbb8bnvk/image/upload/v1467521106/sfniners_vdlnha.jpg";
+          pic = "http://res.cloudinary.com/dcbb8bnvk/image/upload/v1467521106/sfniners_vdlnha.jpg";
           break;
         case 3:
-          this.pictureUrl = "http://res.cloudinary.com/dcbb8bnvk/image/upload/v1467521106/sfniners_vdlnha.jpg";
+          pic = "http://res.cloudinary.com/dcbb8bnvk/image/upload/v1467521106/sfniners_vdlnha.jpg";
           break;
         case 4:
-          this.pictureUrl = "http://res.cloudinary.com/dcbb8bnvk/image/upload/v1467521102/gs5_aypfhc.jpg";
+          pic = "http://res.cloudinary.com/dcbb8bnvk/image/upload/v1467521102/gs5_aypfhc.jpg";
           break;
         case 5:
-          this.pictureUrl = "http://res.cloudinary.com/dcbb8bnvk/image/upload/v1467521102/raiders_yyxvce.jpg";
+          pic = "http://res.cloudinary.com/dcbb8bnvk/image/upload/v1467521102/raiders_yyxvce.jpg";
           break;
         case 6:
-          this.pictureUrl = "http://res.cloudinary.com/dcbb8bnvk/image/upload/v1467521100/sjs_eza4mk.jpg";
+          pic = "http://res.cloudinary.com/dcbb8bnvk/image/upload/v1467521100/sjs_eza4mk.jpg";
           break;
         case 7:
-          this.pictureUrl = "https://cloudinary.com/console/media_library#/dialog/image/upload/dray_wnuauk.jpg";
+          pic = "https://cloudinary.com/console/media_library#/dialog/image/upload/dray_wnuauk.jpg";
           break;
         case 8:
-          this.pictureUrl = "http://res.cloudinary.com/dcbb8bnvk/image/upload/v1467521101/sjearth_wt1d6r.jpg";
+          pic = "http://res.cloudinary.com/dcbb8bnvk/image/upload/v1467521101/sjearth_wt1d6r.jpg";
           break;
       }
+    } else {
+      pic = this.state.pictureUrl;
     }
 
     let data = {title: this.state.title,
                 user_id: this.state.user_id,
                 body: this.state.body,
-                picture_url: this.pictureUrl
+                picture_url: pic
     };
 
     StoryActions.createStory(data);
     this._navigateToIndex();
   },
 
-  _toggleUpload(bool) {
-    if (true) {
-      return "Upload Image!";
-    } else {
-      return "Uploaded!";
-    }
-  },
 
   _handleEdit(e) {
     e.preventDefault();
@@ -113,12 +122,11 @@ const StoryForm = React.createClass({
   },
 
   postImage(url) {
-    this.pictureUrl = url;
+    this.setState({ pictureUrl: url});
   },
 
   _upload(e) {
     e.preventDefault();
-    this._toggleUpload(false);
 
     const that = this;
     window.cloudinary.openUploadWidget(
@@ -132,11 +140,11 @@ const StoryForm = React.createClass({
 
   render() {
     if (this.props.params.storyid) {
-      const story = StoryStore.find(parseInt(this.props.params.storyid));
-      // console.log(StoryStore.find(7)); STORYSTORE broken.
-      let upload = "Choose Image";
-      if (story.picture_url !== "") {
-        upload = this._toggleUpload(false);
+      const story = this.state;
+
+      let upload = "Choose Image!";
+      if (story.picture_url && story.picture_url !== "") {
+        upload = "Image uploaded!";
       }
 
       return (
@@ -146,7 +154,7 @@ const StoryForm = React.createClass({
               <ControlLabel></ControlLabel>
               <FormControl type="text"
                           onChange={(e) => this.setState({ title: e.target.value})}
-                          defaultValue={story.title}
+                          defaultValue={this.state.title}
                           />
             </FormGroup>
 
@@ -154,11 +162,11 @@ const StoryForm = React.createClass({
               <ControlLabel></ControlLabel>
               <ReactQuill componentClass="textarea"
                           theme="snow"
-                          rows="4"
-                          cols="50"
-                          defaultValue={story.body}
+                          rows="10"
+                          cols="10"
+                          defaultValue={this.state.body}
                           onChange={(e) => this.setState({ body: e})}
-                          required />
+                          required></ReactQuill>
             </FormGroup>
 
             <FormGroup controlId="formControlsFile">
@@ -168,20 +176,26 @@ const StoryForm = React.createClass({
               </Button>
             </FormGroup>
 
-            <Button type="submit" onClick={this._handleEdit}>
-              Update
-            </Button>
+            <div className="story-form-buttons">
+              <Button type="submit" onClick={this._handleEdit}>
+                Update
+              </Button>
 
-            <Button type="submit"
-                    onClick={this._handleCancel}>
-              Cancel
-            </Button>
+              <Button type="submit"
+                      onClick={this._handleCancel}>
+                Cancel
+              </Button>
+            </div>
 
           </form>
         </div>
       );
     } else {
+
       let upload = "Choose Image";
+      if (this.state.pictureUrl) {
+        upload = "Picture uploaded!";
+      }
 
       return(
         <div className="form-container">
@@ -193,19 +207,21 @@ const StoryForm = React.createClass({
                           className="story-title"
                           placeholder="Title"
                           onChange={(e) => this.setState({ title: e.target.value})}
-                          required/>
+                          required />
             </FormGroup>
 
             <FormGroup controlId="formControlsTextarea">
               <ControlLabel></ControlLabel>
               <ReactQuill componentClass="textarea"
                           theme="snow"
-                          rows="4"
-                          cols="50"
+                          rows="10"
+                          cols="10"
                           value={this.state.body}
-                          placeholder="Tell your story..."
+                          defaultValue="Tell your story..."
                           onChange={(e) => this.setState({ body: e})}
-                          required />
+                          required
+                          styles={false}>
+              </ReactQuill>
             </FormGroup>
 
             <FormGroup controlId="formControlsFile">
@@ -215,14 +231,16 @@ const StoryForm = React.createClass({
               </Button>
             </FormGroup>
 
-            <Button type="submit">
-              Submit
-            </Button>
+            <div className="story-form-buttons">
+              <Button type="submit">
+                Submit
+              </Button>
 
-            <Button type="submit"
-                    onClick={this._handleCancel}>
-              Cancel
-            </Button>
+              <Button type="submit"
+                      onClick={this._handleCancel}>
+                Cancel
+              </Button>
+            </div>
 
           </form>
       </div>

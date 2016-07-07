@@ -31,7 +31,7 @@ const Footer = React.createClass({
 
             <a href="https://www.linkedin.com/in/tonyhoyinliu">LinkedIn</a>
 
-            <a href="http://tumblr.com/">Tumblr</a>
+            <a href="http://tbunzz.tumblr.com/">Tumblr</a>
           </ul>
         </section>
       </footer>

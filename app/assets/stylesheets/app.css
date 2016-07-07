@@ -89,7 +89,7 @@ hgroup.header-group {
 .footer-wrapper-container {
   display: flex;
   justify-content: space-around;
-  background: #dddde4;
+  background: #f7f7f7;
   margin-top: 40px;
 }
 

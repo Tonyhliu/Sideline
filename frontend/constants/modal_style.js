@@ -22,8 +22,7 @@ module.exports = {
     padding                    : '20px',
     opacity                    : '0',
     transition                 : 'opacity 1s',
-    maxheight                 : '700px',
+    maxHeight                  : '450px',
     height                     : '70%'
-
   }
 };

@@ -21,16 +21,18 @@ pre {
 .picture-container {
   display: flex;
   justify-content: center;
+  width: 70%;
 }
 
 .story-picture {
   height: 500px;
-  width: 80%;
+  /*width: 80%;*/
 }
 
 .story-body {
   border: 1px solid black;
-  padding: 3%;
+  padding: 2%;
+  width: 50%;
 }
 
 .story-title {
@@ -50,6 +52,19 @@ pre {
   cursor: pointer;
 }
 
-.index-button {
-  
+.comments-container {
+  display: flex;
+  width: 50%;
+  flex-direction: column;
+  align-items: baseline;
+  padding-top: 20px;
+}
+
+.comments-pre {
+  margin-top: 10px;
+  margin-bottom: 3px;
+}
+
+textarea.form-control {
+  margin-top: 10px;
 }

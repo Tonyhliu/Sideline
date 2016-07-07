@@ -1,19 +1,29 @@
-/*.quill-contents ql-container ql-snow {
-  border: 1px solid black;
-}*/
-
 .ql-container {
-  border: 1px solid black;
-  font-size: 16px;
-  width: 29%;
+  border: 1px solid lightgray;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  height: 300px;
+  width: 600px;
 }
 
 .form-container {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .story-form {
   display: flex;
   flex-direction: column;
+  margin-top: 40px;
+  margin-bottom: 120px;
+}
+
+
+.story-title {
+  border: 1px solid lightgray;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
 }

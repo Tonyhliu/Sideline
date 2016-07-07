@@ -60,6 +60,7 @@ const CommentForm = React.createClass({
   }
 });
 
+module.exports = CommentForm;
 //   <FormGroup controlId="formControlsSelect">
 //    <ControlLabel>Select</ControlLabel>
 //    <FormControl componentClass="select">
@@ -74,4 +75,3 @@ const CommentForm = React.createClass({
 //      <option value="Other">Other</option>
 //    </FormControl>
 //  </FormGroup>
-module.exports = CommentForm;

@@ -1,5 +1,5 @@
 class Story < ActiveRecord::Base
-  validates :user_id, :title, :body, presence: true
+  validates :user_id, :title, :body, :picture_url, presence: true
 
   belongs_to :user
   has_many :comments,

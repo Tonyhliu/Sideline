@@ -25,13 +25,11 @@ div.index-header {
 }
 
 ul.index-stories {
-  /*top: 400px;*/
   margin: 0 20%;
 }
 
 .header-group {
   list-style: none;
-  /*display: -webkit-box;*/
   display: inline-block;
 }
 
@@ -41,19 +39,16 @@ ul.index-stories {
 }
 
 .story-index-item {
-  /*top: 400px;*/
   list-style: none;
   border: 2px solid lightgray;
-  margin: 20px;
+  margin-bottom: 50px;
+  margin-top: 50px;
   padding: 10px;
+  word-wrap: break-word;
 }
 
 .story-pics {
   width: 100%
-}
-
-.dropdown-menu-item {
-
 }
 
 .toggle-fave:hover {
@@ -64,8 +59,20 @@ ul.index-stories {
   color: red;
 }
 
+.fav:hover {
+  cursor: pointer;
+}
+
 .fav-border {
   color: gray;
+}
+
+.fav-border:hover {
+  cursor: pointer;
+}
+
+.fav:hover {
+  cursor: pointer;
 }
 
 .md-36.hover {
@@ -88,4 +95,30 @@ ul.index-stories {
 
 .dropdown-menu-list {
   position: absolute;
+  background: white;
+  border: 1px solid lightgray;
+  padding: 5px;
+  list-style: none;
+}
+
+.dropdown-menu-item {
+
+}
+
+.search-container {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.dropdown-menu-none {
+  display: none;
+}
+
+.num-of-faves {
+  font-size: 20px;
+}
+
+.story-link {
+  color: black;
 }

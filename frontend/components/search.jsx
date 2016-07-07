@@ -1,5 +1,6 @@
 const React = require('react');
 const hashHistory = require('react-router').hashHistory;
+const Link = require('react-router').Link;
 
 // React-BS
 const Navbar = require('react-bootstrap').Navbar;
@@ -46,17 +47,26 @@ const Search = React.createClass({
     StoryActions.fetchAllStories({ query: e.target.value });
   },
 
+  _redirectTtoNew() {
+    hashHistory.push("/stories/new");
+  },
+
   render() {
     const user = SessionStore.currentUser().username.capitalize();
-    let ul = <ul className="dropdown-menu-list" />;
+    let ul = <ul className="dropdown-menu-none" />;
     if (this.state.query.length > 0) {
       ul =
         <ul className="dropdown-menu-list">
           {
             this.state.stories.map(story => {
-              return <li className="dropdown-menu-item"
-                         key={story.id}>{story.title}
-                     </li>;
+              let link = `/stories/${story.id}`;
+              return <li className="dropdown-menu-item">
+                      <Link to={link}
+                        key={story.id}
+                        className="story-link">
+                        {story.title}
+                     </Link>
+                   </li>;
               })
             }
         </ul>;
@@ -73,23 +83,20 @@ const Search = React.createClass({
             <Navbar.Collapse>
 
               <Navbar.Form pullRight>
-               <FormGroup className="search-bar-container">
-                 <FormControl type="text"
-                              placeholder="Search Sideline"
-                              onInput={this._onInput}
-                              className="search-bar"/>
-               </FormGroup>
+                <div className="search-container">
+                   <FormGroup className="search-bar-container">
+                     <FormControl type="text"
+                                  placeholder="Search Sideline"
+                                  onInput={this._onInput}
+                                  className="search-bar"/>
+                   </FormGroup>
 
-                {ul}
+                    {ul}
+                </div>
 
                <ButtonGroup>
-                 <Button className="create-story"
-                         href="/#/stories/new">
-                         Write your story!
-                 </Button>
-
                  <DropdownButton title={user} id="bg-nested-dropdown">
-                   <MenuItem>Hello1</MenuItem>
+                   <MenuItem onClick={this._redirectTtoNew}>Write your story!</MenuItem>
                    <MenuItem>Profile</MenuItem>
                    <MenuItem>Settings</MenuItem>
                    <MenuItem divider />
