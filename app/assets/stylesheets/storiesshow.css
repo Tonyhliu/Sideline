@@ -19,20 +19,19 @@ pre {
 }
 
 .picture-container {
-  display: flex;
-  justify-content: center;
-  width: 70%;
+  width: 100%;
 }
 
 .story-picture {
   height: 500px;
-  /*width: 80%;*/
+  width: 100%
 }
 
 .story-body {
-  border: 1px solid black;
+  border: 1px solid #efeded;
   padding: 2%;
-  width: 50%;
+  width: 75%;
+  word-wrap: break-word;
 }
 
 .story-title {
@@ -42,6 +41,7 @@ pre {
 
 .trash {
   color: gray;
+  width: 30px;
 }
 
 .trash:hover {
@@ -67,4 +67,15 @@ pre {
 
 textarea.form-control {
   margin-top: 10px;
+}
+
+.story-page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+}
+
+.story-show-title {
+  font-size: 36px;
 }

@@ -20,6 +20,10 @@ const StoryShow = React.createClass({
     StoryActions.getStory(parseInt(this.props.params.storyid));
   },
 
+  componentWillReceiveProps(newProps) {
+    StoryActions.getStory(parseInt(newProps.params.storyid));
+  },
+
   componentWillUnmount() {
     this.storyListener.remove();
   },
@@ -70,34 +74,41 @@ const StoryShow = React.createClass({
     if (comments.length > 0) {
       return (
         <div className="story-container">
-          <h2 className="story-user">{user}</h2>
-            <div className="picture-container">
-              <img src={story.picture_url}
-                    className="story-picture"/>
+          <div className="story-page-container">
+
+            <h2 className="story-user">{user}</h2>
+              <div className="picture-container">
+                <img src={story.picture_url}
+                      className="story-picture"/>
+              </div>
+            <h3 className="story-show-title">{story.title}</h3>
+            <div className="story-body"
+                dangerouslySetInnerHTML={{__html: story.body}}>
             </div>
-          <h3 className="story-show-title">{story.title}</h3>
-          <div className="story-body"
-              dangerouslySetInnerHTML={{__html: story.body}}>
-          </div>
 
-          <div className="comments-container">
-            {editButton}
-            {deleteButton}
-            <Button bsStyle="info"
-                    onClick={this._redirectToIndex}
-                    className="index-button">
-                    Back to Stories!
-            </Button>
+            <div className="comments-container">
+              <div className="comments-buttons-container">
+                {editButton}
+                {deleteButton}
+                <Button bsStyle="info"
+                        onClick={this._redirectToIndex}
+                        className="index-button">
+                        Back to Stories!
+                </Button>
+              </div>
 
-            {comments.map(comment => {
-              return <pre className="comments-pre"
-                key={comment.id}>
-                {comment.body} from { comment.user.username }
-              </pre>;
-              })
-              }
+              <h2 className="comments-pre">Comments</h2>
+              {comments.map(comment => {
+                return <pre className="comments-pre"
+                  key={comment.id}>
+                  { comment.user.username } : {comment.body}
+                </pre>;
+                })
+                }
 
-          <CommentForm story={this.state.story}/>
+              <CommentForm story={this.state.story}/>
+            </div>
+
           </div>
         </div>
 
@@ -105,29 +116,34 @@ const StoryShow = React.createClass({
     } else {
         return (
           <div className="story-container">
-            <h2 className="story-user">{user}</h2>
-            <div className="picture-container">
-              <img src={story.picture_url}
-                  className="story-picture" />
-            </div>
-            <h3 className="story-show-title">{story.title}</h3>
-            <div className="story-body"
-                dangerouslySetInnerHTML={{__html: story.body}}>
-            </div>
+            <div className="story-page-container">
 
-            <div className="comments-container">
-              {editButton}
-              {deleteButton}
-              <Button bsStyle="info"
-                      onClick={this._redirectToIndex}
-                      className="index-button">
-                      Back to stories!
-              </Button>
+              <h2 className="story-user">{user}</h2>
+              <div className="picture-container">
+                <img src={story.picture_url}
+                    className="story-picture" />
+              </div>
+              <h3 className="story-show-title">{story.title}</h3>
+              <div className="story-body"
+                  dangerouslySetInnerHTML={{__html: story.body}}>
+              </div>
 
-              <br/>
-              <h1 className="comments-pre">No comments yet!</h1>
+              <div className="comments-container">
+                <div className="comments-buttons-container">
+                  {editButton}
+                  {deleteButton}
+                  <Button bsStyle="info"
+                          onClick={this._redirectToIndex}
+                          className="index-button">
+                          Back to stories!
+                  </Button>
+                </div>
 
-              <CommentForm story={this.state.story} />
+                <br/>
+                <h1 className="comments-pre">No comments yet!</h1>
+
+                <CommentForm story={this.state.story} />
+              </div>
 
             </div>
           </div>

@@ -46,7 +46,7 @@ const CommentForm = React.createClass({
           <FormControl componentClass="textarea"
             placeholder="Write a response..."
             value={this.state.body}
-            rows="10"
+            rows="5"
             cols="30"
             onChange={this._updateBody}/>
         </FormGroup>

@@ -51,6 +51,10 @@ const Search = React.createClass({
     hashHistory.push("/stories/new");
   },
 
+  _clearQuery() {
+    this.state.query = "";
+  },
+
   render() {
     const user = SessionStore.currentUser().username.capitalize();
     let ul = <ul className="dropdown-menu-none" />;
@@ -62,11 +66,12 @@ const Search = React.createClass({
               let link = `/stories/${story.id}`;
               return <li className="dropdown-menu-item">
                       <Link to={link}
-                        key={story.id}
-                        className="story-link">
-                        {story.title}
-                     </Link>
-                   </li>;
+                            key={story.id}
+                            className="story-link"
+                            onClick={this._clearQuery}>
+                            {story.title}
+                      </Link>
+                     </li>;
               })
             }
         </ul>;

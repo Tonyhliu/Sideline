@@ -74,7 +74,7 @@ const StoryForm = React.createClass({
           pic = "http://res.cloudinary.com/dcbb8bnvk/image/upload/v1467521100/sjs_eza4mk.jpg";
           break;
         case 7:
-          pic = "https://cloudinary.com/console/media_library#/dialog/image/upload/dray_wnuauk.jpg";
+          pic = "http://res.cloudinary.com/dcbb8bnvk/image/upload/v1467520392/dray_wnuauk.jpg";
           break;
         case 8:
           pic = "http://res.cloudinary.com/dcbb8bnvk/image/upload/v1467521101/sjearth_wt1d6r.jpg";
@@ -114,7 +114,8 @@ const StoryForm = React.createClass({
 
     let data = {title: title,
                 body: body,
-                user_id: this.state.user_id
+                user_id: this.state.user_id,
+                picture_url: this.state.pictureUrl
     };
 
     StoryActions.editStory(data, story.id);
@@ -122,6 +123,7 @@ const StoryForm = React.createClass({
   },
 
   postImage(url) {
+    console.log(url);
     this.setState({ pictureUrl: url});
   },
 
@@ -143,7 +145,7 @@ const StoryForm = React.createClass({
       const story = this.state;
 
       let upload = "Choose Image!";
-      if (story.picture_url && story.picture_url !== "") {
+      if (this.state.pictureUrl && this.state.pictureUrl !== "") {
         upload = "Image uploaded!";
       }
 
@@ -154,7 +156,7 @@ const StoryForm = React.createClass({
               <ControlLabel></ControlLabel>
               <FormControl type="text"
                           onChange={(e) => this.setState({ title: e.target.value})}
-                          defaultValue={this.state.title}
+                          value={story.title}
                           />
             </FormGroup>
 
@@ -164,7 +166,7 @@ const StoryForm = React.createClass({
                           theme="snow"
                           rows="10"
                           cols="10"
-                          defaultValue={this.state.body}
+                          value={story.body}
                           onChange={(e) => this.setState({ body: e})}
                           required></ReactQuill>
             </FormGroup>
@@ -216,6 +218,7 @@ const StoryForm = React.createClass({
                           theme="snow"
                           rows="10"
                           cols="10"
+                          placeholder="Tell your story..."
                           value={this.state.body}
                           defaultValue="Tell your story..."
                           onChange={(e) => this.setState({ body: e})}

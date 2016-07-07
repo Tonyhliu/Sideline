@@ -17,8 +17,4 @@ const Splash = React.createClass({
    );}
 });
 
-// <div className="heropanel__content">
-//   <h1><a href="/" rel="home">Title</a></h1>
-//   <p>Subtitle</p>
-// </div>
 module.exports = Splash;

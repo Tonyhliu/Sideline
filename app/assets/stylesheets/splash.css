@@ -19,6 +19,10 @@ section.video-container {
   right: 0%;
 }
 
+.hero-message {
+  position: absolute;
+}
+
 /* DONT position: relative; */
 /* top: 25%; */
 /*width: 100%;*/
