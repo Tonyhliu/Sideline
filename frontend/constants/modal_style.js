@@ -9,10 +9,9 @@ module.exports = {
   },
   content : {
     position                   : 'fixed',
-    // width                      : '300px',
     top                        : '10%',
-    left                       : '25%',
-    right                      : '25%',
+    left                       : '40%',
+    right                      : '40%',
     bottom                     : '10%',
     border                     : '1px solid #ccc',
     background                 : '#fff',
@@ -22,9 +21,9 @@ module.exports = {
     outline                    : 'none',
     padding                    : '20px',
     opacity                    : '0',
-    transition                 : 'opacity 1s'
+    transition                 : 'opacity 1s',
+    maxheight                 : '700px',
+    height                     : '70%'
+
   }
 };
-
-// justify-content: center;
-// width: 400px;

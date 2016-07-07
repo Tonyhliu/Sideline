@@ -15,6 +15,10 @@ section.video-container {
   z-index: -5;
 }
 
+.ReactModal__Overlay--after-open {
+  right: 0%;
+}
+
 /* DONT position: relative; */
 /* top: 25%; */
 /*width: 100%;*/

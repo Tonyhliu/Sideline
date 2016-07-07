@@ -22,6 +22,7 @@ const StoryIndex = require('./components/story_index');
 const StoryShow = require('./components/story_show');
 const StoryForm = require('./components/story_form');
 const CommentForm = require('./components/comment_form');
+const About = require('./components/about');
 
 //Auth
 // const SessionStore = require('./stores/session_store');
@@ -37,6 +38,7 @@ const appRouter = (
       <Route path="stories/:storyid" component={StoryShow}>
         <Route path="comment" component={CommentForm} />
       </Route>
+      <Route path="about" component={About} />
     </Route>
   </Router>
 );
