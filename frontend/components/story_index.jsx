@@ -34,7 +34,7 @@ const StoryIndex = React.createClass({
       <div>
         <div className="index-header">
           <section className="index-header-header">
-            <h1 className="index-header-message">JOIN THE SIDELINE TALK</h1>
+            <h1 className="index-header-message"> JOIN THE SIDELINE </h1>
             <h3></h3>
             <h3></h3>
           </section>

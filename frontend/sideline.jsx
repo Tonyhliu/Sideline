@@ -29,7 +29,7 @@ const About = require('./components/about');
 // const SessionActions = require('./actions/session_actions');
 
 const appRouter = (
-  <Router history={hashHistory}>
+  <Router onUpdate={window.scrollTo(0, 0)} history={hashHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={Splash} onEnter={_redirectIfLoggedIn} />
       <Route path="stories" component={StoryIndex} />

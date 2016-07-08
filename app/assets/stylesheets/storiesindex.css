@@ -17,7 +17,9 @@ div.index-header {
 .index-header-message {
   color: white;
   font-weight: 700;
-  font-size: 60px;
+  font-size: 80px;
+  opacity: .9;
+  text-shadow: 2px 2px rgb(249, 161, 32);
 }
 
 .story-links {

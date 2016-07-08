@@ -72,6 +72,7 @@ const StoryShow = React.createClass({
     const comments = this.state.story.comments || [];
 
     if (comments.length > 0) {
+      window.scrollTo(0, 0);
       return (
         <div className="story-container">
           <div className="story-page-container">
@@ -115,6 +116,7 @@ const StoryShow = React.createClass({
 
       );
     } else {
+      window.scrollTo(0, 0);
         return (
           <div className="story-container">
             <div className="story-page-container">
