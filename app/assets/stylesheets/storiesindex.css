@@ -124,3 +124,7 @@ ul.index-stories {
 .story-link {
   color: black;
 }
+
+.story-user-avatar {
+  width: 50px;
+}

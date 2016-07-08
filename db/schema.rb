@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160706041614) do
+ActiveRecord::Schema.define(version: 20160708034629) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,12 +52,13 @@ ActiveRecord::Schema.define(version: 20160706041614) do
   add_index "stories", ["user_id"], name: "index_stories_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "username",        null: false
-    t.string   "password_digest", null: false
-    t.string   "session_token",   null: false
+    t.string   "username",                                                                                                                                 null: false
+    t.string   "password_digest",                                                                                                                          null: false
+    t.string   "session_token",                                                                                                                            null: false
     t.text     "description"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                                                                                                                               null: false
+    t.datetime "updated_at",                                                                                                                               null: false
+    t.string   "avatar_url",      default: "http://res.cloudinary.com/dcbb8bnvk/image/upload/w_400,h_400,c_crop,g_face,r_max/w_200/profilepic_cty3ak.png", null: false
   end
 
   add_index "users", ["session_token"], name: "index_users_on_session_token", unique: true, using: :btree

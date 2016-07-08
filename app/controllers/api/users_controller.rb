@@ -14,11 +14,19 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def update
+    # @user = User.find(params[:id])
+    @user = current_user
+    if @user.update(user_params)
+      render :show
+    end
+  end
+
   # implement destroy for user
 
   private
 
   def user_params
-    params.require(:user).permit(:password, :username)
+    params.require(:user).permit(:password, :username, :avatar_url)
   end
 end

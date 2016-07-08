@@ -123,7 +123,6 @@ const StoryForm = React.createClass({
   },
 
   postImage(url) {
-    console.log(url);
     this.setState({ pictureUrl: url});
   },
 

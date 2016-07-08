@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   validates :session_token, uniqueness: true, presence: true
+  validates :avatar_url, presence: true
   validates :password_digest, presence: { message: "Password can't be blank!" }
   validates :password, length: { minimum: 6, allow_nil: true, message: "Must be at least 6 characters" }
   validates :description, length: { maximum: 140, allow_nil: true }

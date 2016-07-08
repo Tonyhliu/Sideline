@@ -19,6 +19,13 @@ const SessionActions = {
     ErrorActions.setErrors);
   },
 
+  update(data) {
+    SessionApiUtil.update(
+      data,
+      SessionActions.receiveCurrentUser,
+      ErrorActions.setErrors);
+  },
+
   logOut() {
     SessionApiUtil.logout(SessionActions.removeCurrentUser);
   },

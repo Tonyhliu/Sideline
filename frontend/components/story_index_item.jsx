@@ -6,8 +6,6 @@ const StoryStore = require('../stores/story_store');
 const SessionStore = require('../stores/session_store');
 const hashHistory = require('react-router').hashHistory;
 
-const FaBeer = require('react-icons/lib/fa/beer');
-
 const StoryIndexItem = React.createClass({
   editPost(e) {
     e.preventDefault();
@@ -84,6 +82,8 @@ const StoryIndexItem = React.createClass({
             src={picUrl} />
         </div>
           <h4 className="story-user">{username}</h4>
+          <img className="story-user-avatar"
+                src={this.props.story.user.avatar_url}></img>
 
           <div className="num-of-faves">
             { numOfFaves} {favorite}

@@ -29,6 +29,23 @@ const SessionApiUtil = {
 		});
   },
 
+  update(user, success, error) {
+    console.log(user);
+    $.ajax({
+      url: `/api/users/${user.user_id}`,
+      type: 'PATCH',
+      data: { user },
+      success(resp) {
+        success(resp);
+      },
+      error(xhr) {
+        const errors = xhr.responseJSON;
+
+        error("update", errors);
+      }
+    });
+  },
+
   logout(cb) {
     $.ajax({
       url: '/api/session',

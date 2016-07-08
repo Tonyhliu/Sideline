@@ -20,6 +20,8 @@ const FilterParamsStore = require('../stores/filter_params_store');
 const FilterActions = require('../actions/filter_actions');
 
 const Search = React.createClass({
+
+
   getInitialState() {
     return({ query: '', stories: StoryStore.all() });
   },
@@ -49,6 +51,10 @@ const Search = React.createClass({
 
   _redirectTtoNew() {
     hashHistory.push("/stories/new");
+  },
+
+  _redirectToSettings() {
+    hashHistory.push(`users/${SessionStore.currentUser().id}`);
   },
 
   _clearQuery() {
@@ -104,7 +110,7 @@ const Search = React.createClass({
                  <DropdownButton title={user} id="bg-nested-dropdown">
                    <MenuItem onClick={this._redirectTtoNew}>Write your story!</MenuItem>
                    <MenuItem>Profile</MenuItem>
-                   <MenuItem>Settings</MenuItem>
+                   <MenuItem onClick={this._redirectToSettings}>Settings</MenuItem>
                    <MenuItem divider />
                    <MenuItem onClick={this._signOut}>Log Out!</MenuItem>
                  </DropdownButton>
