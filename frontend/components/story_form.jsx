@@ -157,6 +157,7 @@ const StoryForm = React.createClass({
               <FormControl type="text"
                           onChange={(e) => this.setState({ title: e.target.value})}
                           value={story.title}
+                          maxLength="60"
                           />
             </FormGroup>
 
@@ -208,6 +209,7 @@ const StoryForm = React.createClass({
               <FormControl type="text"
                           className="story-title"
                           placeholder="Title"
+                          maxLength="60"
                           onChange={(e) => this.setState({ title: e.target.value})}
                           required />
             </FormGroup>

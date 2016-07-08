@@ -40,23 +40,27 @@ const CommentForm = React.createClass({
   },
 
   render() {
-    return (
-      <form onSubmit={this._handleComment}>
-        <FormGroup controlId="formControlsTextarea">
-          <FormControl componentClass="textarea"
-            placeholder="Write a response..."
-            value={this.state.body}
-            rows="5"
-            cols="30"
-            onChange={this._updateBody}/>
-        </FormGroup>
+    if (SessionStore.isUserLoggedIn()) {
+      return (
+        <form onSubmit={this._handleComment}>
+          <FormGroup controlId="formControlsTextarea">
+            <FormControl componentClass="textarea"
+              placeholder="Write a response..."
+              value={this.state.body}
+              rows="5"
+              cols="30"
+              onChange={this._updateBody}/>
+          </FormGroup>
 
 
-       <Button type="submit">
-         Publish
-       </Button>
-     </form>
-    );
+         <Button type="submit">
+           Publish
+         </Button>
+       </form>
+      );
+    } else {
+      return (<div></div>);
+    }
   }
 });
 

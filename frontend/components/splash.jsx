@@ -1,6 +1,11 @@
 const React = require('react');
+const hashHistory = require('react-router').hashHistory;
 
 const Splash = React.createClass({
+  _redirectToStories() {
+    hashHistory.push("/stories");
+  },
+
   render () {
     return (
       <section className="video-container">
@@ -10,8 +15,11 @@ const Splash = React.createClass({
           autoPlay muted
           loop
           overflow="initial"/>
+
           <div className="hero-message">
-            TESTING TITLE
+            <h1 className="hero-header">CATCH UP ON THE LATEST SPORTS NEWS</h1>
+            <h3 className="hero-subheader"
+                onClick={this._redirectToStories}>Explore Stories Now!</h3>
           </div>
       </section>
    );}

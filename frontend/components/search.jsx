@@ -64,7 +64,8 @@ const Search = React.createClass({
           {
             this.state.stories.map(story => {
               let link = `/stories/${story.id}`;
-              return <li className="dropdown-menu-item">
+              return <li className="dropdown-menu-item"
+                          key={story.id}>
                       <Link to={link}
                             key={story.id}
                             className="story-link"

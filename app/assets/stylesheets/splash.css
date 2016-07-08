@@ -1,10 +1,11 @@
 section.video-container {
+  position: relative;
   height: 600px;
   overflow: hidden;
 }
 
 .splash-video {
-  position: relative;
+  /*position: relative;*/
   top: 25%;
   width: 100%;
   min-width: 970px;
@@ -21,6 +22,31 @@ section.video-container {
 
 .hero-message {
   position: absolute;
+  top: 65%;
+  color: white;
+  left: 35%;
+  font-size: 64px;
+  display: flex;
+  flex-direction: column;
+  /*align-items: center;*/
+  justify-content: center;
+}
+
+.hero-header {
+  font-size: 30px;
+}
+
+.hero-subheader {
+  background: gray;
+  padding: 20px;
+  width: 270px;
+  margin: 0 auto;
+}
+
+.hero-subheader:hover {
+  background: black;
+  color: white;
+  cursor: pointer;
 }
 
 /* DONT position: relative; */

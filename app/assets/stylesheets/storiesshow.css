@@ -79,3 +79,8 @@ textarea.form-control {
 .story-show-title {
   font-size: 36px;
 }
+
+.story-paragraph {
+  padding: 15px;
+  border-bottom: 1px solid #e8e1e1;
+}
