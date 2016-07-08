@@ -53,7 +53,7 @@ const CommentForm = React.createClass({
           </FormGroup>
 
 
-         <Button type="submit">
+         <Button type="submit" className="button hvr-hang">
            Publish
          </Button>
        </form>
@@ -65,6 +65,7 @@ const CommentForm = React.createClass({
 });
 
 module.exports = CommentForm;
+
 //   <FormGroup controlId="formControlsSelect">
 //    <ControlLabel>Select</ControlLabel>
 //    <FormControl componentClass="select">

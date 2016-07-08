@@ -27,3 +27,11 @@
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;
 }
+
+.submit-button {
+  margin-right: 5px;
+}
+
+.update-button {
+  margin-right: 5px;
+}

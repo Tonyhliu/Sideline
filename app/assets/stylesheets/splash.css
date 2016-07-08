@@ -24,7 +24,8 @@ section.video-container {
   position: absolute;
   top: 65%;
   color: white;
-  left: 35%;
+  left: 50%;
+  transform: translate(-50%);
   font-size: 64px;
   display: flex;
   flex-direction: column;

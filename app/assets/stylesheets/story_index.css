@@ -37,7 +37,7 @@ ul.index-stories {
 
 .paragraphs {
   font-family: sans-serif;
-  color: black;
+  color: #383838;
 }
 
 .story-index-item {
@@ -119,6 +119,7 @@ ul.index-stories {
 
 .num-of-faves {
   font-size: 20px;
+  color: #363636;
 }
 
 .story-link {
@@ -127,4 +128,9 @@ ul.index-stories {
 
 .story-user-avatar {
   width: 50px;
+  margin-bottom: 10px;
+}
+
+.story-title-link {
+  color: rgba(6, 0, 0, 0.84);
 }

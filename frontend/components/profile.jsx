@@ -9,7 +9,7 @@ const SessionActions = require('../actions/session_actions');
 
 const Profile = React.createClass({
   getInitialState() {
-    return({ avatarUrl: SessionStore.currentUser().avatarUrl });
+    return({ avatarUrl: SessionStore.currentUser().avatar_url });
   },
 
   _upload(e) {
@@ -36,7 +36,6 @@ const Profile = React.createClass({
   _handleEdit(e) {
     e.preventDefault();
     const user = SessionStore.currentUser();
-    console.log(user);
     let data = { username: user.username,
                 password: user.password,
                 avatar_url: this.state.avatarUrl,
@@ -47,29 +46,34 @@ const Profile = React.createClass({
   },
 
   render() {
-    let upload = "Upload Picture!";
-    if (this.state.avatarUrl !== "http://res.cloudinary.com/dcbb8bnvk/image/upload/w_400,h_400,c_crop,g_face,r_max/w_200/profilepic_cty3ak.png") {
-      upload = "Uploaded!";
+    let upload = "Upload a picture!";
+    let defaultPic = "http://res.cloudinary.com/dcbb8bnvk/image/upload/w_400,h_400,c_crop,g_face,r_max/w_200/profilepic_cty3ak.png";
+    if (this.state.avatarUrl !== defaultPic) {
+      upload = "Uploaded";
     }
 
     return (
       <div>
         <div className="profile-page">
-          <h1 className="profile-header"> Upload a picture of yourself!</h1>
-          <form>
-            <FormGroup controlId="formControlsFile">
-              <Button onClick={this._upload}
-                      className="upload-button">
-                      {upload}
-              </Button>
-            </FormGroup>
+          <div className="profile-container">
+            <h1 className="profile-header"> Upload a profile picture!</h1>
+            <form className="profile-form">
+              <FormGroup controlId="formControlsFile">
+                <Button onClick={this._upload}
+                        className="upload-button hvr-grow">
+                        {upload}
+                </Button>
+              </FormGroup>
 
-            <div className="update-pic">
-              <Button type="submit" onClick={this._handleEdit}>
-                Update
+              <div className="update-pic">
+              <Button type="submit"
+                      className="submit-button hvr-grow"
+                      onClick={this._handleEdit}>
+                Save
               </Button>
             </div>
           </form>
+        </div>
       </div>
     </div>
   );}

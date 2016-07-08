@@ -60,11 +60,11 @@ const StoryIndexItem = React.createClass({
       const currentUserFavs = currentUser.favorite_stories;
 
       if (currentUserFavs.indexOf(this.props.story.id) !== -1) {
-        favorite = <i className="material-icons md-36 fav"
+        favorite = <i className="material-icons md-36 fav hvr-buzz"
           onClick={this.toggleFav}>favorite</i>;
       } else {
         favorite = <i className="material-icons md-36
-          fav-border" onClick={this.toggleFav}>favorite border</i>;
+          fav-border hvr-buzz-out" onClick={this.toggleFav}>favorite border</i>;
       }
     }
 
@@ -73,7 +73,8 @@ const StoryIndexItem = React.createClass({
       <li className="story-index-item">
         <div className="image-container">
           <h2 className="story-links">
-            <Link to={`/stories/${this.props.story.id}`}>
+            <Link to={`/stories/${this.props.story.id}`}
+                  className="story-title-link">
               {this.props.story.title}
             </Link>
 

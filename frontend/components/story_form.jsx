@@ -173,18 +173,21 @@ const StoryForm = React.createClass({
 
             <FormGroup controlId="formControlsFile">
               <Button onClick={this._upload}
-                      className="upload-button">
+                      className="upload-button hvr-pop">
                       {upload}
               </Button>
             </FormGroup>
 
             <div className="story-form-buttons">
-              <Button type="submit" onClick={this._handleEdit}>
+              <Button type="submit"
+                      onClick={this._handleEdit}
+                      className="update-button hvr-pop">
                 Update
               </Button>
 
               <Button type="submit"
-                      onClick={this._handleCancel}>
+                      onClick={this._handleCancel}
+                      className="submit-button hvr-pop">
                 Cancel
               </Button>
             </div>
@@ -230,18 +233,20 @@ const StoryForm = React.createClass({
 
             <FormGroup controlId="formControlsFile">
               <Button onClick={this._upload}
-                      className="upload-button">
+                      className="upload-button hvr-pop">
                       {upload}
               </Button>
             </FormGroup>
 
             <div className="story-form-buttons">
-              <Button type="submit">
+              <Button type="submit"
+                      className="submit-button hvr-pop">
                 Submit
               </Button>
 
               <Button type="submit"
-                      onClick={this._handleCancel}>
+                      onClick={this._handleCancel}
+                      className="cancel-button hvr-pop">
                 Cancel
               </Button>
             </div>

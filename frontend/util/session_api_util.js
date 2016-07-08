@@ -30,7 +30,6 @@ const SessionApiUtil = {
   },
 
   update(user, success, error) {
-    console.log(user);
     $.ajax({
       url: `/api/users/${user.user_id}`,
       type: 'PATCH',
