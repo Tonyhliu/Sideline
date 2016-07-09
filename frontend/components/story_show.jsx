@@ -79,8 +79,6 @@ const StoryShow = React.createClass({
       $(".loader-image").hide();
     });
 
-    // console.log(this.state.story.user.avatar_url);
-
     if (comments.length > 0) {
       window.scrollTo(0, 0);
       return (

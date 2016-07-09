@@ -65,38 +65,38 @@ const App  = React.createClass({
         );
     } else {
       return (
-        <Navbar className="nav-bar">
-            <Navbar.Header>
-              <Navbar.Brand>
-                <a href="/" className="logo"></a>
-              </Navbar.Brand>
-              <Navbar.Toggle />
-            </Navbar.Header>
-            <Navbar.Collapse>
+          <Navbar className="nav-bar">
+              <Navbar.Header>
+                <Navbar.Brand>
+                  <a href="/" className="logo"></a>
+                </Navbar.Brand>
+                <Navbar.Toggle />
+              </Navbar.Header>
+              <Navbar.Collapse>
 
-            <Navbar.Form pullRight>
+              <Navbar.Form pullRight>
 
-                <ButtonGroup>
+                  <ButtonGroup>
 
-                <Button className="login-button"
-                  onClick={this._redirectToStoryForm}>
-                  Write your story!
-                </Button>
+                  <Button className="login-button"
+                    onClick={this._redirectToStoryForm}>
+                    Write your story!
+                  </Button>
 
-                <Button className="login-button"
-                  onClick={this._handleClick.bind(this, true)}>
-                  Log In
-                </Button>
+                  <Button className="login-button"
+                    onClick={this._handleClick.bind(this, true)}>
+                    Log In
+                  </Button>
 
-                <Button className="login-button"
-                  onClick={this._handleClick.bind(this, false)}>
-                  Sign Up
-                </Button>
+                  <Button className="login-button"
+                    onClick={this._handleClick.bind(this, false)}>
+                    Sign Up
+                  </Button>
 
-                </ButtonGroup>
-             </Navbar.Form>
-          </Navbar.Collapse>
-        </Navbar>
+                  </ButtonGroup>
+               </Navbar.Form>
+              </Navbar.Collapse>
+          </Navbar>
       );
     }
   },

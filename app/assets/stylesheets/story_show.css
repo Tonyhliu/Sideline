@@ -17,6 +17,9 @@ pre {
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
   color: #00ab6b;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .picture-container {
@@ -26,7 +29,8 @@ pre {
 
 .story-picture {
   height: 500px;
-  width: 100%
+  width: 100%;
+  padding-top: 20px;
 }
 
 .story-body {
@@ -62,6 +66,10 @@ pre {
   padding-top: 20px;
 }
 
+.story-author-pic {
+  width: 100px;
+}
+
 .comments-pre {
   margin-top: 10px;
   margin-bottom: 3px;
@@ -80,6 +88,7 @@ textarea.form-control {
 
 .story-show-title {
   font-size: 36px;
+  text-align: center;
 }
 
 .story-paragraph {

@@ -101,9 +101,9 @@ const SignUpForm = React.createClass({
 
 						<input type="submit"
 							value="Sign Up"
-							className="login-button"/>
-						
-						<button className="guest-login"
+							className="login-button hvr-glow"/>
+
+						<button className="guest-login hvr-glow"
 										onClick={this._guest}>
 										Demo Login
 						</button>

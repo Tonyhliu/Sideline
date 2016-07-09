@@ -9,12 +9,12 @@ const Footer = React.createClass({
         <section className="footer-wrapper-container">
           <ul className="footer-nav">
             <Link className="footer-logo" to="/">
-              <h5>Sideline</h5>
+              <h5 className="footer-headers">SIDELINE</h5>
             </Link>
           </ul>
 
           <ul className="footer-nav">
-            <h5>COMPANY</h5>
+            <h5 className="footer-headers">COMPANY</h5>
 
             <li>
               <Link to="/about">About</Link>
@@ -25,7 +25,7 @@ const Footer = React.createClass({
           </ul>
 
           <ul className="footer-nav">
-            <h5>CONNECT</h5>
+            <h5 className="footer-headers">CONNECT</h5>
 
             <a href="https://github.com/tonyhliu/capstone">Github</a>
 

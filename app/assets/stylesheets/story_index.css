@@ -19,7 +19,8 @@ div.index-header {
   font-weight: 700;
   font-size: 80px;
   opacity: .9;
-  text-shadow: 2px 2px rgb(249, 161, 32);
+  /*text-shadow: 2px 2px rgb(249, 161, 32);*/
+  text-shadow: 2px 2px #faa519;
 }
 
 .story-links {
@@ -28,6 +29,7 @@ div.index-header {
 
 ul.index-stories {
   margin: 0 20%;
+  padding-left: 0px;
 }
 
 .header-group {
