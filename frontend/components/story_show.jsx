@@ -19,8 +19,8 @@ const StoryShow = React.createClass({
     this.storyListener = StoryStore.addListener(this._handleChange);
     StoryActions.getStory(parseInt(this.props.params.storyid));
 
-    $(".story-picture").hide();
-    $(".loader-image").show();
+    // $(".story-picture").hide();
+    // $(".loader-image").show();
   },
 
   componentWillReceiveProps(newProps) {
@@ -74,10 +74,10 @@ const StoryShow = React.createClass({
 
     const comments = this.state.story.comments || [];
 
-    $(".story-picture").load(function() {
-      $(".story-picture").show();
-      $(".loader-image").hide();
-    });
+    // $(".story-picture").load(function() {
+    //   $(".story-picture").show();
+    //   $(".loader-image").hide();
+    // });
 
     if (comments.length > 0) {
       window.scrollTo(0, 0);
@@ -92,7 +92,6 @@ const StoryShow = React.createClass({
               </div>
               <div className="picture-container">
                 <div className="loader-image">
-                  <img src="/ring.gif" />
                 </div>
                 <img className="story-picture"
                       src={this.state.story.picture_url}/>
@@ -146,7 +145,6 @@ const StoryShow = React.createClass({
                 </div>
                 <div className="picture-container">
                   <div className="loader-image">
-                    <img src="/ring.gif" />
                   </div>
                   <img className="story-picture"
                     src={this.state.story.picture_url}/>
