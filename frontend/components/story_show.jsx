@@ -99,7 +99,7 @@ const StoryShow = React.createClass({
             </div>
 
             <h3 className="story-show-title">{story.title}</h3>
-            
+
             <div className="story-body">
               <div className="story-paragraph"
                   dangerouslySetInnerHTML={{__html: story.body}}>

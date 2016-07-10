@@ -12,7 +12,7 @@ const LoginForm = React.createClass({
 	},
 
   getInitialState() {
-    return({ username: "", password: "" });
+    return({ username: "", password: "", loggingIn: false });
   },
 
   componentDidMount() {

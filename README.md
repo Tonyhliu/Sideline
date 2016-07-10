@@ -47,28 +47,28 @@ Sideline is a web application inspired by Medium that will be utilizing Ruby on 
 
 **Objective:** Functioning rails project with Authentication
 
-- [ x] create new project
-- [ x] create `User` model
-- [ x] authentication
-- [ x] setup Webpack & Flux scaffold
-- [ x] setup API
-- [ x] user signup/signin pages
-- [ x] blank landing page after signin
-- [ x] basic styling
+- x create new project
+- x create `User` model
+- x authentication
+- x setup Webpack & Flux scaffold
+- x setup API
+- x user signup/signin pages
+- x blank landing page after signin
+- x basic styling
 
 ### Phase 2: Stories Model, API, and basic APIUtil (1.5 days, W1 F 12pm)
 
 **Objective:** Stories can be created, read, edited and destroyed through
 the API.
 
-- [ x] create `Story` model
-- [ x] seed the database with a small amount of test data
-- [ ] CRUD API for stories (`StoriesController`)
-- [ ] Medium's API continued. jQuery & Kimono?
-- [ ] jBuilder views for stories
-- [ ] setup `APIUtil` to interact with the API
-- [ ] test out API interaction in the console.
-- [ ] basic styling
+- x create `Story` model
+- x seed the database with a small amount of test data
+- x CRUD API for stories (`StoriesController`)
+- x Medium's API continued. jQuery & Kimono?
+- x jBuilder views for stories
+- x setup `APIUtil` to interact with the API
+- x test out API interaction in the console.
+- x basic styling
 
 
 ### Phase 3: Flux Architecture and Router (1.5 days, W1 F 6pm)
@@ -76,37 +76,37 @@ the API.
 **Objective:** Stories can be created, read, edited and destroyed with the
 user interface.
 
-- [ ] setup the flux loop with skeleton files
-- [ ] setup React Router
+- x setup the flux loop with skeleton files
+- x setup React Router
 - implement each story component, building out the flux loop as needed.
-  - [ ] `StoryIndex`
-  - [ ] `StoryIndexItem`
-  - [ ] `StoryForm`
-- [ ] save Stories to the DB when the form loses focus or is left idle
+  - x `StoryIndex`
+  - x `StoryIndexItem`
+  - x `StoryForm`
+- x save Stories to the DB when the form loses focus or is left idle
   after editing.
-  - [ ] basic styling
+  - x basic styling
 
 
 ### Phase 4: Start Styling (0.5 days, W2 M 12pm)
 
 **Objective:** Existing pages (including signup/signin) will look good.
 
-- [ ] create a basic style guide
-- [ ] position elements on the page
-- [ ] add basic colors & styles
-- [ ] basic styling
+- x create a basic style guide
+- x position elements on the page
+- x add basic colors & styles
+- x basic styling
 
 
 ### Phase 5: Feed (1 day, W2 Tu 12pm)
 
 **Objective:** Stories belong to newsFeed, and can be viewed by newsFeed.
 
-- [ ] create `newsFeed` model
+- x create `newsFeed` model
 - build out API, Flux loop, and components for:
-  - [ ] newsFeed CRUD (if it's your own story)
-  - [ ] viewing stories on newsFeed
+  - x newsFeed CRUD (if it's your own story)
+  - x viewing stories on newsFeed
 - Use CSS to style new views
-- [ ] basic styling
+- x basic styling
 
 
 Phase 3 adds organization to the Stories. Stories belong to a newsFeed,
@@ -117,33 +117,33 @@ which has its own `Index` view.
 **Objective:** Stories can be liked, followed, and are searchable.
 
 - build out API, Flux loop, and components for:
-  - [ ] fetching tags and follows for story
-  - [ ] adding follows to a story
-  - [ ] searching stories by name
-- [ ] Style new elements
-- [ ] basic styling
+  - x fetching tags and follows for story
+  - x adding follows to a story
+  - x searching stories by name
+- x Style new elements
+- x basic styling
 
 
 ### Phase 7: Allow Complex Styling in Notes (0.5 days, W2 Th 6pm)
 
 **objective:** Enable complex styling of stories.
 
-- [ ] Use Rails helpers to sanitize HTML before rendering.
-- [ ] basic styling
+- x Use Rails helpers to sanitize HTML before rendering.
+- x basic styling
 
 
 ### Phase 8: Styling Cleanup and Seeding (1.5-2 day, W2 F 6pm)
 
 **objective:** Make the site feel more cohesive and awesome.
 
-- [ ] Get feedback on my UI from others
-- [ ] Refactor HTML classes & CSS rules
-- [ ] Add modals, transitions, and other styling flourishes.
-- [ ] basic styling
+- x Get feedback on my UI from others
+- x Refactor HTML classes & CSS rules
+- x Add modals, transitions, and other styling flourishes.
+- x basic styling
 
 
 ### Bonus Features (TBD)
-- [ ] Banner pictures for stories
+- x Banner pictures for stories
 - [ ] Filtered search
 - [ ] Pagination / infinite scroll for Stories Index
 - [ ] Tags
@@ -157,10 +157,3 @@ which has its own `Index` view.
 [phase-three]: docs/phases/phase3.md
 [phase-four]: docs/phases/phase4.md
 [phase-five]: docs/phases/phase5.md
-
-
-## Aside
-## Feedjira
-## React Quill
-
-## Eventually need production ReadMe to replace this ReadMe

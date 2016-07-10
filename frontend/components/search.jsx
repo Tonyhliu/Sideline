@@ -59,7 +59,7 @@ const Search = React.createClass({
   },
 
   _clearQuery() {
-    this.state.query = "";
+    this.setState({ query: "" });
   },
 
   showSearchBar() {
@@ -85,8 +85,7 @@ const Search = React.createClass({
                           key={story.id}>
                       <Link to={link}
                             key={story.id}
-                            className="story-link"
-                            onClick={this._clearQuery}>
+                            className="story-link">
                             {story.title}
                       </Link>
                      </li>;
@@ -95,25 +94,26 @@ const Search = React.createClass({
         </ul>;
     }
 
-    let icon = <i className="material-icons md-36 search search-bar"
-                            onClick={this.showSearchBar}
-                            id="search-bar-icon">search</i>;
-    let searchBar = <FormControl type="text"
-                                  placeholder="Search Sideline"
-                                  onInput={this._onInput}
-                                  id="search-bar-bar" />;
+    // let icon = <i className="material-icons md-36 search search-bar"
+    //                         onClick={this.showSearchBar}
+    //                         id="search-bar-icon">search</i>;
+    // let searchBar = <FormControl type="text"
+    //                               placeholder="Search Sideline"
+    //                               onInput={this._onInput}
+    //                               id="search-bar-bar" />;
 
-    $('#search-bar-icon').on('click', function(e) {
-        this.showSearchBar();
-        $('#search-bar-bar').focus();
-    }.bind(this));
+    // $('#search-bar-icon').on('click', function(e) {
+    //     this.showSearchBar();
+    //     $('#search-bar-bar').focus();
+    // }.bind(this));
+    //
+    // $('#search-bar-bar').focusout(function() {
+    //   this.state.query = "";
+    //   StoryActions.fetchAllStories();
+    //   this.hideSearchBar();
+    // }.bind(this));
 
-    $('#search-bar-bar').focusout(function() {
-      this.state.query = "";
-      StoryActions.fetchAllStories();
-      this.hideSearchBar();
-    }.bind(this));
-
+    // { this.state.searchBar ? searchBar : icon }
     return(
         <Navbar className="nav-bar">
             <Navbar.Header>
@@ -127,7 +127,11 @@ const Search = React.createClass({
               <Navbar.Form pullRight>
                 <div className="search-container">
                    <FormGroup className="search-bar-container">
-                     { this.state.searchBar ? searchBar : icon }
+                     <input type="search"
+                       placeholder="Search sideline..."
+                       onInput={this._onInput}
+                       onblur={this._clearQuery}
+                      />
                    </FormGroup>
 
                     {ul}
