@@ -23,7 +23,8 @@ const FilterActions = require('../actions/filter_actions');
 const Search = React.createClass({
 
   getInitialState() {
-    return({ query: '', stories: StoryStore.all(), show: false });
+    return({ query: '', stories: StoryStore.all(),
+            show: false, searchBar: false });
   },
 
   _storiesChanged() {
@@ -61,6 +62,14 @@ const Search = React.createClass({
     this.state.query = "";
   },
 
+  showSearchBar() {
+    this.setState({ searchBar: true });
+  },
+
+  hideSearchBar() {
+    this.setState({ searchBar: false });
+  },
+
   render() {
     let close = () => this.setState({ show: false });
 
@@ -86,6 +95,23 @@ const Search = React.createClass({
         </ul>;
     }
 
+    let icon = <i className="material-icons md-36 search search-bar"
+                            onClick={this.showSearchBar}
+                            id="search-bar-icon">search</i>;
+    let searchBar = <FormControl type="text"
+                                  placeholder="Search Sideline"
+                                  onInput={this._onInput}
+                                  id="search-bar-bar" />;
+
+    $('#search-bar-icon').on('click', function(e) {
+        this.showSearchBar();
+        $('#search-bar-bar').focus();
+    }.bind(this));
+
+    $('#search-bar-bar').focusout(function() {
+      this.hideSearchBar();
+    }.bind(this));
+
     return(
         <Navbar className="nav-bar">
             <Navbar.Header>
@@ -99,10 +125,7 @@ const Search = React.createClass({
               <Navbar.Form pullRight>
                 <div className="search-container">
                    <FormGroup className="search-bar-container">
-                     <FormControl type="text"
-                                  placeholder="Search Sideline"
-                                  onInput={this._onInput}
-                                  className="search-bar"/>
+                     { this.state.searchBar ? searchBar : icon }
                    </FormGroup>
 
                     {ul}

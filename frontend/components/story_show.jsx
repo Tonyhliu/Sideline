@@ -68,7 +68,7 @@ const StoryShow = React.createClass({
       deleteButton = <i className="material-icons md-36 trash hvr-pulse-grow"
         onClick={this._handleDelete}>delete forever</i>;
 
-      editButton =  <i className="material-icons md-36 edit hvr-pulse-grow"
+      editButton = <i className="material-icons md-36 edit hvr-pulse-grow"
         onClick={this._handleEdit}>mode edit</i>;
     }
 

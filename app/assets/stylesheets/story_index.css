@@ -86,14 +86,8 @@ ul.index-stories {
   display: flex;
 }
 
-.search-bar {
-  width: 130px;
-  -webkit-transition: width 0.4s ease-in-out;
-  transition: width 0.4s ease-in-out;
-}
-
-.search-bar:focus {
-  width: 200px;
+.search-bar:hover {
+  cursor: pointer;
 }
 
 .dropdown-menu-list {
