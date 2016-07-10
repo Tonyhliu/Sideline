@@ -6,10 +6,12 @@ const FavoriteConstants = require('../constants/favorite_constants');
 const SessionStore = new Store(AppDispatcher);
 let _currentUser = {};
 let _currentUserBeenFetched = false;
+let isLoading = false;
 
 function _login(currentUser) {
   _currentUser = currentUser;
   _currentUserBeenFetched = true;
+  isLoading = false;
 }
 
 function _logout(currentUser) {

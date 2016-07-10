@@ -9,3 +9,7 @@
 .whole-modal {
   display: none;
 }
+
+.dropdown-menu-list:empty {
+  display: none;
+}

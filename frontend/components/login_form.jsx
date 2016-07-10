@@ -60,7 +60,7 @@ const LoginForm = React.createClass({
   render() {
 		return (
 			<div className="login-form-container">
-				<form onSubmit={this._login} className="login-form-box">
+				<form className="login-form-box">
 	        Welcome to Sideline!
 					<br/>
 					Please Login.
@@ -91,9 +91,12 @@ const LoginForm = React.createClass({
 
 						<a onClick={this.props.modal}>Don't have an account?</a>
 
-						<input type="submit"
+						<button type="submit"
 							value="Log In"
-							className="login-button hvr-glow" />
+							className="login-button hvr-glow"
+							onClick={ this._login }>
+							Log In
+						</button>
 
 						<button className="guest-login hvr-glow"
 										onClick={this._guest}>

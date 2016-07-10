@@ -36,7 +36,7 @@ pre {
 .story-body {
   border: 1px solid #efeded;
   padding: 2%;
-  width: 75%;
+  width: 100%;
   word-wrap: break-word;
 }
 
@@ -73,6 +73,7 @@ pre {
 .comments-pre {
   margin-top: 10px;
   margin-bottom: 3px;
+  width: 100%;
 }
 
 textarea.form-control {

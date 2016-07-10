@@ -9,6 +9,7 @@ module.exports = {
   },
   content : {
     position                   : 'fixed',
+    width                      : '300px',
     top                        : '10%',
     left                       : '40%',
     right                      : '40%',

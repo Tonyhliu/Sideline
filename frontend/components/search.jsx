@@ -22,7 +22,6 @@ const FilterActions = require('../actions/filter_actions');
 
 const Search = React.createClass({
 
-
   getInitialState() {
     return({ query: '', stories: StoryStore.all(), show: false });
   },
@@ -66,7 +65,7 @@ const Search = React.createClass({
     let close = () => this.setState({ show: false });
 
     const user = SessionStore.currentUser().username.capitalize();
-    let ul = <ul className="dropdown-menu-none" />;
+    let ul;
     if (this.state.query.length > 0) {
       ul =
         <ul className="dropdown-menu-list">

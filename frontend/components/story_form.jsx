@@ -151,6 +151,12 @@ const StoryForm = React.createClass({
       return (
         <div className="form-container">
           <form>
+            <h3>
+              <img src={SessionStore.currentUser().avatar_url}
+                  className="story-create-author-pic" />
+              {SessionStore.currentUser().username}
+            </h3>
+
             <FormGroup controlId="formControlsText">
               <ControlLabel></ControlLabel>
               <FormControl type="text"
@@ -206,6 +212,12 @@ const StoryForm = React.createClass({
         <div className="form-container">
           <form onSubmit={this._handleSubmit}
                 className="story-form">
+            <h3>
+              <img src={SessionStore.currentUser().avatar_url}
+                  className="story-create-author-pic" />
+              {SessionStore.currentUser().username}
+            </h3>
+
             <FormGroup controlId="formControlsText">
               <ControlLabel></ControlLabel>
               <FormControl type="text"

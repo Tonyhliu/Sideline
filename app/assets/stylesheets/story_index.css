@@ -1,7 +1,7 @@
 div.index-header {
     background-image: url(http://res.cloudinary.com/dcbb8bnvk/image/upload/c_crop,x_1256,y_300/v1467522114/homepage_ukuzvz.jpg);
     background-size: contain;
-    height: 300px;
+    height: 200px;
     width: 100%;
 }
 
@@ -19,7 +19,6 @@ div.index-header {
   font-weight: 700;
   font-size: 80px;
   opacity: .9;
-  /*text-shadow: 2px 2px rgb(249, 161, 32);*/
   text-shadow: 2px 2px #faa519;
 }
 
@@ -103,16 +102,16 @@ ul.index-stories {
   border: 1px solid lightgray;
   padding: 5px;
   list-style: none;
+  z-index: 5;
 }
 
 .dropdown-menu-item {
-
+  padding: 5px;
 }
 
 .search-container {
   display: flex;
   flex-direction: column;
-
 }
 
 .dropdown-menu-none {
