@@ -88,16 +88,18 @@ const StoryShow = React.createClass({
               <h2 className="story-user">{user}
                 <img src={this.state.story.user.avatar_url}
                       className="story-author-pic" />
-                </h2>
-              </div>
-              <div className="picture-container">
-                <div className="loader-image">
-                </div>
-                <img className="story-picture"
-                      src={this.state.story.picture_url}/>
-              </div>
-            <h3 className="story-show-title">{story.title}</h3>
+              </h2>
+            </div>
 
+            <div className="picture-container">
+              <div className="loader-image">
+              </div>
+              <img className="story-picture"
+                    src={this.state.story.picture_url}/>
+            </div>
+
+            <h3 className="story-show-title">{story.title}</h3>
+            
             <div className="story-body">
               <div className="story-paragraph"
                   dangerouslySetInnerHTML={{__html: story.body}}>
@@ -105,8 +107,11 @@ const StoryShow = React.createClass({
 
               <div className="comments-container">
                 <div className="comments-buttons-container">
-                  {editButton}
-                  {deleteButton}
+                  <div className="buttons-container">
+                    {editButton}
+                    {deleteButton}
+                  </div>
+
                   <Button bsStyle="info"
                           onClick={this._redirectToIndex}
                           className="index-button hvr-bounce-to-left">

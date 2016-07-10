@@ -43,7 +43,8 @@ const CommentForm = React.createClass({
     if (SessionStore.isUserLoggedIn()) {
       return (
         <form onSubmit={this._handleComment}>
-          <FormGroup controlId="formControlsTextarea">
+          <FormGroup controlId="formControlsTextarea"
+                      className="">
             <FormControl componentClass="textarea"
               placeholder="Write a response..."
               value={this.state.body}

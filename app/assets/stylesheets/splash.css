@@ -5,7 +5,6 @@ section.video-container {
 }
 
 .splash-video {
-  /*position: relative;*/
   top: 25%;
   width: 100%;
   min-width: 970px;
@@ -29,7 +28,6 @@ section.video-container {
   font-size: 64px;
   display: flex;
   flex-direction: column;
-  /*align-items: center;*/
   justify-content: center;
 }
 
@@ -38,143 +36,14 @@ section.video-container {
 }
 
 .hero-subheader {
-  background: gray;
+  background: rgba(158, 158, 158, 0.23);
   padding: 20px;
   width: 270px;
   margin: 0 auto;
 }
 
-.hero-subheader:hover {
+/*.hero-subheader:hover {
   background: black;
   color: white;
   cursor: pointer;
-}
-
-/* DONT position: relative; */
-/* top: 25%; */
-/*width: 100%;*/
-/*min-width: 970px;
-text-align: center;
-letter-spacing: 2px;*/
-/* height: 100%; */
-/*height: 600px;*/
-/* object-fit: cover; DONT*/
-
-/*section.mask {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 600px;
-    background: rgba(0,0,0,0.5);
-    color: transparent;
-}
-
-section.mask-message h1.sport {
-    color: white;
-    font-weight: 700;
-    font-size: 60px;
-}
-
-section.mask-message h3.sport {
-    margin-top: 15px;
-    color: white;
-    font-size: 28px;
-    line-height: 1.5em;
-}*/
-
-/*------------------------------------*/
-/*.heropanel--video {
-    font-family:sans-serif;
-    min-height:500px;
-}
-
-@keyframes gm-slidein {
-    from {
-        -webkit-transform:translate3d(0,-100%,0);
-        opacity:0;
-        transform:translate3d(0,-100%,0);
-    }
-
-    to {
-        -webkit-transform:none;
-        opacity:1;
-        transform:none;
-    }
-}
-
-.heropanel__content {
-    -moz-animation:gm-slidein 3s 1;
-    -ms-animation:gm-slidein 3s 1;
-    -o-animation:gm-slidein 3s 1;
-    -webkit-animation:gm-slidein 3s 1;
-    animation:gm-slidein 3s 1;
-    border-bottom:1px solid #FFF;
-    margin:0 auto;
-    max-width:50%;
-    padding:4em 0 2em;
-    text-align:center;
-}
-
-.heropanel__content h1 {
-    margin:0 0 .5em;
-    text-transform:uppercase;
-}
-
-.heropanel__content h1 a {
-    color:#FFF;
-    text-decoration:none;
-}
-
-.heropanel__content p {
-    color:#fff;
-    margin:0;
-    text-transform:uppercase;
-}
-
-.splash-video {
-  padding-left: 15%;
-  padding-right: 15%;
-}*/
-
-
-/*------------------------------------
-
-@import url('http://fonts.googleapis.com/css?family=Oswald');
-
-body {
-  margin: 0;
-  padding: 0;
-  background-attachment: fixed;
-  background-size: cover;
-}
-
-#video-background {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  z-index: -100;
-}
-
-article {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: 10px;
-}
-
-h1 {
-  position: absolute;
-  top: 60%;
-  width: 100%;
-  font-size: 36px;
-  letter-spacing: 3px;
-  color: #fff;
-  font-family: Oswald, sans-serif;
-  text-align: center;
 }*/

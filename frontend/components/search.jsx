@@ -109,6 +109,8 @@ const Search = React.createClass({
     }.bind(this));
 
     $('#search-bar-bar').focusout(function() {
+      this.state.query = "";
+      StoryActions.fetchAllStories();
       this.hideSearchBar();
     }.bind(this));
 

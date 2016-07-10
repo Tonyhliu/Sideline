@@ -23,7 +23,7 @@ pre {
 }
 
 .picture-container {
-  width: 100%;
+  width: 150%;
   height: 500px;
 }
 
@@ -71,13 +71,15 @@ pre {
 }
 
 .comments-pre {
-  margin-top: 10px;
+  margin-top: 15px;
   margin-bottom: 3px;
   width: 100%;
+  display: inline-block;
 }
 
 textarea.form-control {
-  margin-top: 10px;
+  margin-top: 15px;
+  width: 300px;
 }
 
 .story-page-container {
@@ -108,14 +110,10 @@ textarea.form-control {
   margin: 10px;
 }
 
-.hvr-icon-forward:before {
-    content: "\f138";
-    position: absolute;
-    right: 1em;
-    padding: 0 1px;
-    font-family: FontAwesome;
-    transform: translateZ(0);
-    transition-duration: 0.1s;
-    transition-property: transform;
-    transition-timing-function: ease-out;
+.buttons-container {
+  margin-bottom: 10px;
+}
+
+.edit {
+  margin-left: -100px;
 }

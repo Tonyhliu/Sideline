@@ -18,7 +18,7 @@ const Splash = React.createClass({
 
           <div className="hero-message">
             <h1 className="hero-header">CATCH UP ON THE LATEST SPORTS NEWS</h1>
-            <h3 className="hero-subheader"
+            <h3 className="hero-subheader hvr-ripple-in"
                 onClick={this._redirectToStories}>Explore Stories Now!</h3>
           </div>
       </section>
