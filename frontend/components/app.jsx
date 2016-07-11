@@ -15,7 +15,6 @@ const Footer = require('./footer');
 // Forms
 const LoginForm = require('./login_form');
 const SignUpForm = require('./signup_form');
-// const StoryForm = require('./story_form');
 
 // Modal
 const Modal = require('react-modal');

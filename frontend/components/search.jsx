@@ -24,7 +24,7 @@ const Search = React.createClass({
 
   getInitialState() {
     return({ query: '', stories: StoryStore.all(),
-            show: false, searchBar: false });
+            show: false });
   },
 
   _storiesChanged() {
@@ -58,16 +58,10 @@ const Search = React.createClass({
     hashHistory.push(`users/${SessionStore.currentUser().id}`);
   },
 
-  _clearQuery() {
+  _clearQuery(e) {
     this.setState({ query: "" });
-  },
-
-  showSearchBar() {
-    this.setState({ searchBar: true });
-  },
-
-  hideSearchBar() {
-    this.setState({ searchBar: false });
+    // console.log(e.target);
+    hashHistory.push(`/stories/${e.target.value}`);
   },
 
   render() {
@@ -82,38 +76,16 @@ const Search = React.createClass({
             this.state.stories.map(story => {
               let link = `/stories/${story.id}`;
               return <li className="dropdown-menu-item"
-                          key={story.id}>
-                      <Link to={link}
-                            key={story.id}
-                            className="story-link">
+                          key={story.id}
+                          value={story.id}
+                          onClick={this._clearQuery}>
                             {story.title}
-                      </Link>
                      </li>;
               })
             }
         </ul>;
     }
 
-    // let icon = <i className="material-icons md-36 search search-bar"
-    //                         onClick={this.showSearchBar}
-    //                         id="search-bar-icon">search</i>;
-    // let searchBar = <FormControl type="text"
-    //                               placeholder="Search Sideline"
-    //                               onInput={this._onInput}
-    //                               id="search-bar-bar" />;
-
-    // $('#search-bar-icon').on('click', function(e) {
-    //     this.showSearchBar();
-    //     $('#search-bar-bar').focus();
-    // }.bind(this));
-    //
-    // $('#search-bar-bar').focusout(function() {
-    //   this.state.query = "";
-    //   StoryActions.fetchAllStories();
-    //   this.hideSearchBar();
-    // }.bind(this));
-
-    // { this.state.searchBar ? searchBar : icon }
     return(
         <Navbar className="nav-bar">
             <Navbar.Header>
@@ -130,7 +102,6 @@ const Search = React.createClass({
                      <input type="search"
                        placeholder="Search sideline..."
                        onInput={this._onInput}
-                       onblur={this._clearQuery}
                       />
                    </FormGroup>
 

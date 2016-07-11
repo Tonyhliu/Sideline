@@ -18,7 +18,6 @@ const StoryShow = React.createClass({
   componentDidMount() {
     this.storyListener = StoryStore.addListener(this._handleChange);
     StoryActions.getStory(parseInt(this.props.params.storyid));
-
     // $(".story-picture").hide();
     // $(".loader-image").show();
   },

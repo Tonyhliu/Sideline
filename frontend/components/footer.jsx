@@ -1,6 +1,5 @@
 const React = require("react");
 const Link = require("react-router").Link;
-// const ExternalLink = require("./external_link");
 
 const Footer = React.createClass({
   render: function () {

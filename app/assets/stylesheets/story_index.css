@@ -103,6 +103,11 @@ ul.index-stories {
   padding: 5px;
 }
 
+.dropdown-menu-item:hover {
+  color: #00ab6b;
+  cursor: pointer;
+}
+
 .search-container {
   display: flex;
   flex-direction: column;
