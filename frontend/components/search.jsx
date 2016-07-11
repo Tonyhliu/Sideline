@@ -60,8 +60,10 @@ const Search = React.createClass({
 
   _clearQuery(e) {
     this.setState({ query: "" });
+    this.forceUpdate();
     // console.log(e.target);
     hashHistory.push(`/stories/${e.target.value}`);
+
   },
 
   render() {

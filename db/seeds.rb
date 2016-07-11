@@ -10,31 +10,31 @@ guest_user = User.create!(username: "Guest",
                           password: "Password")
 
 comment_user2 = User.create!(username: "TonyDaTiger",
-                          password: "password",
+                          password: "password111",
                           avatar_url: "http://res.cloudinary.com/dcbb8bnvk/image/upload/w_400,h_400,c_crop,g_face,r_max/w_200/IMG_6184_ffefob.png")
 
 comment_user3 = User.create!(username: "Alexandra",
-                            password: "password",
+                            password: "password111",
                             avatar_url: "http://res.cloudinary.com/dcbb8bnvk/image/upload/w_400,h_400,c_crop,g_face,r_max/w_200/DSCN8558_lunodp.jpg")
 
 comment_user4 = User.create!(username: "DaRealKushPatel",
-                            password: "password",
+                            password: "password111",
                             avatar_url: "http://res.cloudinary.com/dcbb8bnvk/image/upload/w_400,h_400,c_crop,g_face,r_max/w_200/kush_xuj00h.png")
 
 comment_user5 = User.create!(username: "Wolverdude",
-                            password: "password",
+                            password: "password111",
                             avatar_url: "http://res.cloudinary.com/dcbb8bnvk/image/upload/w_400,h_400,c_crop,g_face,r_max/w_200/wolverdude_htbjlf.png")
 
 comment_user6 = User.create!(username: "KentheTA",
-                            password: "password",
+                            password: "password111",
                             avatar_url: "http://res.cloudinary.com/dcbb8bnvk/image/upload/w_400,h_400,c_crop,g_face,r_max/w_200/kenTA_c5t7kv")
 
 comment_user7 = User.create!(username: "GagetheTA",
-                            password: "password",
+                            password: "password111",
                             avatar_url: "http://res.cloudinary.com/dcbb8bnvk/image/upload/w_400,h_400,c_crop,g_face,r_max/w_200/gage_ww9yps.png")
 
 comment_user8 = User.create!(username: "KevintheTA",
-                            password: "password",
+                            password: "password111",
                             avatar_url: "http://res.cloudinary.com/dcbb8bnvk/image/upload/w_400,h_400,c_crop,g_face,r_max/w_200/kevinTA_s1z6hg.png")
 
 demo_story = Story.create!(title: "Warriors Rumors: Latest Intel on Durant, Barnes",

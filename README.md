@@ -1,159 +1,61 @@
 # Sideline
 
-[Heroku link][Sideline] Sideline
+[Sideline][sideline] is a web application for users to read and write about sports news. Inspired by Medium, Sideline allows users to share their own stories and discover stories by other users.
 
-[Sideline]: http://www.thesideline.club
+Sideline is a personal project by Tony Hoyin Liu.
 
-## Minimum Viable Product
+![Sideline home page: http://www.thesideline.club][home page]
 
-Sideline is a web application inspired by Medium that will be utilizing Ruby on Rails on the backend, a 3greSQL database, and React.js with a Flux pattern on the front end. At a minimum, by the end of Week 9 this app will satisfy the following criteria:
+## Features
 
-- [ ] Hosting on Heroku
-- [ ] New account creation, login, and guest/demo login
-- [ ] A production README, replacing this README.
-- [ ] Story
-  - [ ] Smooth, bug-free navigation
-  - [ ] Adequate seed data to demonstrate the site's features
-  - [ ] Adequate CSS styling
-- [ ] Response/Comment
-  - [ ] Smooth, bug-free navigation
-  - [ ] Adequate seed data to demonstrate the site's features
-  - [ ] Adequate CSS styling
-- [ ] Tags for Story
-  - [ ] Smooth, bug-free navigation
-  - [ ] Adequate seed data to demonstrate the site's features
-  - [ ] Adequate CSS styling
-- [ ] Follows/Feed for Story
-  - [ ] Smooth, bug-free navigation
-  - [ ] Adequate seed data to demonstrate the site's features
-  - [ ] Adequate CSS styling
+- User accounts with secure authentication
+- Image attachments for users and stories
+- Uploading unique profile picture
+- Liking or Unliking a story
+- Searching by story title or content
+- Comments
 
-## Design Docs
-* [View Wireframes][views]
-* [React Components][components]
-* [Flux Cycles][flux-cycles]
-* [API endpoints][api-endpoints]
-* [DB schema][schema]
+![demo_user's stories feed: http://www.thesideline.club/#/stories][stories]
 
-[views]: docs/views.md
-[components]: docs/components.md
-[flux-cycles]: docs/flux-cycles.md
-[api-endpoints]: docs/api-endpoints.md
-[schema]: docs/schema.md
+## Project Design
 
-## Implementation Timeline
+Sideline was designed and built in two weeks.
 
-### Phase 1: Backend setup and Front End User Authentication (2 day, W1 Tu 6pm)
+A [proposal][proposal] was drafted to help provide an implementation timeline during the development process.
 
-**Objective:** Functioning rails project with Authentication
+A [database schema][schema] was prepared alongside the design proposal.
 
-- x create new project
-- x create `User` model
-- x authentication
-- x setup Webpack & Flux scaffold
-- x setup API
-- x user signup/signin pages
-- x blank landing page after signin
-- x basic styling
+## Technology
 
-### Phase 2: Stories Model, API, and basic APIUtil (1.5 days, W1 F 12pm)
+Sideline is a single-page application built on Rails and React.js, with many dependencies in both the backend and the frontend.
 
-**Objective:** Stories can be created, read, edited and destroyed through
-the API.
+- Backend : Sideline runs on Ruby on Rails and is hosted on Heroku.       
+  - The purpose of the backend is to provide RESTful APIs and respond with JSON data.
+  - NewRelic (an Application Performance Management tool) was used to automatically ping Heroku dyno, keeping it awake for faster client response.
+  - PostgresQL RDBMS was also used for Heroku
+  - BCrypt used for password hashing and salting for a secure authentication system.
 
-- x create `Story` model
-- x seed the database with a small amount of test data
-- x CRUD API for stories (`StoriesController`)
-- x Medium's API continued. jQuery & Kimono?
-- x jBuilder views for stories
-- x setup `APIUtil` to interact with the API
-- x test out API interaction in the console.
-- x basic styling
+- Frontend: Sideline utilizes the React.js framework and follows the flux Architecture to deliver to frontend.
 
+  - Node Package Manager (npm) used to install all of the frontend dependencies. A post-install script is also configured so that webpack bundles all of the frontend files.
+  - Webpack bundles all of the frontend components and Flux parts and includes it in the main application.js file.
+  - All of the React and Flux components are located in the frontend directory.
+  - Site styling was sped up with React Bootstrap for mostly buttons.
+  - JQuery was used to make AJAX requests with the Rails server.
+  - Babel for transpiling JSX into JavaScript.
+  - Other frontend dependencies include React DOM, React Router, and React History.
 
-### Phase 3: Flux Architecture and Router (1.5 days, W1 F 6pm)
+- File storage via Cloudinary to host pictures and videos.
 
-**Objective:** Stories can be created, read, edited and destroyed with the
-user interface.
+## Future Implementations
 
-- x setup the flux loop with skeleton files
-- x setup React Router
-- implement each story component, building out the flux loop as needed.
-  - x `StoryIndex`
-  - x `StoryIndexItem`
-  - x `StoryForm`
-- x save Stories to the DB when the form loses focus or is left idle
-  after editing.
-  - x basic styling
+Sideline is only barely considered an MVP.
 
+Two weeks was not a lot of time to fully implement all the features planned out. The features that will be continued to be worked on are listed in the [future implementations][future] outline.
 
-### Phase 4: Start Styling (0.5 days, W2 M 12pm)
-
-**Objective:** Existing pages (including signup/signin) will look good.
-
-- x create a basic style guide
-- x position elements on the page
-- x add basic colors & styles
-- x basic styling
-
-
-### Phase 5: Feed (1 day, W2 Tu 12pm)
-
-**Objective:** Stories belong to newsFeed, and can be viewed by newsFeed.
-
-- x create `newsFeed` model
-- build out API, Flux loop, and components for:
-  - x newsFeed CRUD (if it's your own story)
-  - x viewing stories on newsFeed
-- Use CSS to style new views
-- x basic styling
-
-
-Phase 3 adds organization to the Stories. Stories belong to a newsFeed,
-which has its own `Index` view.
-
-### Phase 6: Follows (1 days, W2 Th 12pm)
-
-**Objective:** Stories can be liked, followed, and are searchable.
-
-- build out API, Flux loop, and components for:
-  - x fetching tags and follows for story
-  - x adding follows to a story
-  - x searching stories by name
-- x Style new elements
-- x basic styling
-
-
-### Phase 7: Allow Complex Styling in Notes (0.5 days, W2 Th 6pm)
-
-**objective:** Enable complex styling of stories.
-
-- x Use Rails helpers to sanitize HTML before rendering.
-- x basic styling
-
-
-### Phase 8: Styling Cleanup and Seeding (1.5-2 day, W2 F 6pm)
-
-**objective:** Make the site feel more cohesive and awesome.
-
-- x Get feedback on my UI from others
-- x Refactor HTML classes & CSS rules
-- x Add modals, transitions, and other styling flourishes.
-- x basic styling
-
-
-### Bonus Features (TBD)
-- x Banner pictures for stories
-- [ ] Filtered search
-- [ ] Pagination / infinite scroll for Stories Index
-- [ ] Tags
-- [ ] Topics/categories
-- [ ] Bookmarks
-
-
-
-[phase-one]: docs/phases/phase1.md
-[phase-two]: docs/phases/phase2.md
-[phase-three]: docs/phases/phase3.md
-[phase-four]: docs/phases/phase4.md
-[phase-five]: docs/phases/phase5.md
+[sideline]: http://thesideline.club
+[home page]: ./docs/home-page.png "Sideline home page"
+[stories]: ./docs/demo-stories.png "A user's stories"
+[proposal]: ./docs/proposal.md
+[schema]: ./docs/schema.md
+[future]: ./docs/future.md
