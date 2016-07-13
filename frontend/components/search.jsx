@@ -68,6 +68,12 @@ const Search = React.createClass({
 
   },
 
+  _searchClick() {
+
+      $('.search-results').show();
+
+  },
+
   render() {
     let close = () => this.setState({ show: false });
 
@@ -107,10 +113,13 @@ const Search = React.createClass({
                        value={this.state.query}
                        placeholder="Search sideline..."
                        onInput={this._onInput}
+                       onClick={this._searchClick}
                       />
                    </FormGroup>
+                   <div className='search-results'>
 
-                    {ul}
+                     {ul}
+                   </div>
                 </div>
 
                 <div className="whole-modal">

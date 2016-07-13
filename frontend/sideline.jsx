@@ -58,14 +58,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
   Modal.setAppElement(document.body);
 
-  // $(document).mouseup(function (e)
-  //   {
-  //     const container = $(".search-bar-container");
-  //
-  //     if (!container.is(e.target)
-  //         && container.has(e.target).length === 0)
-  //         $('.search-bar-container input').val("");
-  //   });
+  $(document).mouseup(function (e)
+    {
+      const container = $(".search-bar-container");
+
+      if (!container.is(e.target)
+          && container.has(e.target).length === 0)
+          $('.search-bar-container input').val("");
+    });
 
   ReactDOM.render(
     appRouter,
