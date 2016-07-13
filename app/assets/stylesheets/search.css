@@ -76,21 +76,23 @@ input[type=search] {
 	font-family: inherit;
 	font-size: 100%;
 }
-input::-webkit-search-decoration,
+
+/*input::-webkit-search-decoration,
 input::-webkit-search-cancel-button {
 	display: none;
-}
+}*/
 
-input:-moz-placeholder {
+/*input:-moz-placeholder {
 	color: #999;
 }
 input::-webkit-input-placeholder {
 	color: #999;
-}
+}*/
 
-.search-bar-container input:-moz-placeholder {
-	color: transparent;
-}
+/*.search-bar-container input:-moz-placeholder {
+	color: transparent;*/
+/*}*/
+
 .search-bar-container input::-webkit-input-placeholder {
 	color: transparent;
 }

@@ -59,8 +59,10 @@ const Search = React.createClass({
   },
 
   _clearQuery(e) {
-    this.setState({ query: "" });
-    this.forceUpdate();
+    e.preventDefault();
+    this.setState({ query: '' });
+    // console.log(this.state.query);
+    // console.log("made it");
     // console.log(e.target);
     hashHistory.push(`/stories/${e.target.value}`);
 
@@ -102,6 +104,7 @@ const Search = React.createClass({
                 <div className="search-container">
                    <FormGroup className="search-bar-container">
                      <input type="search"
+                       value={this.state.query}
                        placeholder="Search sideline..."
                        onInput={this._onInput}
                       />
