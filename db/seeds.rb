@@ -44,7 +44,8 @@ demo_story = Story.create!(title: "Warriors Rumors: Latest Intel on Durant, Barn
 While the core of Stephen Curry, Klay Thompson and Draymond Green is unlikely to change, the front office will do whatever it takes to improve the roster
 and get back on top in the 2016-2017 season, whether that means through free agency or trades. There will be dozens of maneuvers throughout the summer, but
 here is a look at some of the bigger potential moves Warriors fans should watch for in the coming weeks. The biggest story of the NBA offseason is Kevin
-Durant's free agency, and the Warriors are front and center. Sam Amick of USA Today reported Golden State was one of six teams to earn a meeting with the
+Durant's free agency, and the Warriors are front and center.  \n
+Sam Amick of USA Today reported Golden State was one of six teams to earn a meeting with the
 former MVP, including the Oklahoma City Thunder. While otherteams are going to try to stay in this race, chances are unlikely Durant chooses a team outside
 of these top six. Marc J. Spears of The Undefeated added the meeting will take place Friday in the Hamptons. Unsurprisingly, the wing has become the Warriors'
 top target in free agency, according to Marc Stein of ESPN.com. Stein also explains the team's confidence in this pursuit: But the Warriors, sources say,

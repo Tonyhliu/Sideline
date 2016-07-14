@@ -32,7 +32,7 @@ const App  = React.createClass({
      });
   },
 
-  _handleClick(bool) {
+  handleClick(bool) {
       this.setState({
       modalOpen: true,
       signIn: bool
@@ -53,7 +53,7 @@ const App  = React.createClass({
     if (SessionStore.isUserLoggedIn()) {
       hashHistory.push("/stories/new");
     } else {
-      alert("Please login or sign up first!");
+      this.handleClick(false);
     }
   },
 
@@ -83,12 +83,12 @@ const App  = React.createClass({
                   </Button>
 
                   <Button className="login-button"
-                    onClick={this._handleClick.bind(this, true)}>
+                    onClick={this.handleClick.bind(this, true)}>
                     Log In
                   </Button>
 
                   <Button className="login-button"
-                    onClick={this._handleClick.bind(this, false)}>
+                    onClick={this.handleClick.bind(this, false)}>
                     Sign Up
                   </Button>
 

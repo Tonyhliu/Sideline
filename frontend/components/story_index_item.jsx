@@ -5,6 +5,9 @@ const FavoriteActions = require('../actions/favorite_actions');
 const StoryStore = require('../stores/story_store');
 const SessionStore = require('../stores/session_store');
 const hashHistory = require('react-router').hashHistory;
+const App = require('./app');
+
+const Button = require('react-bootstrap').Button;
 
 const StoryIndexItem = React.createClass({
   editPost(e) {
@@ -53,7 +56,13 @@ const StoryIndexItem = React.createClass({
     const picUrl = this.cropPic(this.props.story.picture_url);
     let strippedText = jQuery(this.props.story.body).text();
 
-    let favorite;
+    let favorite =
+      <Button className="disabled-fave-button"
+              disabled>
+      <i className="material-icons md-36 fav-border disabled-fave">
+        favorite border
+      </i>
+    </Button>;
     const currentUser = SessionStore.currentUser();
 
     if (SessionStore.isUserLoggedIn()) {

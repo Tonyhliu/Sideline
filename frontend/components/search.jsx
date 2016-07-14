@@ -50,7 +50,7 @@ const Search = React.createClass({
     StoryActions.fetchAllStories({ query: e.target.value });
   },
 
-  _redirectTtoNew() {
+  _redirectToNew() {
     hashHistory.push("/stories/new");
   },
 
@@ -61,17 +61,12 @@ const Search = React.createClass({
   _clearQuery(e) {
     e.preventDefault();
     this.setState({ query: '' });
-    // console.log(this.state.query);
-    // console.log("made it");
-    // console.log(e.target);
     hashHistory.push(`/stories/${e.target.value}`);
 
   },
 
   _searchClick() {
-
       $('.search-results').show();
-
   },
 
   render() {
@@ -145,7 +140,7 @@ const Search = React.createClass({
 
                <ButtonGroup>
                  <DropdownButton title={user} id="bg-nested-dropdown">
-                   <MenuItem onClick={this._redirectTtoNew}>Write your story!</MenuItem>
+                   <MenuItem onClick={this._redirectToNew}>Write your story!</MenuItem>
                    <MenuItem onClick={this._redirectToSettings}>Profile</MenuItem>
                    <MenuItem onClick={() => this.setState({ show: true})}>
                               Settings</MenuItem>

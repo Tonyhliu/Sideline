@@ -24,11 +24,11 @@ pre {
 
 .picture-container {
   width: 150%;
-  height: 500px;
+  height: 550px;
 }
 
 .story-picture {
-  height: 500px;
+  height: 100%;
   width: 100%;
   padding-top: 20px;
 }

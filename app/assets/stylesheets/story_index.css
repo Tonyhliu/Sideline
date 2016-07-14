@@ -134,3 +134,14 @@ ul.index-stories {
 .story-title-link {
   color: rgba(6, 0, 0, 0.84);
 }
+
+.disabled-fave-button {
+  border: none;
+  width: 30px;
+  margin-left: -10px;
+}
+
+.disabled-fave {
+  pointer-events: none;
+  width: 20px;
+}
