@@ -62,7 +62,6 @@ const Search = React.createClass({
     e.preventDefault();
     this.setState({ query: '' });
     hashHistory.push(`/stories/${e.target.value}`);
-    StoryActions.fetchAllStories({ query: '' });
   },
 
   _searchClick() {

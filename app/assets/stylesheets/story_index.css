@@ -96,7 +96,7 @@ ul.index-stories {
   border: 1px solid lightgray;
   padding: 5px;
   list-style: none;
-  z-index: 50;
+  z-index: 10;
 }
 
 .dropdown-menu-item {
