@@ -2,7 +2,8 @@
   display: flex;
   justify-content: space-around;
   background: rgb(249, 249, 249);
-  margin-top: 100px;
+  margin-top: 50px;
+  margin-bottom: 100px;
 }
 
 .footer-nav {

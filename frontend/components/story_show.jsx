@@ -1,4 +1,5 @@
 const React = require('react');
+const ReactDOM = require('react-dom');
 const ReactQuill = require('react-quill');
 const StoryActions = require('../actions/story_actions');
 const StoryStore = require('../stores/story_store');
@@ -18,8 +19,6 @@ const StoryShow = React.createClass({
   componentDidMount() {
     this.storyListener = StoryStore.addListener(this._handleChange);
     StoryActions.getStory(parseInt(this.props.params.storyid));
-    // $(".story-picture").hide();
-    // $(".loader-image").show();
   },
 
   componentWillReceiveProps(newProps) {
@@ -52,6 +51,10 @@ const StoryShow = React.createClass({
     hashHistory.push(`/stories/${this.state.story.id}/comment`);
   },
 
+  componentDidUpdate:function() {
+    ReactDOM.findDOMNode(this).scrollIntoView();
+  },
+
   render() {
     let deleteButton = "";
     let editButton = "";
@@ -73,13 +76,7 @@ const StoryShow = React.createClass({
 
     const comments = this.state.story.comments || [];
 
-    // $(".story-picture").load(function() {
-    //   $(".story-picture").show();
-    //   $(".loader-image").hide();
-    // });
-
     if (comments.length > 0) {
-      window.scrollTo(0, 0);
       return (
         <div className="story-container">
           <div className="story-page-container">
@@ -91,8 +88,6 @@ const StoryShow = React.createClass({
             </div>
 
             <div className="picture-container">
-              <div className="loader-image">
-              </div>
               <img className="story-picture"
                     src={this.state.story.picture_url}/>
             </div>
@@ -137,19 +132,16 @@ const StoryShow = React.createClass({
 
       );
     } else {
-      window.scrollTo(0, 0);
         return (
           <div className="story-container">
             <div className="story-page-container">
               <div className="story-author-container">
-                <h2 className="story-user">{user}
+                <h2 className="story-user"> {user}
                   <img src={this.state.story.user.avatar_url}
                         className="story-author-pic" />
                   </h2>
                 </div>
                 <div className="picture-container">
-                  <div className="loader-image">
-                  </div>
                   <img className="story-picture"
                     src={this.state.story.picture_url}/>
                 </div>

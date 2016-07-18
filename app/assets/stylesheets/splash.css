@@ -42,8 +42,43 @@ section.video-container {
   margin: 0 auto;
 }
 
-/*.hero-subheader:hover {
-  background: black;
+.home-page-join {
+  margin-top: 50px;
+  padding: 40px 0 60px 0;
+  background: rgba(117, 112, 112, 0.73);
   color: white;
-  cursor: pointer;
-}*/
+  text-align: center;
+}
+
+.home-page-container {
+  min-width: 970px;
+  max-width: none !important;
+}
+
+.home-page-heading {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.join-message {
+  text-align: center;
+  padding: 20px;
+  margin: 0 30px;
+  font-size: 18px;
+}
+
+.join-button-container {
+  margin-top: -15px;
+}
+
+.join-button {
+  padding: 15px 60px;
+  color: white;
+  font-size: 20px;
+  border-radius: 3px;
+  text-decoration: none;
+  background: rgba(249, 165, 25, 0.54);
+  /*background: #0077A9;*/
+  letter-spacing: 0.1em;
+}

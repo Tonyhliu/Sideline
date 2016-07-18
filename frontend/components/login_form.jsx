@@ -5,6 +5,7 @@ const hashHistory = ReactRouter.hashHistory;
 const SessionActions = require('../actions/session_actions');
 const SessionStore = require('../stores/session_store');
 const ErrorStore = require('../stores/error_store');
+const Button = require('react-bootstrap').Button;
 
 const LoginForm = React.createClass({
 	contextTypes: {
@@ -61,6 +62,9 @@ const LoginForm = React.createClass({
 		return (
 			<div className="login-form-container">
 				<form className="login-form-box">
+					<b>Login</b>
+					<br/>
+					<br/>
 	        Welcome to Sideline!
 					<br/>
 					Please Login.
@@ -91,17 +95,17 @@ const LoginForm = React.createClass({
 
 						<a onClick={this.props.modal}>Don't have an account?</a>
 
-						<button type="submit"
-							value="Log In"
-							className="login-button hvr-glow"
-							onClick={ this._login }>
-							Log In
-						</button>
+						<Button type="submit"
+										value="Log In"
+										className="login-button hvr-glow"
+										onClick={this._login}>
+										Log In
+						</Button>
 
-						<button className="guest-login hvr-glow"
+						<Button className="guest-login hvr-glow"
 										onClick={this._guest}>
 										Demo Login
-						</button>
+						</Button>
 
 					</div>
 				</form>

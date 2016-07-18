@@ -6,6 +6,7 @@ const SessionActions = require('../actions/session_actions');
 const SessionStore = require('../stores/session_store');
 const ErrorStore = require('../stores/error_store');
 const App = require('./app');
+const Button = require('react-bootstrap').Button;
 
 const SignUpForm = React.createClass({
 
@@ -67,7 +68,10 @@ const SignUpForm = React.createClass({
   render() {
 		return (
 			<div className="login-form-container">
-				<form onSubmit={this._signup} className="login-form-box">
+				<form className="login-form-box">
+					<b>Create an account</b>
+					<br/>
+					<br/>
 	        Welcome to Sideline!
 					<br/>
 					Please Sign Up.
@@ -99,14 +103,17 @@ const SignUpForm = React.createClass({
 						<a onClick={this.props.modal}>
 								Already have an account?</a>
 
-						<input type="submit"
-							value="Sign Up"
-							className="login-button hvr-glow"/>
+							<Button type="submit"
+											value="Sign Up"
+											onClick={this._signup}
+											className="login-button hvr-glow">
+											Sign Up
+							</Button>
 
-						<button className="guest-login hvr-glow"
+						<Button className="guest-login hvr-glow"
 										onClick={this._guest}>
 										Demo Login
-						</button>
+						</Button>
 
 					</div>
 				</form>
