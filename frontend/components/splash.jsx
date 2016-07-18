@@ -63,7 +63,7 @@ const Splash = React.createClass({
 
           <Modal.Body>
             <h3>What is Sideline?</h3>
-            <p>
+            <p className="modal-p">
               Join the Sideline Club!
               Sideline allows users to read and comment on the current and rumored news, across all sports.
                                               Inspired by Medium, the objective is for users to share their favorite stories and search for trending ones!
