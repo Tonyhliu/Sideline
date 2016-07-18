@@ -11,8 +11,8 @@ const StoryActions = {
     StoryApiUtil.getStory(id, this.receiveSingleStory);
   },
 
-  createStory(story) {
-    StoryApiUtil.createStory(story, StoryActions.receiveSingleStory);
+  createStory(story, redirectCb) {
+    StoryApiUtil.createStory(story, StoryActions.receiveSingleStory, redirectCb);
   },
 
   deleteStory(id) {
@@ -34,11 +34,15 @@ const StoryActions = {
     });
   },
 
-  receiveSingleStory(story) {
+  receiveSingleStory(story, redirectCb) {
     AppDispatcher.dispatch({
       actionType: StoryConstants.STORY_RECEIVED,
       story: story
     });
+
+    if (typeof redirectCb === 'function') {
+      redirectCb(story);
+    }
   },
 
   removeStory(story) {

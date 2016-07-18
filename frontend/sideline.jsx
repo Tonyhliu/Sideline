@@ -25,10 +25,6 @@ const CommentForm = require('./components/comment_form');
 const About = require('./components/about');
 const Profile = require('./components/profile');
 
-//Auth
-// const SessionStore = require('./stores/session_store');
-// const SessionActions = require('./actions/session_actions');
-
 const appRouter = (
   <Router onUpdate={window.scrollTo(0, 0)} history={hashHistory}>
     <Route path="/" component={App}>

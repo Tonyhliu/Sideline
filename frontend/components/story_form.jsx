@@ -89,9 +89,10 @@ const StoryForm = React.createClass({
                 body: this.state.body,
                 picture_url: pic
     };
-
-    StoryActions.createStory(data);
-    this._navigateToIndex();
+    
+    StoryActions.createStory(data, (story) => {
+      hashHistory.push(`/stories/${story.id}`);
+    });
   },
 
 
@@ -234,11 +235,11 @@ const StoryForm = React.createClass({
                           theme="snow"
                           rows="10"
                           cols="10"
+                          required
                           placeholder="Tell your story..."
                           value={this.state.body}
                           defaultValue="Tell your story..."
                           onChange={(e) => this.setState({ body: e})}
-                          required
                           styles={false}>
               </ReactQuill>
             </FormGroup>

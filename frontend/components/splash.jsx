@@ -1,13 +1,24 @@
 const React = require('react');
 const hashHistory = require('react-router').hashHistory;
 const App = require('./app');
+const Modal = require('react-bootstrap').Modal;
+const Button = require('react-bootstrap').Button;
 
 const Splash = React.createClass({
-  _redirectToStories() {
-    hashHistory.push("/stories");
+  getInitialState() {
+    return({ show: false });
   },
 
-  _redirectToSignUp() {
+  showModal() {
+    this.setState({ show: true });
+  },
+
+  hideModal() {
+    this.setState({ show: false });
+  },
+
+  _redirectToStories() {
+    hashHistory.push("/stories");
   },
 
   render () {
@@ -31,7 +42,7 @@ const Splash = React.createClass({
 
       <section className="home-page-join">
         <div className="home-page-container">
-          <h2 className="home-page-heading">All the sports news you'll ever need is right here</h2>
+          <h2 className="home-page-heading">All the sports news you'll ever need is right <i>here</i></h2>
           <section className="join-message">
             <p>Share trending stories with other users</p>
             <p>Explore, like, and comment on your favorite stories</p>
@@ -41,8 +52,30 @@ const Splash = React.createClass({
 
           <section className="join-button-container">
             <a className="join-button hvr-shutter-out-horizontal"
-              onClick={this._redirectToSignUp}>SIGN UP FOR FREE</a>
+              onClick={this.showModal}>LEARN MORE</a>
           </section>
+
+          <Modal
+          {...this.props}
+          show={this.state.show}
+          onHide={this.hideModal}
+          dialogClassName="custom-modal">
+
+          <Modal.Body>
+            <h3>What is Sideline?</h3>
+            <p>
+              Join the Sideline Club!
+              Sideline allows users to read and comment on the current and rumored news, across all sports.
+                                              Inspired by Medium, the objective is for users to share their favorite stories and search for trending ones!
+                                              Users can also upload a profile picture and story pictures for other users to view and "like".
+                                              Currently, Sideline is a work-in-progress with new features still in the development process. for more information,
+                                              visit Sideline's GitHub repository!
+            </p>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button onClick={this.hideModal}>Close</Button>
+          </Modal.Footer>
+        </Modal>
         </div>
       </section>
 

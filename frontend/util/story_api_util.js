@@ -22,14 +22,14 @@ const StoryApiUtil = {
     });
   },
 
-  createStory(data, cb) {
+  createStory(data, cb, redirectCb) {
     $.ajax({
       url: "/api/stories",
       type: "POST",
       dataType: "json",
       data: { story: data },
       success (resp) {
-        cb(resp);
+        cb(resp, redirectCb);
       }
     });
   },

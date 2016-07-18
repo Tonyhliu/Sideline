@@ -15,10 +15,7 @@ const Footer = React.createClass({
           <ul className="footer-nav">
             <h5 className="footer-headers">COMPANY</h5>
 
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-
+            <li><a>About</a></li>
             <li><a>Careers</a></li>
             <li><a>Press</a></li>
           </ul>

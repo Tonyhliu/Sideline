@@ -79,6 +79,9 @@ section.video-container {
   border-radius: 3px;
   text-decoration: none;
   background: rgba(249, 165, 25, 0.54);
-  /*background: #0077A9;*/
   letter-spacing: 0.1em;
+}
+
+.custom-modal {
+  
 }

@@ -78,11 +78,6 @@ const App  = React.createClass({
                   <ButtonGroup>
 
                   <Button className="login-button"
-                    onClick={this._redirectToStoryForm}>
-                    Write your story!
-                  </Button>
-
-                  <Button className="login-button"
                     onClick={this.handleClick.bind(this, true)}>
                     Log In
                   </Button>
