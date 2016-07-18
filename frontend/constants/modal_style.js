@@ -20,7 +20,7 @@ module.exports = {
     WebkitOverflowScrolling    : 'touch',
     borderRadius               : '4px',
     outline                    : 'none',
-    padding                    : '20px',
+    padding                    : '15px',
     opacity                    : '0',
     transition                 : 'opacity 1s',
     maxHeight                  : '450px',
