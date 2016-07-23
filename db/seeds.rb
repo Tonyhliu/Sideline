@@ -37,6 +37,38 @@ comment_user8 = User.create!(username: "KevintheTA",
                             password: "password111",
                             avatar_url: "http://res.cloudinary.com/dcbb8bnvk/image/upload/w_400,h_400,c_crop,g_face,r_max/w_200/kevinTA_s1z6hg.png")
 
+comment1 = Comment.create!(body: "Great story. Go Warriors!!",
+                          story_id: 1,
+                          user_id: 4)
+
+comment2 = Comment.create!(body: "As an OKC fan I'm bummed out",
+                          story_id: 1,
+                          user_id: 7)
+
+comment3 = Comment.create!(body: "I'm a lakers fan",
+                          story_id: 1,
+                          user_id: 5)
+
+comment4 = Comment.create!(body: "No way! I didn't know that",
+                          story_id: 2,
+                          user_id: 7)
+
+comment5 = Comment.create!(body: "Love soccer!",
+                          story_id: 2,
+                          user_id: 7)
+
+comment6 = Comment.create!(body: "Great read",
+                          story_id: 2,
+                          user_id: 5)
+
+comment7 = Comment.create!(body: "I think that this is an awesome story",
+                          story_id: 3,
+                          user_id: 6)
+
+comment8 = Comment.create!(body: "Oh wow I didn't know that!",
+                          story_id: 4,
+                          user_id: 2)
+
 demo_story = Story.create!(title: "Warriors Rumors: Latest Intel on Durant, Barnes",
                           user_id: 3,
                           body:
