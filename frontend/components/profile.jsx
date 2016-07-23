@@ -57,6 +57,10 @@ const Profile = React.createClass({
         <div className="profile-page">
           <div className="profile-container">
             <h1 className="profile-header"> Upload a profile picture!</h1>
+            <h3>
+              <img src={SessionStore.currentUser().avatar_url}
+                  className="upload-user-pic" />
+            </h3>
             <form className="profile-form">
               <FormGroup controlId="formControlsFile">
                 <Button onClick={this._upload}
