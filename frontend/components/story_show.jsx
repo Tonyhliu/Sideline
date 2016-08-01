@@ -136,7 +136,7 @@ const StoryShow = React.createClass({
           <div className="story-container">
             <div className="story-page-container">
               <div className="story-author-container">
-                <h2 className="story-user"> {user}
+                <h2 className="story-user story-show-user"> {user}
                   <img src={this.state.story.user.avatar_url}
                         className="story-author-pic" />
                   </h2>

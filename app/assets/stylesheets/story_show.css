@@ -21,7 +21,6 @@ pre {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  text-align: center;
 }
 
 .picture-container {
@@ -118,4 +117,8 @@ textarea.form-control {
 
 .edit {
   margin-left: -100px;
+}
+
+.story-show-user {
+  text-align: center;
 }
