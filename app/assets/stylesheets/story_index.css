@@ -1,8 +1,10 @@
 div.index-header {
     background-image: url(http://res.cloudinary.com/dcbb8bnvk/image/upload/c_crop,x_1256,y_300/v1467522114/homepage_ukuzvz.jpg);
+    /*background-attachment: fixed;*/
     background-size: contain;
     height: 200px;
     width: 100%;
+    overflow: hidden;
 }
 
 .index-header-header {
