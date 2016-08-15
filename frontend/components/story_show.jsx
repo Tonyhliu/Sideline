@@ -100,6 +100,9 @@ const StoryShow = React.createClass({
               </div>
 
               <div className="comments-container">
+
+                <div className="comments-index">
+
                 <div className="comments-buttons-container">
                   <div className="buttons-container">
                     {editButton}
@@ -113,18 +116,21 @@ const StoryShow = React.createClass({
                   </Button>
                 </div>
 
-                <h2 className="comments-pre">Comments</h2>
+                <h2 className="comments-header">Comments</h2>
                 {comments.map(comment => {
                   return <pre className="comments-pre"
                     key={comment.id}>
-                    <img src={comment.user.avatar_url}
-                        className="comment-pic"/>
-                    { comment.user.username } : {comment.body}
+                    <div className="comment-body">
+                      <img src={comment.user.avatar_url}
+                          className="comment-pic"/>
+                      { comment.user.username } : {comment.body}
+                    </div>
                   </pre>;
                   })
                   }
 
                 <CommentForm story={this.state.story}/>
+                </div>
               </div>
             </div>
           </div>

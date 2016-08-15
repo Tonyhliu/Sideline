@@ -61,22 +61,60 @@ pre {
 }
 
 .comments-container {
-  display: flex;
+  /*display: flex;
   width: 50%;
   flex-direction: column;
   align-items: baseline;
-  padding-top: 20px;
+  padding-top: 20px;*/
+
+  margin: auto;
+  max-width: 1000px;
+  padding: 35px 0;
+}
+
+.comments-index {
+  max-width: 660px;
+  margin: 0 auto;
 }
 
 .story-author-pic {
   width: 100px;
 }
 
-.comments-pre {
+.comments-header {
   margin-top: 15px;
   margin-bottom: 3px;
   width: 100%;
   display: inline-block;
+}
+
+.comments-body {
+  color: rgba(0,0,0,0.8);
+  display: block;
+  margin-top: 10px;
+  font-size: 18px;
+  line-height: 1.5;
+  font-family: medium-content-serif-font,Georgia,Cambria,"Times New Roman",Times,serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.comments-pre {
+  background: #FFF;
+  border: 1px solid rgba(0,0,0,0.09);
+  border-radius: 3px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  color: rgba(0,0,0,0.8);
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.4;
+  margin: 0 auto 10px auto;
+  margin-top: 15px;
+  padding: 15px 20px;
+  width: 100%;
 }
 
 textarea.form-control {
@@ -99,15 +137,14 @@ textarea.form-control {
 .story-paragraph {
   padding: 15px;
   border-bottom: 1px solid #e8e1e1;
-
-  margin: 52px auto 30px auto;
-  width: 700px;
+  margin: 15px auto 30px auto;
+  width: 100%;
   font-family: medium-content-serif-font,Georgia,Cambria,"Times New Roman",Times,serif;
   letter-spacing: 0;
   font-weight: 400;
   font-style: normal;
   color: rgba(0,0,0,0.8);
-  font-size: 21px;
+  font-size: 150%;
   line-height: 1.58;
   letter-spacing: -.003em;
   word-wrap: break-word;
@@ -120,7 +157,7 @@ textarea.form-control {
 }
 
 .comment-pic {
-  width: 20px;
+  width: 8%;
   margin: 10px;
 }
 
