@@ -39,8 +39,14 @@ ul.index-stories {
 }
 
 .paragraphs {
-  font-family: sans-serif;
-  color: #383838;
+  color: rgba(0,0,0,0.8);
+  display: block;
+  margin-top: 10px;
+  font-size: 18px;
+  line-height: 1.5;
+  font-family: medium-content-serif-font,Georgia,Cambria,"Times New Roman",Times,serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .story-index-item {

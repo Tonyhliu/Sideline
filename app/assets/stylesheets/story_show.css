@@ -24,7 +24,7 @@ pre {
 }
 
 .picture-container {
-  width: 150%;
+  width: 120%;
   height: auto;
 }
 
@@ -98,6 +98,18 @@ textarea.form-control {
 .story-paragraph {
   padding: 15px;
   border-bottom: 1px solid #e8e1e1;
+
+  margin: 52px auto 30px auto;
+  width: 700px;
+  font-family: medium-content-serif-font,Georgia,Cambria,"Times New Roman",Times,serif;
+  letter-spacing: 0;
+  font-weight: 400;
+  font-style: normal;
+  color: rgba(0,0,0,0.8);
+  font-size: 21px;
+  line-height: 1.58;
+  letter-spacing: -.003em;
+  word-wrap: break-word;
 }
 
 .loader-image {
