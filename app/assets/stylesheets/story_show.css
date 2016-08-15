@@ -21,6 +21,7 @@ pre {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding-top: 0.6em;
 }
 
 .picture-container {
