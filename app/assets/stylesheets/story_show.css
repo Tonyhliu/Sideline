@@ -150,6 +150,10 @@ textarea.form-control {
   word-wrap: break-word;
 }
 
+.story-username {
+  padding-bottom: 0.5em;
+}
+
 .comment-username {
   color: #00ab6b;
 }
