@@ -123,7 +123,11 @@ const StoryShow = React.createClass({
                     <div className="comment-body">
                       <img src={comment.user.avatar_url}
                           className="comment-pic"/>
-                      { comment.user.username } : {comment.body}
+                        <span className="comment-username">
+                          { comment.user.username }
+                        </span>
+                      <br></br>
+                      {comment.body}
                     </div>
                   </pre>;
                   })
@@ -170,7 +174,7 @@ const StoryShow = React.createClass({
                   </div>
 
                   <br/>
-                  <h1 className="comments-pre">No comments yet!</h1>
+                  <h1 className="comments-header">No comments yet!</h1>
                   <CommentForm story={this.state.story} />
                 </div>
               </div>

@@ -38,7 +38,7 @@ pre {
 .story-body {
   border: 1px solid #efeded;
   padding: 2%;
-  width: 100%;
+  width: 120%;
   word-wrap: break-word;
 }
 
@@ -137,8 +137,8 @@ textarea.form-control {
 .story-paragraph {
   padding: 15px;
   border-bottom: 1px solid #e8e1e1;
-  margin: 15px auto 30px auto;
-  width: 100%;
+  margin: 15px auto 0 auto;
+  width: 85%;
   font-family: medium-content-serif-font,Georgia,Cambria,"Times New Roman",Times,serif;
   letter-spacing: 0;
   font-weight: 400;
@@ -148,6 +148,10 @@ textarea.form-control {
   line-height: 1.58;
   letter-spacing: -.003em;
   word-wrap: break-word;
+}
+
+.comment-username {
+  color: #00ab6b;
 }
 
 .loader-image {
