@@ -23,11 +23,12 @@ const Footer = React.createClass({
           <ul className="footer-nav">
             <h5 className="footer-headers">CONNECT</h5>
 
+            <a href="http://tonyhliu.us">Portfolio</a>
+            
             <a href="https://github.com/tonyhliu/capstone">Github</a>
 
             <a href="https://www.linkedin.com/in/tonyhoyinliu">LinkedIn</a>
 
-            <a href="http://tbunzz.tumblr.com/">Tumblr</a>
           </ul>
         </section>
       </footer>
