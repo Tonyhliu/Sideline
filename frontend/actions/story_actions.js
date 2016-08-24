@@ -7,6 +7,10 @@ const StoryActions = {
     StoryApiUtil.fetchAllStories(data, this.receiveAllStories);
   },
 
+  searchAllStories(data={}) {
+    StoryApiUtil.fetchAllStories(data, this.receiveAllSearches);
+  },
+
   getStory(id) {
     StoryApiUtil.getStory(id, this.receiveSingleStory);
   },
@@ -25,6 +29,13 @@ const StoryActions = {
 
   createComment(comment){
     StoryApiUtil.createComment(comment, this.receiveSingleStory);
+  },
+
+  receiveAllSearches(stories) {
+    AppDispatcher.dispatch({
+      actionType: StoryConstants.SEARCHES_RECEIVED,
+      stories: stories
+    });
   },
 
   receiveAllStories(stories) {

@@ -10,7 +10,6 @@ const StoryIndex = React.createClass({
 
   _storyChange() {
     this.setState({ stories: StoryStore.all() });
-    this.storyListener.remove();
   },
 
   componentDidMount() {
@@ -18,9 +17,9 @@ const StoryIndex = React.createClass({
     StoryActions.fetchAllStories();
   },
 
-  // componentWillUnmount() {
-  //   this.storyListener.remove();
-  // },
+  componentWillUnmount() {
+    this.storyListener.remove();
+  },
 
   render() {
     return (

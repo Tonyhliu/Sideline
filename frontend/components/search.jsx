@@ -13,6 +13,7 @@ const MenuItem = require('react-bootstrap').MenuItem;
 const Modal = require('react-bootstrap').Modal;
 
 const StoryStore = require('../stores/story_store');
+const SearchStore = require('../stores/search_store');
 const StoryActions = require('../actions/story_actions');
 const StoryIndex = require('./story_index');
 const SessionStore = require('../stores/session_store');
@@ -23,24 +24,23 @@ const FilterActions = require('../actions/filter_actions');
 const Search = React.createClass({
 
   getInitialState() {
-    return({ query: '', stories: StoryStore.all(),
+    return({ query: '', stories: SearchStore.all(),
             show: false });
   },
 
   _storiesChanged() {
-    this.setState({ stories: StoryStore.all() });
+    this.setState({ stories: SearchStore.all() });
   },
 
   componentDidMount() {
-    this.storyListener = StoryStore.addListener(this._storiesChanged);
-    StoryActions.fetchAllStories();
+    this.searchListener = SearchStore.addListener(this._storiesChanged);
+    StoryActions.searchAllStories();
 
     document.addEventListener("click", (e) => {
       // console.log(e.target.matches('.search-input'));
       if (!e.target.matches('.search-input')) {
         $(".dropdown-menu-list").addClass("dropdown-empty");
         this.setState({ query: '' });
-        // document.getElementsByClassName("dropdown-menu-list").add(".dropdown-empty");
       } else {
         $(".dropdown-menu-list").removeClass("dropdown-empty");
       }
@@ -49,7 +49,7 @@ const Search = React.createClass({
   },
 
   componentWillUnmount() {
-    this.storyListener.remove();
+    this.searchListener.remove();
   },
 
   _signOut(e) {
@@ -59,7 +59,7 @@ const Search = React.createClass({
 
   _onInput(e) {
     this.setState({query: e.target.value});
-    StoryActions.fetchAllStories({ query: e.target.value });
+    StoryActions.searchAllStories({ query: e.target.value });
   },
 
   _redirectToNew() {
@@ -76,9 +76,6 @@ const Search = React.createClass({
     hashHistory.push(`/stories/${e.target.value}`);
   },
 
-  // _searchClick() {
-  //     $('.search-results').show();
-  // },
 
   render() {
     let close = () => this.setState({ show: false });
@@ -86,10 +83,6 @@ const Search = React.createClass({
     const user = SessionStore.currentUser().username.capitalize();
     let ul;
     if (this.state.query.length > 0) {
-      // this.setState({query: e.target.value});
-      // const stories = StoryActions.fetchAllStories({ query: this.state.query });
-
-
       ul =
         <ul className="dropdown-menu-list">
           {
