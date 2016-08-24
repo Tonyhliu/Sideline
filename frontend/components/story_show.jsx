@@ -19,7 +19,6 @@ const StoryShow = React.createClass({
   componentDidMount() {
     this.storyListener = StoryStore.addListener(this._handleChange);
     StoryActions.getStory(parseInt(this.props.params.storyid));
-    // ReactDOM.findDOMNode(this).scrollIntoView();
     window.scrollTo(0, 0);
   },
 
@@ -105,45 +104,43 @@ const StoryShow = React.createClass({
               </div>
 
               <div className="comments-container">
-
                 <div className="comments-index">
+                  <div className="comments-buttons-container">
+                    <div className="buttons-container">
+                      {editButton}
+                      {deleteButton}
+                    </div>
 
-                <div className="comments-buttons-container">
-                  <div className="buttons-container">
-                    {editButton}
-                    {deleteButton}
+                    <Button bsStyle="info"
+                            onClick={this._redirectToIndex}
+                            className="index-button hvr-bounce-to-left">
+                            Back to Stories!
+                    </Button>
                   </div>
 
-                  <Button bsStyle="info"
-                          onClick={this._redirectToIndex}
-                          className="index-button hvr-bounce-to-left">
-                          Back to Stories!
-                  </Button>
-                </div>
+                  <h2 className="comments-header">Comments</h2>
+                  {comments.map(comment => {
+                    return <pre className="comments-pre"
+                      key={comment.id}>
+                      <div className="comment-body">
+                        <img src={comment.user.avatar_url}
+                            className="comment-pic"/>
+                          <span className="comment-username">
+                            { comment.user.username }
+                          </span>
+                        <br></br>
+                        {comment.body}
+                      </div>
+                    </pre>;
+                    })
+                    }
 
-                <h2 className="comments-header">Comments</h2>
-                {comments.map(comment => {
-                  return <pre className="comments-pre"
-                    key={comment.id}>
-                    <div className="comment-body">
-                      <img src={comment.user.avatar_url}
-                          className="comment-pic"/>
-                        <span className="comment-username">
-                          { comment.user.username }
-                        </span>
-                      <br></br>
-                      {comment.body}
-                    </div>
-                  </pre>;
-                  })
-                  }
-
-                <CommentForm story={this.state.story}/>
+                  <CommentForm story={this.state.story}/>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
       );
     } else {
@@ -167,20 +164,22 @@ const StoryShow = React.createClass({
                     dangerouslySetInnerHTML={{__html: story.body}}>
                 </div>
 
-                <div className="comments-container">
-                  <div className="comments-buttons-container">
-                    {editButton}
-                    {deleteButton}
-                    <Button bsStyle="info"
-                            onClick={this._redirectToIndex}
-                            className="index-button hvr-bounce-to-left">
-                            Back to stories!
-                    </Button>
-                  </div>
+                  <div className="comments-container">
+                    <div className="comments-index">
+                    <div className="comments-buttons-container">
+                      {editButton}
+                      {deleteButton}
+                      <Button bsStyle="info"
+                              onClick={this._redirectToIndex}
+                              className="index-button hvr-bounce-to-left">
+                              Back to stories!
+                      </Button>
+                    </div>
 
-                  <br/>
-                  <h1 className="comments-header">No comments yet!</h1>
-                  <CommentForm story={this.state.story} />
+                    <br/>
+                    <h1 className="comments-header">No comments yet!</h1>
+                    <CommentForm story={this.state.story} />
+                  </div>
                 </div>
               </div>
             </div>
