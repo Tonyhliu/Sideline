@@ -19,6 +19,8 @@ const StoryShow = React.createClass({
   componentDidMount() {
     this.storyListener = StoryStore.addListener(this._handleChange);
     StoryActions.getStory(parseInt(this.props.params.storyid));
+    // ReactDOM.findDOMNode(this).scrollIntoView();
+    window.scrollTo(0, 0);
   },
 
   componentWillReceiveProps(newProps) {
@@ -52,7 +54,7 @@ const StoryShow = React.createClass({
   },
 
   componentDidUpdate:function() {
-    ReactDOM.findDOMNode(this).scrollIntoView();
+    // ReactDOM.findDOMNode(this).scrollIntoView();
   },
 
   render() {

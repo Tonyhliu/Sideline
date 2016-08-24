@@ -14,6 +14,14 @@
   display: none;
 }
 
+.dropdown-menu-list-blank {
+  display: none;
+}
+
+.dropdown-menu-list-empty {
+  display: none;
+}
+
 .search {
   padding: 5px;
   color: #777777;

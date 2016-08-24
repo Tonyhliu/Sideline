@@ -34,6 +34,18 @@ const Search = React.createClass({
   componentDidMount() {
     this.storyListener = StoryStore.addListener(this._storiesChanged);
     StoryActions.fetchAllStories();
+
+    document.addEventListener("click", (e) => {
+      // console.log(e.target.matches('.search-input'));
+      if (!e.target.matches('.search-input')) {
+        $(".dropdown-menu-list").addClass("dropdown-empty");
+        this.setState({ query: '' });
+        // document.getElementsByClassName("dropdown-menu-list").add(".dropdown-empty");
+      } else {
+        $(".dropdown-menu-list").removeClass("dropdown-empty");
+      }
+    });
+
   },
 
   componentWillUnmount() {
@@ -64,9 +76,9 @@ const Search = React.createClass({
     hashHistory.push(`/stories/${e.target.value}`);
   },
 
-  _searchClick() {
-      $('.search-results').show();
-  },
+  // _searchClick() {
+  //     $('.search-results').show();
+  // },
 
   render() {
     let close = () => this.setState({ show: false });
@@ -74,6 +86,10 @@ const Search = React.createClass({
     const user = SessionStore.currentUser().username.capitalize();
     let ul;
     if (this.state.query.length > 0) {
+      // this.setState({query: e.target.value});
+      // const stories = StoryActions.fetchAllStories({ query: this.state.query });
+
+
       ul =
         <ul className="dropdown-menu-list">
           {
@@ -88,6 +104,8 @@ const Search = React.createClass({
               })
             }
         </ul>;
+    } else {
+      ul = <ul className="dropdown-menu-list-blank"></ul>;
     }
 
     return(
@@ -103,15 +121,14 @@ const Search = React.createClass({
               <Navbar.Form pullRight>
                 <div className="search-container">
                    <FormGroup className="search-bar-container">
-                     <input type="search"
+                     <input className="search-input"
+                       type="search"
                        value={this.state.query}
                        placeholder="Search sideline..."
                        onInput={this._onInput}
-                       onClick={this._searchClick}
                       />
                    </FormGroup>
                    <div className='search-results'>
-
                      {ul}
                    </div>
                 </div>

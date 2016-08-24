@@ -56,6 +56,10 @@ const StoryIndexItem = React.createClass({
     const picUrl = this.cropPic(this.props.story.picture_url);
     let strippedText = jQuery(this.props.story.body).text();
 
+    $(".story-title-link").click(function(){
+      window.scrollTo(0,0);
+    });
+
     let favorite =
       <Button className="disabled-fave-button"
               disabled>
