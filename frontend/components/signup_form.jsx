@@ -35,16 +35,23 @@ const SignUpForm = React.createClass({
 
   _signup(e) {
     e.preventDefault();
-    SessionActions.signUp(this.state);
+    if (SessionActions.signUp(this.state)) {
+			this._redirectToHome();
+		}
   },
 
   update(property){
     return (e) => this.setState({ [property]: e.target.value });
   },
 
+	_redirectToHome() {
+		hashHistory.push('/stories');
+	},
+
 	_guest(e) {
 		e.preventDefault();
 		SessionActions.logIn({username: "Guest", password: "Password"});
+		this._redirectToHome();
 	},
 
 	fieldErrors(field) {

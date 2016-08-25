@@ -1,4 +1,24 @@
+var timeout;
+var ApiCall = null;
+
 const StoryApiUtil = {
+  searchAllStories(data={}, cb) {
+    clearTimeout(timeout);
+    if (!ApiCall === null) { ApiCall.abort(); }
+    timeout = setTimeout(() => {
+      ApiCall =
+      $.ajax({
+        url: "/api/stories",
+        type: "GET",
+        dataType: "json",
+        data: data,
+        success (resp) {
+          cb(resp);
+        }
+      });
+    }, 300);
+  },
+
   fetchAllStories(data={}, cb) {
     $.ajax({
       url: "/api/stories",

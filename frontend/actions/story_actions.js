@@ -8,7 +8,7 @@ const StoryActions = {
   },
 
   searchAllStories(data={}) {
-    StoryApiUtil.fetchAllStories(data, this.receiveAllSearches);
+    StoryApiUtil.searchAllStories(data, this.receiveAllSearches);
   },
 
   getStory(id) {

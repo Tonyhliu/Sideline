@@ -31,9 +31,15 @@ const LoginForm = React.createClass({
     this.sessionListener.remove();
   },
 
+	_redirectToHome() {
+		hashHistory.push('/stories');
+	},
+
   _login(e) {
     e.preventDefault();
-    SessionActions.logIn(this.state);
+		if (SessionActions.logIn(this.state)) {
+			this._redirectToHome();
+		}
   },
 
 	fieldErrors(field) {
