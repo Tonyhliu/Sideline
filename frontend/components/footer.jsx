@@ -24,7 +24,7 @@ const Footer = React.createClass({
             <h5 className="footer-headers">CONNECT</h5>
 
             <a href="http://tonyhliu.us">Portfolio</a>
-            
+
             <a href="https://github.com/tonyhliu/capstone">Github</a>
 
             <a href="https://www.linkedin.com/in/tonyhoyinliu">LinkedIn</a>

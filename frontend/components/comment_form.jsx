@@ -30,9 +30,11 @@ const CommentForm = React.createClass({
       { story_id: parseInt(this.props.story.id) }
     );
 
-    StoryActions.createComment(comment);
-    this.setState({ body: "" , user_id: SessionStore.currentUser().id });
-    this._navigateToStoryShow();
+    if (!this.state.body == false) {
+      StoryActions.createComment(comment);
+      this.setState({ body: "" , user_id: SessionStore.currentUser().id });
+      this._navigateToStoryShow();
+    }
   },
 
   _updateBody(e) {
