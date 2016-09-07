@@ -22,6 +22,9 @@ pre {
   flex-direction: column;
   justify-content: center;
   padding-top: 0.6em;
+}
+
+.story-show-user {
   align-items: center;
 }
 

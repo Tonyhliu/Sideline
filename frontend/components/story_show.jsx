@@ -82,7 +82,7 @@ const StoryShow = React.createClass({
         <div className="story-container">
           <div className="story-page-container">
             <div className="story-author-container">
-              <h2 className="story-user">
+              <h2 className="story-user story-show-user">
                 <span className="story-username">
                   {user}
                 </span>
