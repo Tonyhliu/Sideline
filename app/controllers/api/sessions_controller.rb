@@ -22,7 +22,7 @@ class Api::SessionsController < ApplicationController
     else
       render(
         json: {
-          base: ["Nobdy signed in"]
+          base: ["Nobody signed in"]
         },
         status: 404
         )

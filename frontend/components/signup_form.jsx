@@ -103,9 +103,9 @@ const SignUpForm = React.createClass({
 						</label>
 
 		        <br/>
+
 						{ this.fieldErrors("username") }
 						{ this.fieldErrors("password") }
-
 						{ this.fieldErrors("base") }
 
 						<a onClick={this.props.modal}>

@@ -78,7 +78,6 @@ const LoginForm = React.createClass({
 					<div className="login-form">
 		        <br />
 						<label className="form-username"> Username
-		          { this.fieldErrors("username") }
 							<input type="text"
 		            value={this.state.username}
 		            onChange={this.update("username")}
@@ -88,7 +87,6 @@ const LoginForm = React.createClass({
 
 		        <br />
 						<label className="form-username"> Password
-		          { this.fieldErrors("password") }
 		          <input type="password"
 		            value={this.state.password}
 		            onChange={this.update("password")}

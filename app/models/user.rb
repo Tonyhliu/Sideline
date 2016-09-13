@@ -2,14 +2,14 @@ class User < ActiveRecord::Base
   validates :session_token, uniqueness: true, presence: true
   validates :avatar_url, presence: true
   validates :password_digest, presence: { message: "Password can't be blank!" }
-  validates :password, length: { minimum: 6, allow_nil: true, message: "Must be at least 6 characters" }
+  validates :password, length: { minimum: 6, allow_nil: true, message: "Password must be at least 6 characters" }
   validates :description, length: { maximum: 140, allow_nil: true }
   validates :description, length: { maximum: 140, allow_nil: true }
   validates :username,
-    presence: true,
+    presence: { message: "Username can't be blank!"},
     uniqueness: { case_sensitive: false },
-    length: { in: 4..20 },
-    format: { with: /\A[a-zA-Z]+\z/, message: "only letters allowed" }
+    length: { in: 4..20, message: "Username is too short (minimum is 4 characters)" },
+    format: { with: /\A[a-zA-Z]+\z/, message: "Only letters allowed for username" }
 
   attr_reader :password
 
