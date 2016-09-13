@@ -5,7 +5,9 @@ module.exports = {
     left              : 0,
     right             : 0,
     bottom            : 0,
-    backgroundColor   : 'rgba(255, 255, 255, 0.75)'
+    backgroundColor   : 'rgba(255, 255, 255, 0.75)',
+    height            : '700px',
+    overflow          : 'hidden'
   },
   content : {
     position                   : 'fixed',
@@ -23,7 +25,6 @@ module.exports = {
     padding                    : '15px',
     opacity                    : '0',
     transition                 : 'opacity 1s',
-    maxHeight                  : '450px',
-    height                     : '70%'
+    height                     : '550px'
   }
 };

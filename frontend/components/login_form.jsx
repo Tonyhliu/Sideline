@@ -71,13 +71,13 @@ const LoginForm = React.createClass({
 					<b>Login</b>
 					<br/>
 					<br/>
-	        Welcome to Sideline!
+	        Welcome to <span className="sideline-title">SIDELINE!</span>
 					<br/>
 					Please Login.
 
 					<div className="login-form">
 		        <br />
-						<label> Username:
+						<label className="form-username"> Username
 		          { this.fieldErrors("username") }
 							<input type="text"
 		            value={this.state.username}
@@ -87,7 +87,7 @@ const LoginForm = React.createClass({
 						</label>
 
 		        <br />
-						<label> Password:
+						<label className="form-username"> Password
 		          { this.fieldErrors("password") }
 		          <input type="password"
 		            value={this.state.password}
@@ -96,8 +96,9 @@ const LoginForm = React.createClass({
 								placeholder="Password"/>
 						</label>
 
+						<br/>
+
 						{ this.fieldErrors("base") }
-		        <br />
 
 						<a onClick={this.props.modal}>Don't have an account?</a>
 

@@ -79,14 +79,14 @@ const SignUpForm = React.createClass({
 					<b>Create an account</b>
 					<br/>
 					<br/>
-	        Welcome to Sideline!
+	        Welcome to <span className="sideline-title">SIDELINE!</span>
 					<br/>
 					Please Sign Up.
 
 	        { this.fieldErrors("base") }
 					<div className="login-form">
 		        <br />
-						<label> Username:
+						<label className="form-username"> Username
 		          { this.fieldErrors("username") }
 							<input type="text"
 		            value={this.state.username}
@@ -96,7 +96,7 @@ const SignUpForm = React.createClass({
 						</label>
 
 		        <br />
-						<label> Password:
+						<label className="form-username"> Password
 		          <input type="password"
 		            value={this.state.password}
 		            onChange={this.update("password")}

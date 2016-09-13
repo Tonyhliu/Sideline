@@ -36,9 +36,22 @@ hgroup.header-group {
   flex-direction: column;
 }
 
+.form-username {
+  display: flex;
+  padding: 5px;
+  border: 1px solid #cccccc;
+  align-items: center;
+  border-radius: 4px;
+  color: #757575;
+}
+
 .login-button {
   cursor: pointer;
   font-family: sans-serif;
+}
+
+.sideline-title {
+  color: #faa519;
 }
 
 .login-button:hover {
@@ -60,6 +73,8 @@ hgroup.header-group {
 
 .login-input {
   margin-left: 20px;
+  border: none;
+  color: black;
 }
 
 .login-form-box {
@@ -70,8 +85,8 @@ hgroup.header-group {
 }
 
 .error-msgs {
-  margin-top: 15px;
-  margin-bottom: 10px;
+  /*margin-top: 15px;*/
+  /*margin-bottom: 10px;*/
   background: #f2dede;
   border-color: #ebccd1;
   color: #a94442;
@@ -81,6 +96,7 @@ hgroup.header-group {
 .error-msg-items {
   margin-left: -15%;
   padding-top: 2px;
+  text-align: center;
 }
 
 .create-story {

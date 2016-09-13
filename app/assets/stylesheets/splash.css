@@ -82,6 +82,10 @@ section.video-container {
   letter-spacing: 0.1em;
 }
 
+.join-button:hover {
+  cursor: pointer;
+}
+
 .modal-p {
   margin: 0 0 10px;
   border-top: 1px solid #e5e5e5;
