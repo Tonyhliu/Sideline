@@ -83,11 +83,9 @@ const SignUpForm = React.createClass({
 					<br/>
 					Please Sign Up.
 
-	        { this.fieldErrors("base") }
 					<div className="login-form">
 		        <br />
 						<label className="form-username"> Username
-		          { this.fieldErrors("username") }
 							<input type="text"
 		            value={this.state.username}
 		            onChange={this.update("username")}
@@ -103,9 +101,12 @@ const SignUpForm = React.createClass({
 								className="login-input"
 								placeholder="Password"/>
 						</label>
-						{ this.fieldErrors("password") }
 
 		        <br/>
+						{ this.fieldErrors("username") }
+						{ this.fieldErrors("password") }
+
+						{ this.fieldErrors("base") }
 
 						<a onClick={this.props.modal}>
 								Already have an account?</a>
