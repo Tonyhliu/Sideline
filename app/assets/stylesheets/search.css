@@ -68,7 +68,7 @@ input[type=search] {
 input[type=search]:focus {
 	width: 130px;
 	background-color: rgb(52, 156, 85);
-	border-color: #66CC75;
+	border-color: #FFC107;
 
 	-webkit-box-shadow: 0 0 5px rgba(109,207,246,.5);
 	-moz-box-shadow: 0 0 5px rgba(109,207,246,.5);
