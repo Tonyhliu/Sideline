@@ -119,3 +119,9 @@ hgroup.header-group {
 .about-header {
   color: #ef9115;
 }
+
+.image-container {
+  height: 250px;
+  overflow: hidden;
+  z-index: -5;
+}

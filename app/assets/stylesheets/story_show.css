@@ -37,6 +37,7 @@ pre {
   height: 100%;
   width: 100%;
   padding-top: 20px;
+  z-index: -5;
 }
 
 .story-body {

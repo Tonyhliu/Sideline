@@ -46,7 +46,7 @@ const StoryIndexItem = React.createClass({
   },
 
   cropPic(url) {
-    let base = "http://res.cloudinary.com/dcbb8bnvk/image/upload/c_fill,h_300,w_1600/";
+    let base = "http://res.cloudinary.com/dcbb8bnvk/image/upload/c_fill,h_750,w_1600/";
     let cropUrl = url.split('/');
     return base + cropUrl[cropUrl.length - 1];
   },
