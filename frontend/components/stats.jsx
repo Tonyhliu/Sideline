@@ -1,7 +1,6 @@
 const React = require('react');
 const StatsApiUtil = require('../util/stats_api_util');
-// var XHMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
-// var xhr = new XMLHttpRequest();
+const StatsItem = require('./stats_item');
 
 const Stats = React.createClass({
   getInitialState() {
@@ -10,30 +9,21 @@ const Stats = React.createClass({
 
   _fetchStats(e) {
     e.preventDefault();
-    this.setState({ stats: StatsApiUtil.getNbaStats() });
-    // console.log(xhr);
+    StatsApiUtil.getNbaStats(this._updateStats);
   },
 
-  // _storyChange() {
-  //   this.setState({ stories: StoryStore.all() });
-  // },
-  //
-  // componentDidMount() {
-  //   this.storyListener = StoryStore.addListener(this._storyChange);
-  //   StoryActions.fetchAllStories();
-  // },
-  //
-  // componentWillUnmount() {
-  //   this.storyListener.remove();
-  // },
+  _updateStats(resp) {
+    this.setState({ stats: resp });
+  },
 
   render() {
     return (
       <div>
-        <h1 onClick={this._fetchStats}>HELLO</h1>
+        <h1 onClick={this._fetchStats}>Fetch NBA Players</h1>
         <ul>
           {this.state.stats.map(el => {
-            return <li>{el}</li>;
+            return <StatsItem key={el.PlayerId}
+                              player={el} />;
           })}
         </ul>
       </div>

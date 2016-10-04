@@ -21,15 +21,16 @@ const StatsApiUtil = {
       "method": "GET",
       "headers": {
         "ocp-apim-subscription-key": "44b05285b729456db03ffcb6210e891d",
-        "cache-control": "no-cache",
-        "postman-token": "b5e2ccea-d2f1-e619-f289-effd95b119a5"
+        "cache-control": "no-cache"
       }
     };
 
     $.ajax(settings).done(function (response) {
       // console.log(response);
-      // success(response);
-      return response;
+      success(response);
+      // return response;
+    }).fail(function () {
+      alert('API call failed');
     });
   }
 };
