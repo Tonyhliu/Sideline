@@ -22,7 +22,7 @@ const Stats = React.createClass({
         <h1 onClick={this._fetchStats}>Fetch NBA Players</h1>
         <ul>
           {this.state.stats.map(el => {
-            return <StatsItem key={el.PlayerId}
+            return <StatsItem key={el.PlayerID}
                               player={el} />;
           })}
         </ul>
