@@ -5,12 +5,12 @@ const StatsApiUtil = require('../util/stats_api_util');
 
 const Stats = React.createClass({
   getInitialState() {
-    return({ stats: {} });
+    return({ stats: [] });
   },
 
   _fetchStats(e) {
     e.preventDefault();
-    StatsApiUtil.getNbaStats();
+    this.setState({ stats: StatsApiUtil.getNbaStats() });
     // console.log(xhr);
   },
 
@@ -31,6 +31,11 @@ const Stats = React.createClass({
     return (
       <div>
         <h1 onClick={this._fetchStats}>HELLO</h1>
+        <ul>
+          {this.state.stats.map(el => {
+            return <li>{el}</li>;
+          })}
+        </ul>
       </div>
     );
   }

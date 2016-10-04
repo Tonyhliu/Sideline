@@ -1,27 +1,19 @@
 const StatsApiUtil = {
-  getNbaStats() {
-    // $.ajaxSetup({
-    //   beforeSend: function(xhr) {
-    //     xhr.setRequestHeader(
-    //       'Access-Control-Allow-Origin', 'http://localhost:3000',
-    //       'Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS',
-    //       'Access-Control-Allow-Headers', 'Content-type, Accept, X-Custom-Header',
-    //       'Ocp-Apim-Subscription-Key', '44b05285b729456db03ffcb6210e891d'
-    //     );}
-    // });
-    //
+  getNbaStats(success) {
     // $.ajax({
     //   type: 'GET',
     //   url: 'https://api.fantasydata.net/nba/v2/JSON/Players HTTP/1.1',
+    //   "headers": {
+    //     'Access-Control-Allow-Origin': 'http://localhost:3000',
+    //     'Access-Control-Allow-Methods': 'GET, PUT, POST, DELETE, OPTIONS',
+    //     'Access-Control-Allow-Headers': 'Content-type, Accept, X-Custom-Header',
+    //     'Ocp-Apim-Subscription-Key': '44b05285b729456db03ffcb6210e891d'
+    //   },
     //   success(resp) {
-    //     // console.log(resp);
-    //     // if (resp.method == 'OPTIONS') {
-    //       console.log("MADE IT");
-    //     // }
     //     console.log(resp);
     //   }
     // });
-    
+
     var settings = {
       "async": true,
       "crossDomain": true,
@@ -35,7 +27,9 @@ const StatsApiUtil = {
     };
 
     $.ajax(settings).done(function (response) {
-      console.log(response);
+      // console.log(response);
+      // success(response);
+      return response;
     });
   }
 };
