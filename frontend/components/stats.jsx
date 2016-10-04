@@ -1,5 +1,7 @@
 const React = require('react');
 const StatsApiUtil = require('../util/stats_api_util');
+// var XHMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
+// var xhr = new XMLHttpRequest();
 
 const Stats = React.createClass({
   getInitialState() {
@@ -9,6 +11,7 @@ const Stats = React.createClass({
   _fetchStats(e) {
     e.preventDefault();
     StatsApiUtil.getNbaStats();
+    // console.log(xhr);
   },
 
   // _storyChange() {
