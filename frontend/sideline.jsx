@@ -26,6 +26,8 @@ const About = require('./components/about');
 const Profile = require('./components/profile');
 const Stats = require('./components/stats');
 const NbaStats = require('./components/nba_stats');
+const NflStats = require('./components/nfl_stats');
+// const MlbStats = require('./components/mlb_stats');
 
 const appRouter = (
   <Router onUpdate={window.scrollTo(0, 0)} history={hashHistory}>
@@ -41,11 +43,11 @@ const appRouter = (
       <Route path="users/:id" component={Profile} />
       <Route path="stats" component={Stats} />
       <Route path="stats/nba" component={NbaStats} />
-      <Route path="stats/nfl" component={NbaStats} />
-      <Route path="stats/mlb" component={NbaStats} />
+      <Route path="stats/nfl" component={NflStats} />
     </Route>
   </Router>
 );
+// <Route path="stats/mlb" component={MlbStats} />
 
 function _redirectIfLoggedIn(nextState, replace) {
   if (SessionStore.isUserLoggedIn()) {

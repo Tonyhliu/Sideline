@@ -8,11 +8,11 @@ const Stats = React.createClass({
   },
 
   _redirectToNflStats() {
-
+    hashHistory.push('/stats/nfl');
   },
 
   _redirectToMlbStats() {
-
+    hashHistory.push('/stats/mlb');
   },
 
   render() {
