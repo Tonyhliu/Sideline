@@ -7,11 +7,12 @@ const Table = require('react-bootstrap').Table;
 const Stats = React.createClass({
   getInitialState() {
     return({ nbaStats: [],
-              nflStats: [] });
+              isLoading: false });
   },
 
   _fetchNbaStats(e) {
     e.preventDefault();
+    this.setState({ isLoading: true });
     StatsApiUtil.getNbaStats("nbaStats", this._updateStats);
   },
 
@@ -21,7 +22,7 @@ const Stats = React.createClass({
   },
 
   _updateStats(typeOfStats, resp) {
-    this.setState({ [typeOfStats]: resp });
+    this.setState({ [typeOfStats]: resp});
   },
 
   render() {
@@ -30,44 +31,56 @@ const Stats = React.createClass({
     //     Fetch NFL Players
     //   </Button>
     // </h1>
-    // debugger
+    let renderNba;
+    let isLoading = this.state.isLoading;
+    if (this.state.nbaStats.length < 1) {
+      renderNba = <div className="fetch-nba-btn">
+                    <Button className="fetch-nba-players"
+                            onClick={!isLoading ? this._fetchNbaStats : null}
+                            disabled={isLoading}>
+                      {isLoading ? 'Loading...' : 'Fetch NBA Players'}
+                    </Button>
+                  </div>;
+    } else {
+      renderNba = <div>
+                    <Table>
+                      <thead>
+                        <tr>
+                          <th></th>
+                          <th>First Name</th>
+                          <th>Last Name</th>
+                          <th>Team</th>
+                          <th>Jersey Number</th>
+                          <th>Height (in inches)</th>
+                          <th>Experience (in years)</th>
+                          <th>Position</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {this.state.nbaStats.map(el => {
+                          return (<tr key={el.PlayerID}>
+                            <td><img className="stats-item-pic"
+                                      src={el.PhotoUrl}>
+                            </img></td>
+                            <td>{el.FirstName}</td>
+                            <td>{el.LastName}</td>
+                            <td>{el.Team}</td>
+                            <td>{el.Jersey}</td>
+                            <td>{el.Height}</td>
+                            <td>{el.Experience}</td>
+                            <td>{el.Position}</td>
+                          </tr>);
+                        })}
+                      </tbody>
+                    </Table>
+                  </div>;
+    }
+
+
+
     return (
-      <div>
-        <h1 onClick={this._fetchNbaStats}>
-          <Button className="fetch-nba-players">
-            Fetch NBA Players
-          </Button>
-        </h1>
-        <Table>
-          <thead>
-            <tr>
-              <th></th>
-              <th>First Name</th>
-              <th>Last Name</th>
-              <th>Team</th>
-              <th>Jersey Number</th>
-              <th>Height (in inches)</th>
-              <th>Experience (in years)</th>
-              <th>Position</th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.state.nbaStats.map(el => {
-              return (<tr key={el.PlayerID}>
-                <td><img className="stats-item-pic"
-                          src={el.PhotoUrl}>
-                </img></td>
-                <td>{el.FirstName}</td>
-                <td>{el.LastName}</td>
-                <td>{el.Team}</td>
-                <td>{el.Jersey}</td>
-                <td>{el.Height}</td>
-                <td>{el.Experience}</td>
-                <td>{el.Position}</td>
-              </tr>);
-            })}
-          </tbody>
-        </Table>
+      <div className="result-stats-container">
+        {renderNba}
       </div>
     );
   }
