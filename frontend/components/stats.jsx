@@ -1,6 +1,5 @@
 const React = require('react');
 const StatsApiUtil = require('../util/stats_api_util');
-const StatsItem = require('./stats_item');
 const Button = require('react-bootstrap').Button;
 const Table = require('react-bootstrap').Table;
 
@@ -46,11 +45,6 @@ const Stats = React.createClass({
   },
 
   render() {
-    // <h1 onClick={this._fetchNflStats}>
-    //   <Button className="fetch-fl-players">
-    //     Fetch NFL Players
-    //   </Button>
-    // </h1>
     let renderNba;
     let isLoading = this.state.isLoading;
     if (this.state.nbaStats.length < 1) {
@@ -108,8 +102,6 @@ const Stats = React.createClass({
                     </Table>
                   </div>;
     }
-
-
 
     return (
       <div className="result-stats-container">
