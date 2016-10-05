@@ -7,6 +7,7 @@ const Table = require('react-bootstrap').Table;
 const Stats = React.createClass({
   getInitialState() {
     return({ nbaStats: [],
+              nbaStatsDup: [],
               isLoading: false });
   },
 
@@ -22,23 +23,26 @@ const Stats = React.createClass({
   },
 
   _updateStats(typeOfStats, resp) {
-    this.setState({ [typeOfStats]: resp});
+    this.setState({ [typeOfStats]: resp,
+                      nbaStatsDup: resp});
   },
 
   _filterChange(e) {
-    // e.preventDefault();
-    // nbaStats LOST in data
     let filteredList = [];
-    // debugger
     let regex = e.target.value.toLowerCase();
-    for (var idx = 0; idx < this.state.nbaStats.length; idx ++){
-      if (this.state.nbaStats[idx].FirstName.toLowerCase().match(regex)
-          || this.state.nbaStats[idx].LastName.toLowerCase().match(regex)
-          || (this.state.nbaStats[idx].FirstName.toLowerCase() + " " + this.state.nbaStats[idx].LastName.toLowerCase()).match(regex)) {
-            filteredList.push(this.state.nbaStats[idx]);
+    for (var idx = 0; idx < this.state.nbaStatsDup.length; idx ++){
+        if (this.state.nbaStatsDup[idx].FirstName.toLowerCase().match(regex)
+            || this.state.nbaStatsDup[idx].LastName.toLowerCase().match(regex)
+            || (this.state.nbaStatsDup[idx].FirstName.toLowerCase() + " " + this.state.nbaStatsDup[idx].LastName.toLowerCase()).match(regex)) {
+              filteredList.push(this.state.nbaStatsDup[idx]);
+        }
       }
-    }
     this.setState({nbaStats: filteredList});
+  },
+
+  _resetSearch(e) {
+    e.preventDefault();
+    this.setState({nbaStats: this.state.nbaStatsDup, isLoading: false});
   },
 
   render() {
@@ -50,6 +54,14 @@ const Stats = React.createClass({
     let renderNba;
     let isLoading = this.state.isLoading;
     if (this.state.nbaStats.length < 1) {
+      if (this.state.nbaStatsDup.length > 0 && isLoading) {
+        renderNba = <div>
+                      No Matches found. Click <Button className="no-matches-btn"
+                                                      onClick={this._resetSearch}>
+                                                      here
+                                              </Button> to go back!
+                    </div>;
+      } else {
       renderNba = <div className="fetch-nba-btn">
                     <Button className="fetch-nba-players"
                             onClick={!isLoading ? this._fetchNbaStats : null}
@@ -57,10 +69,11 @@ const Stats = React.createClass({
                       {isLoading ? 'Loading...' : 'Fetch NBA Players'}
                     </Button>
                   </div>;
+                }
     } else {
       renderNba = <div>
                     <input className="search-players"
-                          type="search"
+                          type="text"
                           placeholder="Search player..."
                           onChange={this._filterChange} />
                     <Table>
