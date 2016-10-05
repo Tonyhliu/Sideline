@@ -68,18 +68,3 @@ const CommentForm = React.createClass({
 });
 
 module.exports = CommentForm;
-
-//   <FormGroup controlId="formControlsSelect">
-//    <ControlLabel>Select</ControlLabel>
-//    <FormControl componentClass="select">
-//      <option value="select">Select</option>
-//      <option value="Basketball">Basketball</option>
-//      <option value="Soccer">Soccer</option>
-//      <option value="Football">Football</option>
-//      <option value="Baseball">Baseball</option>
-//      <option value="Volleyball">Volleyball</option>
-//      <option value="Golf">Golf</option>
-//      <option value="Hockey">Hockey</option>
-//      <option value="Other">Other</option>
-//    </FormControl>
-//  </FormGroup>
