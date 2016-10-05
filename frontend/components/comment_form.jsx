@@ -55,7 +55,6 @@ const CommentForm = React.createClass({
               onChange={this._updateBody}/>
           </FormGroup>
 
-
          <Button type="submit" className="button hvr-hang">
            Publish
          </Button>

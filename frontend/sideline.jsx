@@ -25,6 +25,7 @@ const CommentForm = require('./components/comment_form');
 const About = require('./components/about');
 const Profile = require('./components/profile');
 const Stats = require('./components/stats');
+const NbaStats = require('./components/nba_stats');
 
 const appRouter = (
   <Router onUpdate={window.scrollTo(0, 0)} history={hashHistory}>
@@ -39,6 +40,9 @@ const appRouter = (
       <Route path="about" component={About} />
       <Route path="users/:id" component={Profile} />
       <Route path="stats" component={Stats} />
+      <Route path="stats/nba" component={NbaStats} />
+      <Route path="stats/nfl" component={NbaStats} />
+      <Route path="stats/mlb" component={NbaStats} />
     </Route>
   </Router>
 );
