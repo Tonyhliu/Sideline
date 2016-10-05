@@ -3,6 +3,8 @@ const StatsApiUtil = require('../util/stats_api_util');
 const Button = require('react-bootstrap').Button;
 const Table = require('react-bootstrap').Table;
 
+var timeout;
+
 const Stats = React.createClass({
   getInitialState() {
     return({ nbaStats: [],
@@ -26,9 +28,21 @@ const Stats = React.createClass({
                       nbaStatsDup: resp});
   },
 
-  _filterChange(e) {
+  _beginFilter(e) {
+    let etv;
+    if (e.target.value) { etv = e.target.value; }
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+      // debugger
+      this._filterChange(etv);
+    }, 500);
+  },
+
+  _filterChange(etv) {
+    // console.log("hello");
+    // debugger
     let filteredList = [];
-    let regex = e.target.value.toLowerCase();
+    let regex = etv.toLowerCase();
     for (var idx = 0; idx < this.state.nbaStatsDup.length; idx ++){
         if (this.state.nbaStatsDup[idx].FirstName.toLowerCase().match(regex)
             || this.state.nbaStatsDup[idx].LastName.toLowerCase().match(regex)
@@ -41,7 +55,7 @@ const Stats = React.createClass({
 
   _resetSearch(e) {
     e.preventDefault();
-    this.setState({nbaStats: this.state.nbaStatsDup, isLoading: false});
+    this.setState({nbaStats: this.state.nbaStatsDup});
   },
 
   render() {
@@ -69,7 +83,7 @@ const Stats = React.createClass({
                     <input className="search-players"
                           type="text"
                           placeholder="Search player..."
-                          onChange={this._filterChange} />
+                          onChange={this._beginFilter} />
                     <Table>
                       <thead>
                         <tr>
