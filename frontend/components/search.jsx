@@ -37,7 +37,6 @@ const Search = React.createClass({
     StoryActions.searchAllStories();
 
     document.addEventListener("click", (e) => {
-      // console.log(e.target.matches('.search-input'));
       if (!e.target.matches('.search-input')) {
         $(".dropdown-menu-list").addClass("dropdown-empty");
         this.setState({ query: '' });

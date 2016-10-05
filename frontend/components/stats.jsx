@@ -25,6 +25,22 @@ const Stats = React.createClass({
     this.setState({ [typeOfStats]: resp});
   },
 
+  _filterChange(e) {
+    // e.preventDefault();
+    // nbaStats LOST in data
+    let filteredList = [];
+    // debugger
+    let regex = e.target.value.toLowerCase();
+    for (var idx = 0; idx < this.state.nbaStats.length; idx ++){
+      if (this.state.nbaStats[idx].FirstName.toLowerCase().match(regex)
+          || this.state.nbaStats[idx].LastName.toLowerCase().match(regex)
+          || (this.state.nbaStats[idx].FirstName.toLowerCase() + " " + this.state.nbaStats[idx].LastName.toLowerCase()).match(regex)) {
+            filteredList.push(this.state.nbaStats[idx]);
+      }
+    }
+    this.setState({nbaStats: filteredList});
+  },
+
   render() {
     // <h1 onClick={this._fetchNflStats}>
     //   <Button className="fetch-fl-players">
@@ -43,6 +59,10 @@ const Stats = React.createClass({
                   </div>;
     } else {
       renderNba = <div>
+                    <input className="search-players"
+                          type="search"
+                          placeholder="Search player..."
+                          onChange={this._filterChange} />
                     <Table>
                       <thead>
                         <tr>
