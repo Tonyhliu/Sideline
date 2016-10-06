@@ -1,0 +1,23 @@
+.stats-container {
+  height: 500px;
+  overflow: hidden;
+}
+
+.fetch-nba-btn, .fetch-nfl-btn, .fetch-mlb-btn {
+  height: 50px;
+  margin-right: 5px;
+}
+
+.stats-btns {
+  padding-left: 15px;
+}
+
+.stats-paragraph {
+  color: gray;
+  padding-left: 15px;
+}
+
+.stats-pic {
+  width: 100%;
+  opacity: 0.5;
+}
