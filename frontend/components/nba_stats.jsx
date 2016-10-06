@@ -36,6 +36,7 @@ const NbaStats = React.createClass({
   },
 
   _filterChange(etv) {
+    console.log("filter change ran");
     let filteredList = [];
     let regex = etv.toLowerCase();
     for (var idx = 0; idx < this.state.nbaStatsDup.length; idx ++){
