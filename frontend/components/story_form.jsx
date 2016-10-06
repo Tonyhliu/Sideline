@@ -89,7 +89,7 @@ const StoryForm = React.createClass({
                 body: this.state.body,
                 picture_url: pic
     };
-    
+
     StoryActions.createStory(data, (story) => {
       hashHistory.push(`/stories/${story.id}`);
     });
@@ -98,29 +98,31 @@ const StoryForm = React.createClass({
 
   _handleEdit(e) {
     e.preventDefault();
-    const story = StoryStore.find(parseInt(this.props.params.storyid));
-    let title;
-    let body;
+    if (SessionStore.isUserLoggedIn()) {
+      const story = StoryStore.find(parseInt(this.props.params.storyid));
+      let title;
+      let body;
 
-    if (this.state.title === "") {
-      title = story.title;
-      body = this.state.body;
-    } else if (this.state.body === "") {
-      title = this.state.title;
-      body = story.body;
-    } else {
-      title = this.state.title;
-      body = this.state.body;
+      if (this.state.title === "") {
+        title = story.title;
+        body = this.state.body;
+      } else if (this.state.body === "") {
+        title = this.state.title;
+        body = story.body;
+      } else {
+        title = this.state.title;
+        body = this.state.body;
+      }
+
+      let data = {title: title,
+                  body: body,
+                  user_id: this.state.user_id,
+                  picture_url: this.state.pictureUrl
+      };
+
+      StoryActions.editStory(data, story.id);
+      hashHistory.push(`/stories/${story.id}`);
     }
-
-    let data = {title: title,
-                body: body,
-                user_id: this.state.user_id,
-                picture_url: this.state.pictureUrl
-    };
-
-    StoryActions.editStory(data, story.id);
-    hashHistory.push(`/stories/${story.id}`);
   },
 
   postImage(url) {
