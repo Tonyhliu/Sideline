@@ -68,7 +68,9 @@ const NbaStats = React.createClass({
 
     let data = this.state.nbaStats.slice();
     data.sort((a, b) => {
+      // console.log('hit sortRowsBy SORT method');
       // debugger
+      // sortDir has reference, but not sortBy...
 
       let sortVal = 0;
       if (a.FirstName > b.FirstName) {
@@ -85,7 +87,6 @@ const NbaStats = React.createClass({
       return sortVal;
     });
 
-    // debugger
     this.setState({ sortDir: sortDir,
                     nbaStats: data});
   },
@@ -130,8 +131,9 @@ const NbaStats = React.createClass({
                       <thead>
                         <tr>
                           <th></th>
-                          <th onClick={this._sortRowsByFname}>First Name {sortDirArrow}</th>
-                          <th>Last Name</th>
+                          <th onClick={this._sortRowsByFname}
+                              className='first-name-row'>First Name {sortDirArrow}</th>
+                            <th>Last Name</th>
                           <th>Team</th>
                           <th>Jersey Number</th>
                           <th>Height (in inches)</th>

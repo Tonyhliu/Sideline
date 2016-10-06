@@ -52,10 +52,6 @@ const StoryShow = React.createClass({
     hashHistory.push(`/stories/${this.state.story.id}/comment`);
   },
 
-  componentDidUpdate:function() {
-    // ReactDOM.findDOMNode(this).scrollIntoView();
-  },
-
   render() {
     let deleteButton = "";
     let editButton = "";
