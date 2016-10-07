@@ -104,8 +104,9 @@ const NbaStats = React.createClass({
     if (this.state.nbaStats.length < 1) {
       if (this.state.nbaStatsDup.length > 0 && isLoading) {
         renderNba = <div className="no-matches">
-                      No Matches found. Click <a href="#" className="no-matches-btn"
-                                                      onClick={this._resetSearch}>
+                      No Matches found. Click <a href="#"
+                                                  className="no-matches-btn"
+                                                  onClick={this._resetSearch}>
                                                       here
                                               </a> to go back!
                     </div>;

@@ -58,31 +58,37 @@ const NflStats = React.createClass({
   },
 
   render() {
-    let renderNba;
+    let renderNfl;
     let isLoading = this.state.isLoading;
     if (this.state.nflStats.length < 1) {
       if (this.state.nflStatsDup.length > 0 && isLoading) {
-        renderNba = <div>
-                      No Matches found. Click <Button className="no-matches-btn"
-                                                      onClick={this._resetSearch}>
+        renderNfl = <div className="no-matches">
+                      No Matches found. Click <a href="#"
+                                                  className="no-matches-btn"
+                                                  onClick={this._resetSearch}>
                                                       here
-                                              </Button> to go back!
+                                              </a> to go back!
                     </div>;
       } else {
-      renderNba = <div className="fetch-nfl-btn">
-                    <Button className="fetch-nfl-players"
-                            onClick={!isLoading ? this._fetchNflStats : null}
-                            disabled={isLoading}>
-                      {isLoading ? 'Loading...' : 'Fetch NFL Players'}
-                    </Button>
-                    <Button className="back-to-stats"
-                            onClick={this._handleBack}>
-                      Back to other stats
-                    </Button>
+      renderNfl = <div className="fetch-nfl-container">
+                    <div className="fetch-nfl-btns">
+                      <Button className="fetch-nfl-players"
+                              onClick={!isLoading ? this._fetchNflStats : null}
+                              disabled={isLoading}>
+                        {isLoading ? 'Loading...' : 'Fetch NFL Players'}
+                      </Button>
+                      <Button className="back-to-stats"
+                              onClick={this._handleBack}>
+                        Back to other stats
+                      </Button>
+                    </div>
+                    <img className="nfl-stats"
+                        src="http://res.cloudinary.com/dcbb8bnvk/image/upload/v1475796972/nfl_v9pudh.png">
+                    </img>
                   </div>;
                 }
     } else {
-      renderNba = <div>
+      renderNfl = <div>
                     <input className="search-players"
                           type="text"
                           placeholder="Search player..."
@@ -124,7 +130,7 @@ const NflStats = React.createClass({
 
     return (
       <div className="result-stats-container">
-        {renderNba}
+        {renderNfl}
       </div>
     );
   }

@@ -17,17 +17,21 @@
   padding-left: 15px;
 }
 
+.result-stats-container {
+  overflow: hidden;
+}
+
 .stats-pic {
   width: 100%;
   opacity: 0.5;
 }
 
-.fetch-nba-container {
+.fetch-nba-container, .fetch-nfl-container {
   height: 300px;
   margin-left: 15px;
 }
 
-.fetch-nba-players, .back-to-stats {
+.fetch-nba-players, .back-to-stats, .fetch-nfl-players {
   margin-right: 5px;
 }
 
@@ -35,8 +39,12 @@
   margin-bottom: 10px;
 }
 
-.nba-stats {
+.nba-stats, .nfl-stats {
   opacity: 0.6;
+}
+
+.nfl-stats, .no-matches {
+  height: 200px;
 }
 
 .search-players, .no-matches {
