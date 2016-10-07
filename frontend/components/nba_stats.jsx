@@ -103,23 +103,28 @@ const NbaStats = React.createClass({
 
     if (this.state.nbaStats.length < 1) {
       if (this.state.nbaStatsDup.length > 0 && isLoading) {
-        renderNba = <div>
-                      No Matches found. Click <Button className="no-matches-btn"
+        renderNba = <div className="no-matches">
+                      No Matches found. Click <a href="#" className="no-matches-btn"
                                                       onClick={this._resetSearch}>
                                                       here
-                                              </Button> to go back!
+                                              </a> to go back!
                     </div>;
       } else {
-      renderNba = <div className="fetch-nba-btn">
-                    <Button className="fetch-nba-players"
-                            onClick={!isLoading ? this._fetchNbaStats : null}
-                            disabled={isLoading}>
-                      {isLoading ? 'Loading...' : 'Fetch NBA Players'}
-                    </Button>
-                    <Button className="back-to-stats"
-                            onClick={this._handleBack}>
-                      Back to other stats
-                    </Button>
+      renderNba = <div className="fetch-nba-container">
+                    <div className="fetch-nba-btns">
+                      <Button className="fetch-nba-players"
+                              onClick={!isLoading ? this._fetchNbaStats : null}
+                              disabled={isLoading}>
+                        {isLoading ? 'Loading...' : 'Fetch NBA Players'}
+                      </Button>
+                      <Button className="back-to-stats"
+                              onClick={this._handleBack}>
+                        Back to other stats
+                      </Button>
+                    </div>
+                      <img className="nba-stats"
+                          src="http://res.cloudinary.com/dcbb8bnvk/image/upload/v1475796972/nba_rzbnqb.png">
+                      </img>
                   </div>;
                 }
     } else {

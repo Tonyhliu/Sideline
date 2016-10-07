@@ -21,3 +21,29 @@
   width: 100%;
   opacity: 0.5;
 }
+
+.fetch-nba-container {
+  height: 300px;
+  margin-left: 15px;
+}
+
+.fetch-nba-players, .back-to-stats {
+  margin-right: 5px;
+}
+
+.fetch-nba-btns {
+  margin-bottom: 10px;
+}
+
+.nba-stats {
+  opacity: 0.6;
+}
+
+.search-players, .no-matches {
+  margin-left: 15px;
+  margin-bottom: 15px;
+}
+
+.first-name-row:hover {
+  cursor: pointer;
+}
