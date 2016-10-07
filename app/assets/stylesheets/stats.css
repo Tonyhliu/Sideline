@@ -26,12 +26,12 @@
   opacity: 0.5;
 }
 
-.fetch-nba-container, .fetch-nfl-container {
+.fetch-nba-container, .fetch-nfl-container, .fetch-mlb-container {
   height: 300px;
   margin-left: 15px;
 }
 
-.fetch-nba-players, .back-to-stats, .fetch-nfl-players {
+.fetch-nba-players, .back-to-stats, .fetch-nfl-players, .fetch-mlb-players {
   margin-right: 5px;
 }
 
@@ -39,11 +39,11 @@
   margin-bottom: 10px;
 }
 
-.nba-stats, .nfl-stats {
+.nba-stats, .nfl-stats, .mlb-stats {
   opacity: 0.6;
 }
 
-.nfl-stats, .no-matches {
+.nfl-stats, .no-matches, .mlb-stats {
   height: 200px;
 }
 
