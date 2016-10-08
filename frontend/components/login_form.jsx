@@ -13,7 +13,10 @@ const LoginForm = React.createClass({
 	},
 
   getInitialState() {
-    return({ username: "", password: "", isLoading: false });
+    return({ username: "",
+						password: "",
+						isLoading: false,
+					 	demoLoading: false});
   },
 
   componentDidMount() {
@@ -58,7 +61,7 @@ const LoginForm = React.createClass({
 
 	_guest(e) {
 		e.preventDefault();
-		this.setState({isLoading: true});
+		this.setState({demoLoading: true});
 		SessionActions.logIn({username: "Guest", password: "Password"});
 	},
 
@@ -112,8 +115,8 @@ const LoginForm = React.createClass({
 
 						<Button className="guest-login hvr-glow"
 										onClick={this._guest}
-										disabled={this.state.isLoading}>
-										{this.state.isLoading ? 'Logging in...' : 'Demo Login'}
+										disabled={this.state.demoLoading}>
+										{this.state.demoLoading ? 'Logging in...' : 'Demo Login'}
 						</Button>
 
 					</div>
