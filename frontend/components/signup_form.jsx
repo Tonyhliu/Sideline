@@ -15,7 +15,7 @@ const SignUpForm = React.createClass({
 	},
 
   getInitialState() {
-    return({ username: "", password: "" });
+    return({ username: "", password: "", isLoading: false });
   },
 
   componentDidMount() {
@@ -36,6 +36,7 @@ const SignUpForm = React.createClass({
   _signup(e) {
     e.preventDefault();
     if (SessionActions.signUp(this.state)) {
+			this.setState({isLoading: true});
 			this._redirectToHome();
 		}
   },
@@ -50,6 +51,7 @@ const SignUpForm = React.createClass({
 
 	_guest(e) {
 		e.preventDefault();
+		this.setState({isLoading: true});
 		SessionActions.logIn({username: "Guest", password: "Password"});
 		this._redirectToHome();
 	},
@@ -114,13 +116,15 @@ const SignUpForm = React.createClass({
 							<Button type="submit"
 											value="Sign Up"
 											onClick={this._signup}
+											disabled={this.state.isLoading}
 											className="login-button hvr-glow">
-											Sign Up
+											{this.state.isLoading ? 'Signing up...' : 'Sign Up'}
 							</Button>
 
 						<Button className="guest-login hvr-glow"
+										disabled={this.state.isLoading}
 										onClick={this._guest}>
-										Demo Login
+										{this.state.isLoading ? 'Signing up...' : 'Demo Login'}
 						</Button>
 
 					</div>
