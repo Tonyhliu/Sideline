@@ -36,9 +36,14 @@ const NbaStats = React.createClass({
   },
 
   _filterChange(etv) {
-    console.log("filter change ran");
+    // console.log(document.getElementById('search-bar').value);
+    // debugger
+    let regex;
     let filteredList = [];
-    let regex = etv.toLowerCase();
+    if (etv === undefined) {
+      filteredList = this.state.nbaStatsDup;
+    } else {
+    regex = etv.toLowerCase();
     for (var idx = 0; idx < this.state.nbaStatsDup.length; idx ++){
         if (this.state.nbaStatsDup[idx].FirstName.toLowerCase().match(regex)
             || this.state.nbaStatsDup[idx].LastName.toLowerCase().match(regex)
@@ -46,6 +51,7 @@ const NbaStats = React.createClass({
               filteredList.push(this.state.nbaStatsDup[idx]);
         }
       }
+    }
     this.setState({nbaStats: filteredList});
   },
 
@@ -131,6 +137,7 @@ const NbaStats = React.createClass({
     } else {
       renderNba = <div>
                     <input className="search-players"
+                          id="search-bar"
                           type="text"
                           placeholder="Search player..."
                           onChange={this._beginFilter} />
