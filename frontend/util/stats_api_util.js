@@ -37,6 +37,26 @@ const StatsApiUtil = {
     });
   },
 
+  getMlbNews(id, success) {
+    var settings = {
+      "async": true,
+      "crossDomain": true,
+      "url": `https://api.fantasydata.net/mlb/v2/JSON/NewsByPlayerID/${id}`,
+      "method": "GET",
+      "headers": {
+        "ocp-apim-subscription-key": "972aca2017234aa78b61e3f0a371448d",
+        "cache-control": "no-cache"
+      }
+    };
+
+    $.ajax(settings).done(function (response) {
+      // debugger
+      success(response);
+    }).fail(function () {
+      alert('API call failed');
+    });
+  },
+
   getNflStats(success) {
     // $.ajax({
     //   type: 'GET',

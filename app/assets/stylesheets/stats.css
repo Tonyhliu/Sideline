@@ -52,6 +52,10 @@
   margin-bottom: 15px;
 }
 
-.first-name-row:hover {
+.first-name-row:hover, .stats-item-pic {
   cursor: pointer;
+}
+
+.player-news {
+  width: 200px;
 }

@@ -96,6 +96,10 @@ const NbaStats = React.createClass({
                     nbaStats: data});
   },
 
+  _fetchNbaNews() {
+    debugger
+  },
+
   render() {
     let sortDirArrow = '';
     let renderNba;
@@ -157,6 +161,7 @@ const NbaStats = React.createClass({
                         {this.state.nbaStats.map(el => {
                           return (<tr key={el.PlayerID}>
                             <td><img className="stats-item-pic"
+                                      onClick={this._fetchNbaNews}
                                       src={el.PhotoUrl}>
                             </img></td>
                             <td>{el.FirstName}</td>

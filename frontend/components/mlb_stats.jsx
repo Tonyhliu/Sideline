@@ -20,7 +20,6 @@ const MlbStats = React.createClass({
   },
 
   _updateStats(resp) {
-    // console.log(resp);
     this.setState({ mlbStats: resp,
                       mlbStatsDup: resp});
   },
@@ -36,7 +35,11 @@ const MlbStats = React.createClass({
 
   _filterChange(etv) {
     let filteredList = [];
-    let regex = etv.toLowerCase();
+    let regex;
+    if (etv === undefined) {
+      filteredList = this.state.mlbStatsDup;
+    } else {
+    regex = etv.toLowerCase();
     for (var idx = 0; idx < this.state.mlbStatsDup.length; idx ++){
         if (this.state.mlbStatsDup[idx].FirstName.toLowerCase().match(regex)
             || this.state.mlbStatsDup[idx].LastName.toLowerCase().match(regex)
@@ -44,6 +47,7 @@ const MlbStats = React.createClass({
               filteredList.push(this.state.mlbStatsDup[idx]);
         }
       }
+    }
     this.setState({mlbStats: filteredList});
   },
 
@@ -55,6 +59,17 @@ const MlbStats = React.createClass({
   _handleBack(e) {
     e.preventDefault();
     hashHistory.push('/stats');
+  },
+
+  _fetchMlbNews(Id) {
+    let cb = (resp) => {
+      if (resp[0]) {
+        window.open(resp[0].Url, '_blank');
+      } else {
+        window.open('http://www.rotoworld.com/sports/mlb/baseball?ls=roto:mlb:gnav', '_blank');
+      }
+    };
+    StatsApiUtil.getMlbNews(Id, cb);
   },
 
   render() {
@@ -112,6 +127,7 @@ const MlbStats = React.createClass({
                         {this.state.mlbStats.map(el => {
                           return (<tr key={el.PlayerID}>
                             <td><img className="stats-item-pic"
+                                      onClick={this._fetchMlbNews.bind(this, el.PlayerID)}
                                       src={el.PhotoUrl}>
                             </img></td>
                             <td>{el.FirstName}</td>
