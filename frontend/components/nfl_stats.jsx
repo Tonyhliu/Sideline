@@ -20,7 +20,6 @@ const NflStats = React.createClass({
   },
 
   _updateStats(resp) {
-    // console.log(resp);
     this.setState({ nflStats: resp,
                       nflStatsDup: resp});
   },
@@ -36,7 +35,11 @@ const NflStats = React.createClass({
 
   _filterChange(etv) {
     let filteredList = [];
-    let regex = etv.toLowerCase();
+    let regex;
+    if (etv === undefined) {
+      filteredList = this.state.nflStatsDup;
+    } else {
+    regex = etv.toLowerCase();
     for (var idx = 0; idx < this.state.nflStatsDup.length; idx ++){
         if (this.state.nflStatsDup[idx].FirstName.toLowerCase().match(regex)
             || this.state.nflStatsDup[idx].LastName.toLowerCase().match(regex)
@@ -44,6 +47,7 @@ const NflStats = React.createClass({
               filteredList.push(this.state.nflStatsDup[idx]);
         }
       }
+    }
     this.setState({nflStats: filteredList});
   },
 

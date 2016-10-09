@@ -36,8 +36,6 @@ const NbaStats = React.createClass({
   },
 
   _filterChange(etv) {
-    // console.log(document.getElementById('search-bar').value);
-    // debugger
     let regex;
     let filteredList = [];
     if (etv === undefined) {
