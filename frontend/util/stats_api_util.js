@@ -18,6 +18,25 @@ const StatsApiUtil = {
     });
   },
 
+  getNbaNews(id, success) {
+    var settings = {
+      "async": true,
+      "crossDomain": true,
+      "url": `https://api.fantasydata.net/nba/v2/JSON/NewsByPlayerID/${id}`,
+      "method": "GET",
+      "headers": {
+        "ocp-apim-subscription-key": "44b05285b729456db03ffcb6210e891d",
+        "cache-control": "no-cache"
+      }
+    };
+
+    $.ajax(settings).done(function (response) {
+      success(response);
+    }).fail(function () {
+      alert('API call failed');
+    });
+  },
+
   getMlbStats(success) {
     var settings = {
       "async": true,
@@ -50,7 +69,6 @@ const StatsApiUtil = {
     };
 
     $.ajax(settings).done(function (response) {
-      // debugger
       success(response);
     }).fail(function () {
       alert('API call failed');
@@ -87,7 +105,28 @@ const StatsApiUtil = {
     }).fail(function () {
       alert('API call failed');
     });
-  }
+  },
+
+  getNflNews(id, success) {
+    // check URL from fantasy data
+    var settings = {
+      "async": true,
+      "crossDomain": true,
+      "url": `https://api.fantasydata.net/nfl/v3/JSON/NewsByPlayerID/${id}`,
+      "method": "GET",
+      "headers": {
+        "ocp-apim-subscription-key": "972aca2017234aa78b61e3f0a371448d",
+        "cache-control": "no-cache"
+      }
+    };
+
+    $.ajax(settings).done(function (response) {
+      success(response);
+    }).fail(function () {
+      alert('API call failed');
+    });
+  },
+
 };
 
 module.exports = StatsApiUtil;

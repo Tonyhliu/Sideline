@@ -96,8 +96,15 @@ const NbaStats = React.createClass({
                     nbaStats: data});
   },
 
-  _fetchNbaNews() {
-    debugger
+  _fetchNbaNews(Id) {
+    let cb = (resp) => {
+      if (resp[0]) {
+        window.open(resp[0].Url, '_blank');
+      } else {
+        window.open('http://www.rotoworld.com/sports/nba/basketball?ls=roto:nba:gnav', '_blank');
+      }
+    };
+    StatsApiUtil.getNbaNews(Id, cb);
   },
 
   render() {
@@ -161,7 +168,7 @@ const NbaStats = React.createClass({
                         {this.state.nbaStats.map(el => {
                           return (<tr key={el.PlayerID}>
                             <td><img className="stats-item-pic"
-                                      onClick={this._fetchNbaNews}
+                                      onClick={this._fetchNbaNews.bind(this, el.PlayerID)}
                                       src={el.PhotoUrl}>
                             </img></td>
                             <td>{el.FirstName}</td>
