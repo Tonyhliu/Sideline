@@ -61,6 +61,17 @@ const NflStats = React.createClass({
     hashHistory.push('/stats');
   },
 
+  _fetchNflNews(Id) {
+    let cb = (resp) => {
+      if (resp[0]) {
+        window.open(resp[0].Url, '_blank');
+      } else {
+        window.open('http://www.rotoworld.com/sports/nfl/football?ls=roto:nfl:gnav', '_blank');
+      }
+    };
+    StatsApiUtil.getNflNews(Id, cb);
+  },
+
   render() {
     let renderNfl;
     let isLoading = this.state.isLoading;

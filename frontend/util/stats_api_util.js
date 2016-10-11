@@ -112,10 +112,10 @@ const StatsApiUtil = {
     var settings = {
       "async": true,
       "crossDomain": true,
-      "url": `https://api.fantasydata.net/nfl/v3/JSON/NewsByPlayerID/${id}`,
+      "url": `https://api.fantasydata.net/v3/nfl/scores/JSON/NewsByPlayerID/${id}`,
       "method": "GET",
       "headers": {
-        "ocp-apim-subscription-key": "972aca2017234aa78b61e3f0a371448d",
+        "ocp-apim-subscription-key": "eac81d396d5549deb23e2458908d0ca7",
         "cache-control": "no-cache"
       }
     };
