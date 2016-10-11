@@ -126,7 +126,8 @@ const NflStats = React.createClass({
                         {this.state.nflStats.map(el => {
                           return (<tr key={el.PlayerID}>
                             <td><img className="stats-item-pic"
-                                      src={el.PhotoUrl}>
+                                      src={el.PhotoUrl}
+                                      onClick={this._fetchNflNews.bind(this, el.PlayerID)}>
                             </img></td>
                             <td>{el.FirstName}</td>
                             <td>{el.LastName}</td>
