@@ -106,7 +106,7 @@ const MlbStats = React.createClass({
       renderMlb = <div>
                     <input className="search-players"
                           type="text"
-                          placeholder="Search players... name..."
+                          placeholder="Search players..."
                           onChange={this._beginFilter} />
                     <Table>
                       <thead>

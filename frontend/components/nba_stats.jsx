@@ -151,7 +151,7 @@ const NbaStats = React.createClass({
                     <input className="search-players"
                           id="search-bar"
                           type="text"
-                          placeholder="Search players... name..."
+                          placeholder="Search players..."
                           onChange={this._beginFilter} />
                     <Table>
                       <thead>
