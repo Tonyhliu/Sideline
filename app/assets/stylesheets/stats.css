@@ -52,7 +52,7 @@
   margin-bottom: 15px;
 }
 
-.first-name-row:hover, .stats-item-pic {
+.sort-by-row:hover, .stats-item-pic {
   cursor: pointer;
 }
 
