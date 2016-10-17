@@ -106,7 +106,7 @@ const NflStats = React.createClass({
       renderNfl = <div>
                     <input className="search-players"
                           type="text"
-                          placeholder="Search players by name..."
+                          placeholder="Search players... name..."
                           onChange={this._beginFilter} />
                     <Table>
                       <thead>

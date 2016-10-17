@@ -11,6 +11,7 @@ const NbaStats = React.createClass({
     return({ nbaStats: [],
               nbaStatsDup: [],
               isLoading: false,
+              sortBy: null,
               sortDir: null
           });
   },
@@ -65,19 +66,19 @@ const NbaStats = React.createClass({
 
   _sortRowsBy(arg) {
     let sortDir = this.state.sortDir; // null to begin with
+    let sortBy = this.state.sortBy; // null to begin with
     if (sortDir !== null) {
       sortDir = this.state.sortDir === 'ASC' ? 'DESC' : 'ASC';
     } else {
       sortDir = 'DESC';
     }
 
+    if (arg !== sortBy) {
+      sortDir = 'ASC';
+    }
+
     let data = this.state.nbaStats.slice();
     data.sort((a, b) => {
-      // console.log('hit sortRowsBy SORT method');
-      // debugger
-      // console.log(a[arg]);
-      // sortDir has reference, but not sortBy...
-
       let sortVal = 0;
       if (a[arg] > b[arg]) {
         sortVal = 1;
@@ -94,7 +95,8 @@ const NbaStats = React.createClass({
     });
 
     this.setState({ sortDir: sortDir,
-                    nbaStats: data});
+                    nbaStats: data,
+                    sortBy: arg});
   },
 
   _fetchNbaNews(Id) {
@@ -149,24 +151,30 @@ const NbaStats = React.createClass({
                     <input className="search-players"
                           id="search-bar"
                           type="text"
-                          placeholder="Search players by name..."
+                          placeholder="Search players... name..."
                           onChange={this._beginFilter} />
                     <Table>
                       <thead>
                         <tr>
                           <th></th>
                           <th onClick={this._sortRowsBy.bind(this, "FirstName")}
-                              className='sort-by-row'>First Name {sortDirArrow}</th>
-                            <th onClick={this._sortRowsBy.bind(this, "LastName")}
-                                className='sort-by-row'>
-                              Last Name
-                            </th>
+                              className='sort-by-row'>
+                              First Name {this.state.sortBy === "FirstName" ? sortDirArrow : ""}
+                          </th>
+                          <th onClick={this._sortRowsBy.bind(this, "LastName")}
+                              className='sort-by-row'>
+                            Last Name {this.state.sortBy === "LastName" ? sortDirArrow : ""}
+                          </th>
                           <th onClick={this._sortRowsBy.bind(this, "Team")}
-                              className='sort-by-row'>Team</th>
+                              className='sort-by-row'>
+                              Team {this.state.sortBy === "Team" ? sortDirArrow : ""}
+                          </th>
                             <th>Jersey Number</th>
                             <th>Height (in inches)</th>
                             <th onClick={this._sortRowsBy.bind(this, "Experience")}
-                              className='sort-by-row'>Experience (in years)</th>
+                              className='sort-by-row'>
+                              Experience (in years) {this.state.sortBy === "Experience" ? sortDirArrow : ""}
+                            </th>
                             <th>Position</th>
                         </tr>
                       </thead>
