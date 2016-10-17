@@ -10,7 +10,9 @@ const MlbStats = React.createClass({
   getInitialState() {
     return({ mlbStats: [],
               mlbStatsDup: [],
-              isLoading: false });
+              isLoading: false,
+              sortBy: null,
+              sortDir: null});
   },
 
   _fetchMlbStats(e) {
@@ -61,6 +63,41 @@ const MlbStats = React.createClass({
     hashHistory.push('/stats');
   },
 
+  _sortRowsBy(arg) {
+    let sortDir = this.state.sortDir; // null to begin with
+    let sortBy = this.state.sortBy; // null to begin with
+    if (sortDir !== null) {
+      sortDir = this.state.sortDir === 'ASC' ? 'DESC' : 'ASC';
+    } else {
+      sortDir = 'DESC';
+    }
+
+    if (arg !== sortBy) {
+      sortDir = 'ASC';
+    }
+
+    let data = this.state.mlbStats.slice();
+    data.sort((a, b) => {
+      let sortVal = 0;
+      if (a[arg] > b[arg]) {
+        sortVal = 1;
+      }
+      if (a[arg] < b[arg]) {
+        sortVal = -1;
+      }
+
+      if (sortDir === 'DESC') {
+        sortVal = sortVal * -1;
+      }
+
+      return sortVal;
+    });
+
+    this.setState({ sortDir: sortDir,
+                    mlbStats: data,
+                    sortBy: arg});
+  },
+
   _fetchMlbNews(Id) {
     let cb = (resp) => {
       if (resp[0]) {
@@ -73,8 +110,14 @@ const MlbStats = React.createClass({
   },
 
   render() {
+    let sortDirArrow = '';
     let renderMlb;
     let isLoading = this.state.isLoading;
+
+    if (this.state.sortDir !== null) {
+      sortDirArrow = this.state.sortDir === 'DESC' ? ' ↓' : ' ↑';
+    }
+
     if (this.state.mlbStats.length < 1) {
       if (this.state.mlbStatsDup.length > 0 && isLoading) {
         renderMlb = <div className="no-matches">
@@ -105,6 +148,7 @@ const MlbStats = React.createClass({
     } else {
       renderMlb = <div>
                     <input className="search-players"
+                          id="search-bar"
                           type="text"
                           placeholder="Search players..."
                           onChange={this._beginFilter} />
@@ -112,9 +156,18 @@ const MlbStats = React.createClass({
                       <thead>
                         <tr>
                           <th></th>
-                          <th>First Name</th>
-                          <th>Last Name</th>
-                          <th>Team</th>
+                          <th onClick={this._sortRowsBy.bind(this, "FirstName")}
+                              className='sort-by-row'>
+                              First Name {this.state.sortBy === "FirstName" ? sortDirArrow : ""}
+                          </th>
+                          <th onClick={this._sortRowsBy.bind(this, "LastName")}
+                              className='sort-by-row'>
+                              Last Name {this.state.sortBy === "LastName" ? sortDirArrow : ""}
+                          </th>
+                            <th onClick={this._sortRowsBy.bind(this, "Team")}
+                              className='sort-by-row'>
+                              Team {this.state.sortBy === "Team" ? sortDirArrow : ""}
+                            </th>
                           <th>Jersey Number</th>
                           <th>Height</th>
                           <th>Weight</th>
