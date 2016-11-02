@@ -130,6 +130,8 @@ ul.index-stories {
 .num-of-faves {
   font-size: 20px;
   color: #363636;
+  display: flex;
+  margin-top: 5px;
 }
 
 .story-link {
@@ -145,13 +147,19 @@ ul.index-stories {
   color: rgba(6, 0, 0, 0.84);
 }
 
-.disabled-fave-button {
+/*.disabled-fave-button {
   border: none;
   width: 30px;
+}*/
+
+.disabled-fave:focus, .disabled-fave:active {
+  outline: none;
 }
 
 .disabled-fave {
-  pointer-events: none;
-  width: 20px;
-  margin-left: -10px;
+  width: 25px;
+}
+
+.disabled-fave, .fav-border, .fav {
+  margin-left: 5px;
 }

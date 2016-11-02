@@ -42,7 +42,7 @@ const Splash = React.createClass({
 
       <section className="home-page-join">
         <div className="home-page-container">
-          <h2 className="home-page-heading">All the sports news you'll ever need is right <i>here</i></h2>
+          <h2 className="home-page-heading">All the latest sports news you'll ever need is right <i>here</i></h2>
           <section className="join-message">
             <p>Share trending stories with other users</p>
             <p>Explore, like, and comment on your favorite stories</p>
@@ -66,6 +66,7 @@ const Splash = React.createClass({
             <p className="modal-p">
               Join the Sideline Club!
               Sideline enables users to read and comment on the current and rumored news, across all sports.
+                                              Users can also decide to fetch LIVE data fetched across the different sports.
                                               Inspired by Medium, the objective is for users to share their favorite stories and search for trending ones!
                                               Users can also upload a profile picture and story pictures for other users to view and "like".
                                               Currently, Sideline is a work-in-progress with new features still in the development process. for more information,

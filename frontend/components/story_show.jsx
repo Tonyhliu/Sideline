@@ -52,6 +52,8 @@ const StoryShow = React.createClass({
     hashHistory.push(`/stories/${this.state.story.id}/comment`);
   },
 
+  // add modal 
+
   render() {
     let deleteButton = "";
     let editButton = "";

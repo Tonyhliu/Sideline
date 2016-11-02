@@ -35,6 +35,12 @@ const StoryIndexItem = React.createClass({
     return likeText;
   },
 
+  _openLoginModal() {
+    $('Button.login-button').click();
+  },
+
+  // add modal
+
   toggleFav() {
     const data = { story_id: this.props.story.id };
 
@@ -61,12 +67,10 @@ const StoryIndexItem = React.createClass({
     });
 
     let favorite =
-      <Button className="disabled-fave-button"
-              disabled>
-      <i className="material-icons md-36 fav-border disabled-fave">
+      <i className="material-icons md-36 fav-border disabled-fave"
+          onClick={this._openLoginModal}>
         favorite border
-      </i>
-    </Button>;
+      </i>;
     const currentUser = SessionStore.currentUser();
 
     if (SessionStore.isUserLoggedIn()) {
@@ -100,7 +104,7 @@ const StoryIndexItem = React.createClass({
                 src={this.props.story.user.avatar_url}></img>
 
           <div className="num-of-faves">
-            { numOfFaves} {favorite}
+            {numOfFaves}{favorite}
           </div>
 
           <p className={"paragraphs"}>
