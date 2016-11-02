@@ -3,6 +3,7 @@ const StoryIndexItem = require('./story_index_item');
 const StoryActions = require('../actions/story_actions');
 const StoryStore = require('../stores/story_store');
 const SessionStore = require('../stores/session_store');
+const hashHistory = require('react-router').hashHistory;
 
 const StoryIndex = React.createClass({
   getInitialState() {
@@ -24,6 +25,14 @@ const StoryIndex = React.createClass({
     this.sessionListener.remove();
   },
 
+  _redirectToNew() {
+    if (SessionStore.isUserLoggedIn()) {
+      hashHistory.push("/stories/new");
+    } else {
+      $('Button.login-button').click();
+    }
+  },
+
   render() {
     return (
       <div>
@@ -34,10 +43,12 @@ const StoryIndex = React.createClass({
             <h3></h3>
           </section>
         </div>
-        <div className="add-story">
-          Write your story...
-        </div>
         <div className="story-index">
+          <div className="add-story"
+                onClick={this._redirectToNew}>
+            <img id="create-article-button" src="http://res.cloudinary.com/dzpkgj9f0/image/upload/v1468814176/add_circle_outline_grey_192x192_mkdddo.png" />
+            <span id='add-story-text'>Write your story...</span>
+          </div>
           <ul className="index-stories">
             {
               this.state.stories.map(story => {

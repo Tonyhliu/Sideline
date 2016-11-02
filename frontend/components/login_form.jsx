@@ -26,7 +26,6 @@ const LoginForm = React.createClass({
 
 	_handleNewSession() {
 		this.props.cb();
-		// window.scrollTo(0,0);
 	},
 
   componentWillUnmount() {
@@ -38,7 +37,6 @@ const LoginForm = React.createClass({
     e.preventDefault();
 		if (SessionActions.logIn(this.state)) {
 			this.setState({isLoading: true});
-			// window.scrollTo(0,0);
 		}
   },
 
