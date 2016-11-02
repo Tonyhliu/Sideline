@@ -2,7 +2,6 @@ const React = require('react');
 const StoryIndexItem = require('./story_index_item');
 const StoryActions = require('../actions/story_actions');
 const StoryStore = require('../stores/story_store');
-
 const SessionStore = require('../stores/session_store');
 
 const StoryIndex = React.createClass({

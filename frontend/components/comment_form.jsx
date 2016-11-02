@@ -11,10 +11,21 @@ const ControlLabel = require('react-bootstrap').ControlLabel;
 const Button = require('react-bootstrap').Button;
 const option = require('react-bootstrap').option;
 
-
 const CommentForm = React.createClass({
   getInitialState() {
     return({ body: "", user_id: SessionStore.currentUser().id });
+  },
+
+  _userChange() {
+    this.setState({ user_id: SessionStore.currentUser().id });
+  },
+
+  componentDidMount() {
+    this.sessionListener = SessionStore.addListener(this._userChange);
+  },
+
+  componentWillUnmount() {
+    this.sessionListener.remove();
   },
 
   _navigateToStoryShow() {

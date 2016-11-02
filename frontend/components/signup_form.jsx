@@ -28,7 +28,6 @@ const SignUpForm = React.createClass({
 
 	_handleNewUser() {
 		this.props.cb();
-		// window.scrollTo(0,0);
 	},
 
   componentWillUnmount() {
@@ -40,7 +39,6 @@ const SignUpForm = React.createClass({
     e.preventDefault();
     if (SessionActions.signUp(this.state)) {
 			this.setState({isLoading: true});
-			// window.scrollTo(0,0);
 		}
   },
 
@@ -52,7 +50,6 @@ const SignUpForm = React.createClass({
 		e.preventDefault();
 		this.setState({demoLoading: true});
 		SessionActions.logIn({username: "Guest", password: "Password"});
-		// window.scrollTo(0,0);
 	},
 
 	fieldErrors(field) {
