@@ -28,7 +28,7 @@ const SignUpForm = React.createClass({
 
 	_handleNewUser() {
 		this.props.cb();
-		hashHistory.push('/stories');
+		// window.scrollTo(0,0);
 	},
 
   componentWillUnmount() {
@@ -40,7 +40,7 @@ const SignUpForm = React.createClass({
     e.preventDefault();
     if (SessionActions.signUp(this.state)) {
 			this.setState({isLoading: true});
-			this._redirectToHome();
+			// window.scrollTo(0,0);
 		}
   },
 
@@ -48,15 +48,11 @@ const SignUpForm = React.createClass({
     return (e) => this.setState({ [property]: e.target.value });
   },
 
-	_redirectToHome() {
-		hashHistory.push('/stories');
-	},
-
 	_guest(e) {
 		e.preventDefault();
 		this.setState({demoLoading: true});
 		SessionActions.logIn({username: "Guest", password: "Password"});
-		this._redirectToHome();
+		// window.scrollTo(0,0);
 	},
 
 	fieldErrors(field) {

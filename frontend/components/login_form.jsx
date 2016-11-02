@@ -26,7 +26,7 @@ const LoginForm = React.createClass({
 
 	_handleNewSession() {
 		this.props.cb();
-		hashHistory.push('/stories');
+		// window.scrollTo(0,0);
 	},
 
   componentWillUnmount() {
@@ -34,15 +34,11 @@ const LoginForm = React.createClass({
     this.sessionListener.remove();
   },
 
-	_redirectToHome() {
-		hashHistory.push('/stories');
-	},
-
   _login(e) {
     e.preventDefault();
 		if (SessionActions.logIn(this.state)) {
 			this.setState({isLoading: true});
-			this._redirectToHome();
+			// window.scrollTo(0,0);
 		}
   },
 

@@ -3,6 +3,8 @@ const StoryIndexItem = require('./story_index_item');
 const StoryActions = require('../actions/story_actions');
 const StoryStore = require('../stores/story_store');
 
+const SessionStore = require('../stores/session_store');
+
 const StoryIndex = React.createClass({
   getInitialState() {
     return({ stories: [] });
@@ -14,11 +16,13 @@ const StoryIndex = React.createClass({
 
   componentDidMount() {
     this.storyListener = StoryStore.addListener(this._storyChange);
+    this.sessionListener = SessionStore.addListener(this._storyChange);
     StoryActions.fetchAllStories();
   },
 
   componentWillUnmount() {
     this.storyListener.remove();
+    this.sessionListener.remove();
   },
 
   render() {
