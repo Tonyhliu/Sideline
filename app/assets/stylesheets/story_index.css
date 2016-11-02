@@ -147,11 +147,6 @@ ul.index-stories {
   color: rgba(6, 0, 0, 0.84);
 }
 
-/*.disabled-fave-button {
-  border: none;
-  width: 30px;
-}*/
-
 .disabled-fave:focus, .disabled-fave:active {
   outline: none;
 }
