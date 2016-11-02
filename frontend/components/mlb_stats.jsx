@@ -146,7 +146,7 @@ const MlbStats = React.createClass({
                   </div>;
                 }
     } else {
-      renderMlb = <div>
+      renderMlb = <div className="stats-results-container">
                     <input className="search-players"
                           id="search-bar"
                           type="text"
