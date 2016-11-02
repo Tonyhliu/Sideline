@@ -45,6 +45,10 @@ const StoryIndexItem = React.createClass({
     return base + cropUrl[cropUrl.length - 1];
   },
 
+  _rerouteToStory() {
+    hashHistory.push(`/stories/${this.props.story.id}`);
+  },
+
   render() {
     const username = this.props.story.user.username.toUpperCase();
     const picUrl = this.cropPic(this.props.story.picture_url);
@@ -76,13 +80,10 @@ const StoryIndexItem = React.createClass({
     let numOfFaves = this.props.story.favorite_users.length;
     return(
       <li className="story-index-item">
-        <div className="image-container">
+        <div className="image-container"
+              onClick={this._rerouteToStory}>
           <h2 className="story-links">
-            <Link to={`/stories/${this.props.story.id}`}
-                  className="story-title-link">
               {this.props.story.title}
-            </Link>
-
           </h2>
           <img className="story-pics"
             src={picUrl} />
