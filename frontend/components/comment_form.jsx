@@ -24,16 +24,20 @@ const CommentForm = React.createClass({
 
   _handleComment(e) {
     e.preventDefault();
-    const comment = Object.assign(
-      {},
-      this.state,
-      { story_id: parseInt(this.props.story.id) }
-    );
+    if (SessionStore.isUserLoggedIn()) {
+      const comment = Object.assign(
+        {},
+        this.state,
+        { story_id: parseInt(this.props.story.id) }
+      );
 
-    if (!this.state.body == false) {
-      StoryActions.createComment(comment);
-      this.setState({ body: "" , user_id: SessionStore.currentUser().id });
-      this._navigateToStoryShow();
+      if (!this.state.body == false) {
+        StoryActions.createComment(comment);
+        this.setState({ body: "" , user_id: SessionStore.currentUser().id });
+        this._navigateToStoryShow();
+      }
+    } else {
+      $('Button.login-button').click();
     }
   },
 
@@ -42,27 +46,23 @@ const CommentForm = React.createClass({
   },
 
   render() {
-    if (SessionStore.isUserLoggedIn()) {
-      return (
-        <form onSubmit={this._handleComment}>
-          <FormGroup controlId="formControlsTextarea"
-                      className="">
-            <FormControl componentClass="textarea"
-              placeholder="Write a response..."
-              value={this.state.body}
-              rows="5"
-              cols="30"
-              onChange={this._updateBody}/>
-          </FormGroup>
+    return (
+      <form onSubmit={this._handleComment}>
+        <FormGroup controlId="formControlsTextarea"
+                    className="">
+          <FormControl componentClass="textarea"
+            placeholder="Write a response..."
+            value={this.state.body}
+            rows="5"
+            cols="30"
+            onChange={this._updateBody}/>
+        </FormGroup>
 
-         <Button type="submit" className="button hvr-hang">
-           Publish
-         </Button>
-       </form>
-      );
-    } else {
-      return (<div></div>);
-    }
+       <Button type="submit" className="button hvr-hang">
+         Publish
+       </Button>
+     </form>
+    );
   }
 });
 

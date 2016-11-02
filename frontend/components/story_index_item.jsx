@@ -10,16 +10,6 @@ const App = require('./app');
 const Button = require('react-bootstrap').Button;
 
 const StoryIndexItem = React.createClass({
-  // editPost(e) {
-  //   e.preventDefault();
-  //   hashHistory.push(`/stories/${this.props.story.id}/edit`);
-  // },
-
-  // deletePost(e) {
-  //   e.preventDefault();
-  //   StoryActions.deleteStory(`${this.props.story.id}`);
-  // },
-
   _isLiked() {
     let likeText = "LIKE";
     const currentUser = SessionStore.currentUser();
@@ -38,8 +28,6 @@ const StoryIndexItem = React.createClass({
   _openLoginModal() {
     $('Button.login-button').click();
   },
-
-  // add modal
 
   toggleFav() {
     const data = { story_id: this.props.story.id };

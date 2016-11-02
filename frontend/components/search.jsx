@@ -153,8 +153,8 @@ const Search = React.createClass({
                <ButtonGroup>
                  <DropdownButton title={user} id="bg-nested-dropdown">
                    <MenuItem onClick={this._redirectToNew}>Write your story!</MenuItem>
-                   <MenuItem onClick={this._redirectToSettings}>Profile</MenuItem>
                    <MenuItem onClick={this._redirectToStats}>Sports Home</MenuItem>
+                   <MenuItem onClick={this._redirectToSettings}>Profile</MenuItem>
                    <MenuItem onClick={() => this.setState({ show: true})}>
                               Settings</MenuItem>
                    <MenuItem divider />
