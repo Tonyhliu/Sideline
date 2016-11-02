@@ -96,7 +96,8 @@ const StoryIndexItem = React.createClass({
             {numOfFaves}{favorite}
           </div>
 
-          <p className={"paragraphs"}>
+          <p className={"paragraphs"}
+              onClick={this._rerouteToStory}>
             {strippedText.slice(0, 350) + "..."}
           </p>
       </li>

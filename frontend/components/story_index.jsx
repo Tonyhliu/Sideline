@@ -34,6 +34,9 @@ const StoryIndex = React.createClass({
             <h3></h3>
           </section>
         </div>
+        <div className="add-story">
+          Write your story...
+        </div>
         <div className="story-index">
           <ul className="index-stories">
             {
