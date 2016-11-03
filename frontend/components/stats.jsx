@@ -17,33 +17,36 @@ const Stats = React.createClass({
 
   render() {
     return (
-      <div className="stats-container">
-        <p className="stats-paragraph">
-          Welcome to the stats page, where you can fetch stats about professional athletes based on the sport. Click one of the buttons below to get started!
-        </p>
+      <div>
+        <div className="stats-container">
+          <p className="stats-paragraph">
+            Pick a sport below to fetch LIVE stats!
+          </p>
 
-        <div className="stats-btns">
-          <Button onClick={this._redirectToNbaStats}
-                className="fetch-nba-btn">
-                  NBA Stats
-          </Button>
-          <Button
-                className="fetch-nfl-btn"
-                onClick={this._redirectToNflStats}>
-                  NFL Stats
-          </Button>
-          <Button to={'/stats/mlb'}
-                className="fetch-mlb-btn"
-                onClick={this._redirectToMlbStats}>
-                  MLB Stats
-          </Button>
+          <div className="stats-btns">
+            <Button className="fetch-nba-btn"
+                  onClick={this._redirectToNbaStats}>
+                    NBA Stats
+            </Button>
+            <Button className="fetch-nfl-btn"
+                  onClick={this._redirectToNflStats}>
+                    NFL Stats
+            </Button>
+            <Button className="fetch-mlb-btn"
+                  onClick={this._redirectToMlbStats}>
+                    MLB Stats
+            </Button>
+          </div>
+
         </div>
 
-        <img className="stats-pic"
-          src="http://res.cloudinary.com/dcbb8bnvk/image/upload/v1475794979/sports_gkjlu2.png">
-        </img>
+        <div>
+          <img className="stats-pic"
+            src="http://res.cloudinary.com/dcbb8bnvk/image/upload/v1475794979/sports_gkjlu2.png">
+          </img>
+        </div>
 
-      </div>
+    </div>
   );}
 });
 

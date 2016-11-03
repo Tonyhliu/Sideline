@@ -1,20 +1,51 @@
 .stats-container {
-  height: 500px;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.fetch-nba-btn {
+  background-color: #004684;
+  border-color: white;
+}
+.fetch-nfl-btn {
+  background-color: #ed174b;
+  border-color: white;
+}
+.fetch-mlb-btn {
+  background-color: #cecece;
+  border-color: white;
+}
+
+.fetch-nba-btn:hover {
+  background-color: #fff;
+  color: black;
+  border-color: #004684;
+}
+.fetch-nfl-btn:hover {
+  background-color: #fff;
+  color: black;
+  border-color: #ed174b;
+}
+.fetch-mlb-btn:hover {
+  background-color: #fff;
+  color: black;
+  border-color: #cecece;
 }
 
 .fetch-nba-btn, .fetch-nfl-btn, .fetch-mlb-btn {
   height: 50px;
-  margin-right: 5px;
-}
-
-.stats-btns {
-  padding-left: 15px;
+  width: 120px;
+  margin: 1.25em;
+  color: #fff;
+  border-color: white;
 }
 
 .stats-paragraph {
-  color: gray;
-  padding-left: 15px;
+  color: #fab23d;
+  font-size: 28px;
 }
 
 .result-stats-container {
