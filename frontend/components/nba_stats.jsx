@@ -162,6 +162,10 @@ const NbaStats = React.createClass({
                       </Button>
                     </div>
 
+                    <div className="disclaimer-msg">
+                      *NOTE - Disable popup blocker before clicking on a player.
+                    </div>
+
                     <Table>
                       <thead>
                         <tr>
