@@ -150,11 +150,18 @@ const NbaStats = React.createClass({
                 }
     } else {
       renderNba = <div className="stats-results-container">
-                    <input className="search-players"
-                          id="search-bar"
-                          type="text"
-                          placeholder="Search players..."
-                          onChange={this._beginFilter} />
+                    <div className="stats-results-btns">
+                      <input className="search-players"
+                            id="search-bar"
+                            type="text"
+                            placeholder="Search players..."
+                            onChange={this._beginFilter} />
+                      <Button className="back-to-stats"
+                              onClick={this._handleBack}>
+                        Back to stats home
+                      </Button>
+                    </div>
+
                     <Table>
                       <thead>
                         <tr>
