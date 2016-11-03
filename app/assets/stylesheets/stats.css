@@ -57,25 +57,39 @@
   opacity: 0.5;
 }
 
-.fetch-nba-container, .fetch-nfl-container, .fetch-mlb-container {
-  height: 300px;
-  margin-left: 15px;
-}
-
 .fetch-nba-players, .back-to-stats, .fetch-nfl-players, .fetch-mlb-players {
-  margin-right: 5px;
+  margin: 1em;
 }
 
-.fetch-nba-btns {
-  margin-bottom: 10px;
+.fetch-nba-btns, .fetch-nfl-btns, .fetch-mlb-btns {
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.nba-stats, .nfl-stats, .mlb-stats {
+.nba-stats {
+  width: 50%;
   opacity: 0.6;
 }
 
-.nfl-stats, .no-matches, .mlb-stats {
+.nfl-stats, .mlb-stats {
+  width: 500px;
+  opacity: 0.6;
+}
+
+.stats-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.no-matches {
   height: 250px;
+}
+
+.nfl-stats, .mlb-stats {
+  height: 375px;
 }
 
 .search-players, .no-matches {

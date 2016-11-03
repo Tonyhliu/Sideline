@@ -141,9 +141,11 @@ const NbaStats = React.createClass({
                         Back to other stats
                       </Button>
                     </div>
+                    <div className="stats-container">
                       <img className="nba-stats"
                           src="http://res.cloudinary.com/dcbb8bnvk/image/upload/v1475796972/nba_rzbnqb.png">
                       </img>
+                    </div>
                   </div>;
                 }
     } else {

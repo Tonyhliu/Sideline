@@ -140,9 +140,11 @@ const MlbStats = React.createClass({
                         Back to other stats
                       </Button>
                     </div>
-                    <img className="mlb-stats"
-                        src="http://res.cloudinary.com/dcbb8bnvk/image/upload/v1475796972/mlb_sx6hll.png">
-                    </img>
+                    <div className="stats-container">
+                      <img className="mlb-stats"
+                          src="http://res.cloudinary.com/dcbb8bnvk/image/upload/v1475796972/mlb_sx6hll.png">
+                      </img>
+                    </div>
                   </div>;
                 }
     } else {
