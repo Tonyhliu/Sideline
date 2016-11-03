@@ -99,14 +99,14 @@ const MlbStats = React.createClass({
   },
 
   _fetchMlbNews(Id) {
-    let cb = (resp) => {
-      if (resp[0]) {
-        window.open(resp[0].Url, '_blank');
-      } else {
-        window.open('http://www.rotoworld.com/sports/mlb/baseball?ls=roto:mlb:gnav', '_blank');
-      }
-    };
-    StatsApiUtil.getMlbNews(Id, cb);
+    // let cb = (resp) => {
+    //   if (resp[0]) {
+    //     window.open(resp[0].Url, '_blank');
+    //   } else {
+    //     window.open('http://www.rotoworld.com/sports/mlb/baseball?ls=roto:mlb:gnav', '_blank');
+    //   }
+    // };
+    StatsApiUtil.getMlbNews(Id);
   },
 
   render() {
@@ -160,10 +160,7 @@ const MlbStats = React.createClass({
                         Back to stats home
                       </Button>
                     </div>
-
-                    <div className="disclaimer-msg">
-                      *NOTE - Disable popup blocker before clicking on a player.
-                    </div>
+                    
                     <Table>
                       <thead>
                         <tr>

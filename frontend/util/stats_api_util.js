@@ -18,7 +18,7 @@ const StatsApiUtil = {
     });
   },
 
-  getNbaNews(id, success) {
+  getNbaNews(id) {
     var settings = {
       "async": true,
       "crossDomain": true,
@@ -31,7 +31,13 @@ const StatsApiUtil = {
     };
 
     $.ajax(settings).done(function (response) {
-      success(response);
+      // success(response);
+      // let cb = (resp) => {
+      if (response[0]) {
+        window.open(response[0].Url, '_blank');
+      } else {
+        window.open('http://www.rotoworld.com/sports/nba/basketball?ls=roto:nba:gnav', '_blank');
+      }
     }).fail(function () {
       alert('API call failed');
     });
@@ -69,26 +75,18 @@ const StatsApiUtil = {
     };
 
     $.ajax(settings).done(function (response) {
-      success(response);
+      // success(response);
+      if (response[0]) {
+        window.open(response[0].Url, '_blank');
+      } else {
+        window.open('http://www.rotoworld.com/sports/mlb/baseball?ls=roto:mlb:gnav', '_blank');
+      }
     }).fail(function () {
       alert('API call failed');
     });
   },
 
   getNflStats(success) {
-    // $.ajax({
-    //   type: 'GET',
-    //   url: 'https://api.fantasydata.net/nba/v2/JSON/Players HTTP/1.1',
-    //   "headers": {
-    //     'Access-Control-Allow-Origin': 'http://localhost:3000',
-    //     'Access-Control-Allow-Methods': 'GET, PUT, POST, DELETE, OPTIONS',
-    //     'Access-Control-Allow-Headers': 'Content-type, Accept, X-Custom-Header',
-    //     'Ocp-Apim-Subscription-Key': '44b05285b729456db03ffcb6210e891d'
-    //   },
-    //   success(resp) {
-    //     console.log(resp);
-    //   }
-    // });
     var settings = {
       "async": true,
       "crossDomain": true,
@@ -108,7 +106,6 @@ const StatsApiUtil = {
   },
 
   getNflNews(id, success) {
-    // check URL from fantasy data
     var settings = {
       "async": true,
       "crossDomain": true,
@@ -121,7 +118,12 @@ const StatsApiUtil = {
     };
 
     $.ajax(settings).done(function (response) {
-      success(response);
+      // success(response);
+      if (response[0]) {
+        window.open(response[0].Url, '_blank');
+      } else {
+        window.open('http://www.rotoworld.com/sports/nfl/football?ls=roto:nfl:gnav', '_blank');
+      }
     }).fail(function () {
       alert('API call failed');
     });

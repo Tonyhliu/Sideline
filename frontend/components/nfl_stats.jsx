@@ -99,14 +99,14 @@ const NflStats = React.createClass({
   },
 
   _fetchNflNews(Id) {
-    let cb = (resp) => {
-      if (resp[0]) {
-        window.open(resp[0].Url, '_blank');
-      } else {
-        window.open('http://www.rotoworld.com/sports/nfl/football?ls=roto:nfl:gnav', '_blank');
-      }
-    };
-    StatsApiUtil.getNflNews(Id, cb);
+    // let cb = (resp) => {
+    //   if (resp[0]) {
+    //     window.open(resp[0].Url, '_blank');
+    //   } else {
+    //     window.open('http://www.rotoworld.com/sports/nfl/football?ls=roto:nfl:gnav', '_blank');
+    //   }
+    // };
+    StatsApiUtil.getNflNews(Id);
   },
 
   render() {
@@ -159,10 +159,6 @@ const NflStats = React.createClass({
                               onClick={this._handleBack}>
                         Back to stats home
                       </Button>
-                    </div>
-
-                    <div className="disclaimer-msg">
-                      *NOTE - Disable popup blocker before clicking on a player.
                     </div>
 
                     <Table>

@@ -100,14 +100,14 @@ const NbaStats = React.createClass({
   },
 
   _fetchNbaNews(Id) {
-    let cb = (resp) => {
-      if (resp[0]) {
-        window.open(resp[0].Url, '_blank');
-      } else {
-        window.open('http://www.rotoworld.com/sports/nba/basketball?ls=roto:nba:gnav', '_blank');
-      }
-    };
-    StatsApiUtil.getNbaNews(Id, cb);
+    // let cb = (resp) => {
+    //   if (resp[0]) {
+    //     window.open(resp[0].Url, '_blank');
+    //   } else {
+    //     window.open('http://www.rotoworld.com/sports/nba/basketball?ls=roto:nba:gnav', '_blank');
+    //   }
+    // };
+    StatsApiUtil.getNbaNews(Id);
   },
 
   render() {
@@ -160,10 +160,6 @@ const NbaStats = React.createClass({
                               onClick={this._handleBack}>
                         Back to stats home
                       </Button>
-                    </div>
-
-                    <div className="disclaimer-msg">
-                      *NOTE - Disable popup blocker before clicking on a player.
                     </div>
 
                     <Table>
