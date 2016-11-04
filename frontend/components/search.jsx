@@ -103,9 +103,8 @@ const Search = React.createClass({
     return(
         <Navbar className="nav-bar">
             <Navbar.Header>
-              <Navbar.Brand>
-                <a href="/" className="logo"></a>
-              </Navbar.Brand>
+                <a href="/"
+                  id="logo"></a>
               <Navbar.Toggle />
             </Navbar.Header>
             <Navbar.Collapse>

@@ -66,10 +66,10 @@ const App  = React.createClass({
       return (
           <Navbar className="nav-bar">
               <Navbar.Header>
-
+                <Navbar.Brand>
                   <a href="/"
-                    id="navbar-logo"
-                    className="logo"></a>
+                    id="logo"></a>
+                </Navbar.Brand>
                 <Navbar.Toggle />
               </Navbar.Header>
               <Navbar.Collapse>
