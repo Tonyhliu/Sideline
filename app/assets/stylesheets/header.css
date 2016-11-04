@@ -9,3 +9,12 @@ a#logo {
 .navbar {
   background: rgb(249, 249, 249);
 }
+
+.btn-default:hover {
+  background-color: white;
+  border-color: #faa519;
+}
+
+button.login-button.hvr-glow.btn.btn-default:hover, button.guest-login.hvr-glow.btn.btn-default:hover {
+  box-shadow: 0 0 8px rgb(250, 165, 25);
+}
