@@ -67,7 +67,7 @@ const App  = React.createClass({
           <Navbar className="nav-bar">
               <Navbar.Header>
                 <Navbar.Brand>
-                  <a href="/"
+                  <a href="/#/stories"
                     id="logo"></a>
                 </Navbar.Brand>
                 <Navbar.Toggle />
