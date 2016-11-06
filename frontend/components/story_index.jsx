@@ -33,6 +33,14 @@ const StoryIndex = React.createClass({
     }
   },
 
+  _redirectToStats() {
+    if (SessionStore.isUserLoggedIn()) {
+      hashHistory.push('stats');
+    } else {
+      $('Button.login-button').click();
+    }
+  },
+
   render() {
     return (
       <div>

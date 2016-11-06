@@ -65,8 +65,8 @@ const Search = React.createClass({
     hashHistory.push(`users/${SessionStore.currentUser().id}`);
   },
 
-  _redirectToStats() {
-    hashHistory.push(`stats`);
+  _redirectToNewStory() {
+    hashHistory.push('/stories/new');
   },
 
   _clearQuery(e) {
@@ -149,12 +149,12 @@ const Search = React.createClass({
 
                <ButtonGroup>
                  <DropdownButton title={user} id="bg-nested-dropdown">
-                   <MenuItem onClick={this._redirectToStats}>LIVE Stats</MenuItem>
+                   <MenuItem onClick={this._redirectToNewStory}>Write a story</MenuItem>
                    <MenuItem onClick={this._redirectToSettings}>Profile</MenuItem>
                    <MenuItem onClick={() => this.setState({ show: true})}>
                               Settings</MenuItem>
                    <MenuItem divider />
-                   <MenuItem onClick={this._signOut}>Log Out!</MenuItem>
+                   <MenuItem onClick={this._signOut}>Log Out</MenuItem>
                  </DropdownButton>
                </ButtonGroup>
 
