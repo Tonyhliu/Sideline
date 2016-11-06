@@ -1,15 +1,14 @@
 div.index-header {
     background-image: url(http://res.cloudinary.com/dcbb8bnvk/image/upload/c_crop,x_1256,y_300/v1467522114/homepage_ukuzvz.jpg);
-    /*background-attachment: fixed;*/
     background-size: contain;
-    height: 200px;
+    height: 260px;
     width: 100%;
     overflow: hidden;
 }
 
 .index-header-header {
   position: relative;
-  top: 20%;
+  top: 10%;
   width: 100%;
   min-width: 970px;
   text-align: center;
@@ -22,6 +21,12 @@ div.index-header {
   font-size: 80px;
   opacity: .9;
   text-shadow: 2px 2px #faa519;
+}
+
+.header-msg, .header-stats-msg {
+  color: white;
+  opacity: .9;
+  font-weight: bolder;
 }
 
 .story-links {
@@ -73,6 +78,11 @@ ul.index-stories {
   transition: all 0.3s ease;*/
 }
 
+#analytics-pic {
+  width: 100%;
+  height: 100%;
+}
+
 .add-story {
   margin: 0 20%;
   display: flex;
@@ -104,7 +114,7 @@ ul.index-stories {
   width: 100%
 }
 
-.toggle-fave:hover {
+.toggle-fave:hover, .header-stats-msg:hover {
   cursor: pointer;
 }
 

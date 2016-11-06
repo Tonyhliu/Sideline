@@ -47,8 +47,9 @@ const StoryIndex = React.createClass({
         <div className="index-header">
           <section className="index-header-header">
             <h1 className="index-header-message"> JOIN THE SIDELINE </h1>
-            <h3></h3>
-            <h3></h3>
+            <h3 className='header-msg'>Sideline is a platform for users to share and catch up on sports</h3>
+            <h3 onClick={this._redirectToStats}
+                className='header-stats-msg'>Check LIVE Stats HERE</h3>
           </section>
         </div>
         <div className="story-index">
