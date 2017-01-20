@@ -10,12 +10,12 @@ module.exports = {
   },
   content : {
     position                   : 'fixed',
-    width                      : '330px',
+    width                      : '360px',
     top                        : '10%',
     left                       : '40%',
     right                      : '40%',
     bottom                     : '10%',
-    border                     : '1px solid #ccc',
+    border                     : '1px solid rgb(252, 203, 122)',
     background                 : '#fff',
     overflow                   : 'auto',
     WebkitOverflowScrolling    : 'touch',
@@ -24,6 +24,6 @@ module.exports = {
     padding                    : '15px',
     opacity                    : '0',
     transition                 : 'opacity 1s',
-    height                     : '540px'
+    height                     : '500px'
   }
 };
