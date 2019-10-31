@@ -15,7 +15,7 @@
     "flux": "^2.1.1",
     "hover.css": "^2.0.2",
     "material-design-icons": "^2.2.3",
-    "react": "^0.14.2",
+    "react": "^15.6.2",
     "react-bootstrap": "^0.29.5",
     "react-dom": "^0.14.2",
     "react-fontawesome": "^1.1.0",
